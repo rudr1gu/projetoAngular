@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Playwrite DE Grund", cursive;
+}
+
+body, html{
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    background: #f4f4f4;
+}
+
+aside{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    color: #fff;
+    padding: 0px;
+    height: 100%;
+}
+
+main{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 300px);
+    height: 100vh;
+    background: #f4f4f4;
+    overflow: auto;
+}

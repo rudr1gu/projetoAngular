@@ -1,0 +1,23 @@
+<aside [ngClass]="class.sidebars">
+    <div [ngClass]="class.container">
+        <section [ngClass]="class.row">
+            <div [ngClass]="class.col">
+                <div [ngClass]="class.cardPerfil">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user" [ngClass]="class.fotoPerfil">
+                    <div [ngClass]="class.nome">
+                        <h5><a href="#" class="textWhite">{{userData.name}}</a></h5>
+                        <a href="#" class="textWhite"><i class="fa fa-user"></i>{{userData.curso}}</a>
+                    </div>
+                </div>
+                <ul [ngClass]="class.navFeed">
+                    <li><div><a href="./">Página Inicial</a></div></li>
+                    <li><div><a href="./curso">Seu Curso</a></div></li>
+                    <li><div><a href="./amigos">Amigos</a></div></li>
+                    <li><div><a href="#">Fórum</a></div></li>
+                    <li><div><a href="./calendario">Calendário</a></div></li>
+                    <li><div><a href="./arquivos">Arquivos</a></div></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</aside>
