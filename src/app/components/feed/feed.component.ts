@@ -17,12 +17,31 @@ export class FeedComponent implements OnInit{
     modulo: string,
     periodo: string
   }
-  comentarios = [];
-  horario = new Date();
+
+  showComment = false;
+
+  postagens = [
+    {postagem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.',
+    autor: 'José',
+    data: new Date()
+    },  
+]
  
   constructor() { }
   ngOnInit(): void {
     console.log('feed');
   }
+
+  comment(){
+    this.showComment = !this.showComment;
+  }
   
+  addPostagem(){
+    let post = document.getElementById('post') as HTMLInputElement;
+    this.postagens.push({
+      postagem: post.value,
+      autor: 'José',
+      data: new Date()
+    })
+  }
 }

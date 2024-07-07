@@ -2,9 +2,9 @@
     <!-- ----------------------------------------------publicações------------------------------------------------------- -->
     <div class="publicacao">
         <div class="publicacao-body">
-            <textarea class="form-control" rows="2" placeholder="Compartilhe algo..."></textarea>
+            <textarea class="form-control" rows="2" placeholder="Compartilhe algo..." id="post"></textarea>
             <div class="mar-top clearfix">
-                <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Enviar</button>
+                <button class="btn btn-sm btn-primary pull-right" type="submit" (click)="addPostagem()"><i class="fa fa-pencil fa-fw"></i> Enviar</button>
                     <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
                     <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
                     <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>
@@ -13,7 +13,7 @@
     </div>
      <!-- ----------------------------------------------------------------------------------------------------- -->
     <div class="col-md-7">
-        <div class="social-feed-separated">
+        <div class="social-feed-separated" *ngFor="let postagem of postagens">
             <div class="social-avatar">
                 <a href="">
                     <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
@@ -30,19 +30,18 @@
                 </div>
 
                 <div class="social-avatar">
-                    <a href="#">{{userData.name}}</a>
-                    <small class="text-muted">Hoje 4:21pm - 12.03.2024</small>
+                    <a href="#">{{ postagem.autor }}</a>
+                    <small class="text-muted"> {{ postagem.data | date: 'fullDate'}}</small>
                 </div>
                 <div class="social-body">
-                    <p>Não estou conseguindo centralizar o texto no meu código, alguém pode me ajudar?
-                    </p>
+                    <p>{{ postagem.postagem }}</p>
                     <div class="btn-group">
                         <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Gostei</button>
-                        <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comentar</button>
+                        <button class="btn btn-white btn-xs" (click)="comment()"><i class="fa fa-comments"></i> Comentar</button>
                         <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Compartilhar</button>
                     </div>
                 </div>
-                <div class="social-footer">
+                <div class="social-footer" *ngIf="showComment">
                     <div class="social-comment">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
