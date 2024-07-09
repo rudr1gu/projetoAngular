@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Postagem } from '../../Postagem';
+import { Postagem } from '../../models/Postagem';
+import { RespostaPost } from '../../models/RespostaPost';
 import { FeedService } from '../../services/feed/feed.service';
 
 @Component({
@@ -21,16 +22,9 @@ export class FeedComponent implements OnInit{
   }
 
   showComment = false;
-  showPost = false;
 
   postagens: Postagem[] = [];
-  resPost = [
-    {
-      resposta: 'resposta 1',
-      autor: 'desconhecido',
-      data: new Date()
-    }
-  ]
+  resPost: RespostaPost[] = []
  
   constructor(private feedService: FeedService) {}
 
@@ -55,11 +49,7 @@ export class FeedComponent implements OnInit{
   adicionarResposta(){
     const respostaInput = document.getElementById('resposta') as HTMLInputElement;
     const resposta = respostaInput.value;
-    this.resPost.push({
-      resposta: resposta,
-      autor: 'desconhecido',
-      data: new Date()
-    });
+    this.feedService.novaResposta(this.resPost, resposta);
     respostaInput.value = '';
   }
 }
