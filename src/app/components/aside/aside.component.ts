@@ -33,8 +33,6 @@ export class AsideComponent implements OnInit{
 
   }
 
-  ngOnInit() {
-    console.log(this.userData);
-  }
+  ngOnInit() {}
 
 }
