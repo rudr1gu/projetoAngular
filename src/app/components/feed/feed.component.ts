@@ -21,14 +21,16 @@ export class FeedComponent implements OnInit{
   }
 
   showComment = false;
+  showPost = false;
 
-  postagens: Postagem[] = [
+  postagens: Postagem[] = [];
+  resPost = [
     {
-      postagem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.',
-      autor: 'José',
+      resposta: 'resposta 1',
+      autor: 'desconhecido',
       data: new Date()
-    },  
-]
+    }
+  ]
  
   constructor(private feedService: FeedService) {}
 
@@ -43,5 +45,21 @@ export class FeedComponent implements OnInit{
     const postagem = postagemInput.value;
     this.feedService.novaPostagem(this.postagens, postagem);
     postagemInput.value = '';
+  }
+
+  removerPostagem(){
+    const index = this.postagens.length - 1;
+    this.feedService.remover(this.postagens, index);
+  }
+
+  adicionarResposta(){
+    const respostaInput = document.getElementById('resposta') as HTMLInputElement;
+    const resposta = respostaInput.value;
+    this.resPost.push({
+      resposta: resposta,
+      autor: 'desconhecido',
+      data: new Date()
+    });
+    respostaInput.value = '';
   }
 }

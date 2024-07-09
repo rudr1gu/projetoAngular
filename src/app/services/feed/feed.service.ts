@@ -7,7 +7,6 @@ import { Postagem } from '../../Postagem';
 export class FeedService {
 
   constructor() { }
-
   novaPostagem(postagens: Postagem[], postagem: string):void {
     const postagemObj: Postagem = {
       postagem: postagem,
@@ -16,6 +15,9 @@ export class FeedService {
     }
 
     postagens.push(postagemObj)
-    
+  }
+
+  remover(postagens: Postagem[], index: number):void {
+    postagens.splice(index, 1);
   }
 }
