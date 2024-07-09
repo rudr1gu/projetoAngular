@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Postagem } from '../../Postagem';
+import { FeedService } from '../../services/feed/feed.service';
 
 @Component({
   selector: 'app-feed',
@@ -20,28 +22,26 @@ export class FeedComponent implements OnInit{
 
   showComment = false;
 
-  postagens = [
-    {postagem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.',
-    autor: 'José',
-    data: new Date()
+  postagens: Postagem[] = [
+    {
+      postagem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.',
+      autor: 'José',
+      data: new Date()
     },  
 ]
  
-  constructor() { }
-  ngOnInit(): void {
-    console.log('feed');
-  }
+  constructor(private feedService: FeedService) {}
+
+  ngOnInit(): void {}
 
   comment(){
     this.showComment = !this.showComment;
   }
   
-  addPostagem(){
-    let post = document.getElementById('post') as HTMLInputElement;
-    this.postagens.push({
-      postagem: post.value,
-      autor: 'Default',
-      data: new Date()
-    })
+  adicionarPostagem(){
+    const postagemInput = document.getElementById('post') as HTMLInputElement;
+    const postagem = postagemInput.value;
+    this.feedService.novaPostagem(this.postagens, postagem);
+    postagemInput.value = '';
   }
 }
