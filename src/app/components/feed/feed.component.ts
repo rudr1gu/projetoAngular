@@ -40,7 +40,7 @@ export class FeedComponent implements OnInit{
     let post = document.getElementById('post') as HTMLInputElement;
     this.postagens.push({
       postagem: post.value,
-      autor: 'José',
+      autor: 'Default',
       data: new Date()
     })
   }

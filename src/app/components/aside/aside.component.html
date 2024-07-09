@@ -10,12 +10,11 @@
                     </div>
                 </div>
                 <ul [ngClass]="class.navFeed">
-                    <li><div><a href="./">Página Inicial</a></div></li>
-                    <li><div><a href="./curso">Seu Curso</a></div></li>
-                    <li><div><a href="./amigos">Amigos</a></div></li>
-                    <li><div><a href="#">Fórum</a></div></li>
-                    <li><div><a href="./calendario">Calendário</a></div></li>
-                    <li><div><a href="./arquivos">Arquivos</a></div></li>
+                    <li><div><a routerLink="/">Página Inicial</a></div></li>
+                    <li><div><a routerLink="/curso">Seu Curso</a></div></li>
+                    <li><div><a routerLink="/forum">Fórum</a></div></li>
+                    <li><div><a routerLink="/calendario">Calendário</a></div></li>
+                    <li><div><a routerLink="/arquivos">Arquivos</a></div></li>
                 </ul>
             </div>
         </section>
