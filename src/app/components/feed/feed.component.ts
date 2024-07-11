@@ -46,10 +46,12 @@ export class FeedComponent implements OnInit{
     this.feedService.remover(this.postagens, index);
   }
 
-  adicionarResposta(){
-    const respostaInput = document.getElementById('resposta') as HTMLInputElement;
+  adicionarResposta(postagemId: number, event: Event){
+    event.preventDefault();
+    const KeyboardEvent = event as KeyboardEvent;
+    const respostaInput = KeyboardEvent.target as HTMLInputElement;
     const resposta = respostaInput.value;
-    this.feedService.novaResposta(this.resPost, resposta);
+    this.feedService.novaResposta(this.postagens, postagemId, resposta);
     respostaInput.value = '';
   }
 }

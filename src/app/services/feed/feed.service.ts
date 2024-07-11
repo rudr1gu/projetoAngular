@@ -12,24 +12,33 @@ export class FeedService {
     const postagemObj: Postagem = {
       postagem: postagem,
       autor: 'Default',
-      data: new Date()
+      data: new Date(),
+      id: postagens.length,
+      resposta: []
     }
 
     postagens.push(postagemObj)
   }
 
-  remover(postagens: Postagem[], index: number):void {
-    postagens.splice(index, 1);
-  }
-
-  novaResposta(respostas: RespostaPost[], resposta: string):void {
-    const respostaObj: RespostaPost = {
-      resposta: resposta,
-      autor: 'Default',
-      data: new Date()
+  remover(postagens: Postagem[], id: number):void {
+    const index =  postagens.findIndex(postagem => postagem.id === id);
+    if(index !== -1){
+      postagens.splice(index, 1);
     }
 
-    respostas.push(respostaObj);
+  }
+
+  novaResposta(postagens: Postagem[],postagemId: number, resposta: string):void {
+    const postagem = postagens.find(p => p.id === postagemId);
+    if(postagem){
+      const respostaObj: RespostaPost = {
+        id: postagem.resposta.length,
+        resposta: resposta,
+        autor: 'Default',
+        data: new Date()
+      }
+    postagem.resposta.push(respostaObj);
+    }  
   }
 
 }

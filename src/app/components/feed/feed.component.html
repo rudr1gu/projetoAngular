@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="social-footer" *ngIf="showComment">
-                    <div class="social-comment" *ngFor="let resposta of resPost">
+                    <div class="social-comment" *ngFor="let resposta of postagem.resposta">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
@@ -57,7 +57,7 @@
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar6.png">
                         </a>
                         <div class="media-body">
-                            <textarea class="form-control" id="resposta" placeholder="Escreva um Comentário..." (keydown.enter)="adicionarResposta()"></textarea>
+                            <textarea class="form-control" id="resposta-{{ postagem.id }}" placeholder="Escreva um Comentário..." (keydown.enter)="adicionarResposta(postagem.id, $event)"></textarea>
                         </div>
                     </div>
                 </div>
