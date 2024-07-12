@@ -33,9 +33,8 @@
                 <div class="social-body">
                     <p>{{ postagem.postagem }}</p>
                     <div class="btn-group">
-                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Gostei</button>
+                        <button class="btn btn-white btn-xs"><i class='bx bxs-star'></i> Estrelas</button>
                         <button class="btn btn-white btn-xs" (click)="toggleComment(postagem.id)"><i class="fa fa-comments"></i> Comentar</button>
-                        <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Compartilhar</button>
                     </div>
                 </div>
                 <div class="social-footer" *ngIf="postagem.id === currentPostId">
@@ -47,14 +46,14 @@
                             <a href="#"> {{ resposta.autor }}</a>
                             {{ resposta.resposta }}
                             <br>
-                            <a href="#" class="small"><i class="fa fa-thumbs-up"></i>0 Gostei</a> -
+                            <a href="#" class="small"> <i class='bx bxs-star'></i> 0 Estrelas</a> -
                             <small class="text-muted">{{ resposta.data | date: 'medium'}}</small>
                         </div>
                     </div>
                     <!-- --------------------------------------------- Reponder publicação ----------------------------------------- -->
                     <div class="social-comment">
                         <a href="" class="pull-left">
-                            <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                            <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
                         <div class="media-body">
                             <textarea class="form-control" id="resposta-{{ postagem.id }}" placeholder="Escreva um Comentário..." (keydown.enter)="adicionarResposta(postagem.id, $event)"></textarea>
