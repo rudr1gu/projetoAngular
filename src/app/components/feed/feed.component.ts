@@ -21,8 +21,7 @@ export class FeedComponent implements OnInit{
     periodo: string
   }
 
-  showComment = false;
-
+  currentPostId: number | null = null;
   postagens: Postagem[] = [];
   resPost: RespostaPost[] = []
  
@@ -30,8 +29,12 @@ export class FeedComponent implements OnInit{
 
   ngOnInit(): void {}
 
-  comment(){
-    this.showComment = !this.showComment;
+  toggleComment(postagemId: number):void{
+    if(this.currentPostId === postagemId){
+    this.currentPostId = null;
+    } else {
+    this.currentPostId = postagemId;
+    }
   }
   
   adicionarPostagem(){
@@ -53,5 +56,9 @@ export class FeedComponent implements OnInit{
     const resposta = respostaInput.value;
     this.feedService.novaResposta(this.postagens, postagemId, resposta);
     respostaInput.value = '';
+  }
+
+  removerResposta(postagemId: number, respostaId: number){
+    this.feedService.removerResposta(this.postagens, postagemId, respostaId);
   }
 }

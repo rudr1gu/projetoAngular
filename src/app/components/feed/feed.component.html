@@ -34,11 +34,11 @@
                     <p>{{ postagem.postagem }}</p>
                     <div class="btn-group">
                         <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Gostei</button>
-                        <button class="btn btn-white btn-xs" (click)="comment()"><i class="fa fa-comments"></i> Comentar</button>
+                        <button class="btn btn-white btn-xs" (click)="toggleComment(postagem.id)"><i class="fa fa-comments"></i> Comentar</button>
                         <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Compartilhar</button>
                     </div>
                 </div>
-                <div class="social-footer" *ngIf="showComment">
+                <div class="social-footer" *ngIf="postagem.id === currentPostId">
                     <div class="social-comment" *ngFor="let resposta of postagem.resposta">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">

@@ -41,4 +41,14 @@ export class FeedService {
     }  
   }
 
+  removerResposta(postagens: Postagem[], postagemId: number, respostaId: number):void {
+    const postagem = postagens.find(p => p.id === postagemId);
+    if(postagem){
+      const index = postagem.resposta.findIndex(r => r.id === respostaId);
+      if(index !== -1){
+        postagem.resposta.splice(index, 1);
+      }
+    }
+  }
+
 }
