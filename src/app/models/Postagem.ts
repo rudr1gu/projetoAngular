@@ -1,9 +1,13 @@
 import { RespostaPost } from "./RespostaPost";
 
 export interface Postagem {
-    id: number;
-    postagem: string;
+    id?: number;
+    titulo: string;
+    conteudo: string;
     autor: string;
-    data: Date;
-    resposta: RespostaPost[];
+    imagem?: string;
+    tags?: string;
+    qntd_estrelas?: number;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

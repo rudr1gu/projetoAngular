@@ -20,7 +20,7 @@
                 </a>
             </div>
             <div class="social-feed-box">
-                <div class="pull-right social-action dropdown" (click)="removerPostagem()">
+                <div class="pull-right social-action dropdown">
                     <button data-toggle="dropdown" class="dropdown-toggle btn-white">
                         <i class='bx bx-trash'></i>
                     </button>
@@ -28,17 +28,17 @@
 
                 <div class="social-avatar">
                     <a href="#">{{ postagem.autor }}</a>
-                    <small class="text-muted"> {{ postagem.data | date: 'medium'}}</small>
+                    <small class="text-muted"> {{ postagem.createdAt }}</small>
                 </div>
                 <div class="social-body">
-                    <p>{{ postagem.postagem }}</p>
+                    <p>{{ postagem.conteudo }}</p>
                     <div class="btn-group">
-                        <button class="btn btn-white btn-xs"><i class='bx bxs-star'></i> Estrelas</button>
-                        <button class="btn btn-white btn-xs" (click)="toggleComment(postagem.id)"><i class="fa fa-comments"></i> Comentar</button>
+                        <button class="btn btn-white btn-xs"><i class='bx bxs-star'></i> Estrelas({{ postagem.qntd_estrelas }}0)</button>
+                        <button class="btn btn-white btn-xs" ><i class="fa fa-comments"></i> Comentar</button>
                     </div>
                 </div>
                 <div class="social-footer" *ngIf="postagem.id === currentPostId">
-                    <div class="social-comment" *ngFor="let resposta of postagem.resposta">
+                    <!-- <div class="social-comment">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
@@ -48,15 +48,15 @@
                             <br>
                             <a href="#" class="small"> <i class='bx bxs-star'></i> 0 Estrelas</a> -
                             <small class="text-muted">{{ resposta.data | date: 'medium'}}</small>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                     <!-- --------------------------------------------- Reponder publicação ----------------------------------------- -->
                     <div class="social-comment">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
                         <div class="media-body">
-                            <textarea class="form-control" id="resposta-{{ postagem.id }}" placeholder="Escreva um Comentário..." (keydown.enter)="adicionarResposta(postagem.id, $event)"></textarea>
+                            <textarea class="form-control" id="resposta-{{ postagem.id }}" placeholder="Escreva um Comentário..."></textarea>
                         </div>
                     </div>
                 </div>
