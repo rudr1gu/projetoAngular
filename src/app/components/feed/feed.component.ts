@@ -18,7 +18,7 @@ import { EventEmitter } from '@angular/core';
 
 export class FeedComponent implements OnInit{
 
-  @Output() onSubmit = new EventEmitter<Postagem>();
+  // @Output() onSubmit = new EventEmitter<Postagem>();
 
   // @Input() userData!: {
   //   name: string,
@@ -30,6 +30,8 @@ export class FeedComponent implements OnInit{
   //   modulo: string,
   //   periodo: string
   // }
+
+  comments: boolean = false;
 
   currentPostId: number | null = null;
 
@@ -118,6 +120,10 @@ export class FeedComponent implements OnInit{
         console.error(error);
       }
     );
+  }
+
+  showComments() {
+    this.comments = !this.comments;
   }
   
 }

@@ -39,22 +39,23 @@
                     <p>{{ postagem.conteudo }}</p>
                     <div class="btn-group">
                         <button class="btn btn-white btn-xs"><i class='bx bxs-star'></i> Estrelas({{ postagem.qntd_estrelas }}0)</button>
-                        <button class="btn btn-white btn-xs" ><i class="fa fa-comments"></i> Comentar</button>
+                        <button class="btn btn-white btn-xs" (click)="showComments()"><i class="fa fa-comments"></i> Comentar</button>
                     </div>
                 </div>
-                <div class="social-footer" *ngIf="postagem.id === currentPostId">
-                    <!-- <div class="social-comment">
+                <!-- <div class="social-footer" *ngIf="postagem.id === currentPostId"> -->
+                <div class="social-footer" *ngIf="comments">
+                    <div class="social-comment">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
                         <div class="media-body">
-                            <a href="#"> {{ resposta.autor }}</a>
-                            {{ resposta.resposta }}
+                            <a href="#"> autor</a>
+                            um comentario gerado pelo sistema
                             <br>
                             <a href="#" class="small"> <i class='bx bxs-star'></i> 0 Estrelas</a> -
-                            <small class="text-muted">{{ resposta.data | date: 'medium'}}</small>
-                        </div> -->
-                    <!-- </div> -->
+                            <small class="text-muted">08/09/2024</small>
+                        </div>
+                    </div>
                     <!-- --------------------------------------------- Reponder publicação ----------------------------------------- -->
                     <div class="social-comment">
                         <a href="" class="pull-left">
