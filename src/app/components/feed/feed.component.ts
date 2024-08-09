@@ -1,30 +1,42 @@
-import { Component, OnInit, Input } from '@angular/core';
+// importando o Component, OnInit e Input e Output para criar um componente
+import { Component, OnInit, Input, Output } from '@angular/core';
+// importando o model Postagem para tipar o array de postagens
 import { Postagem } from '../../models/Postagem';
 import { RespostaPost } from '../../models/RespostaPost';
 import { FeedService } from '../../services/feed/feed.service';
-import { environment } from '../../../environments/environment';
+
+import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.css'
 })
+
 export class FeedComponent implements OnInit{
 
-  @Input() userData!: {
-    name: string,
-    age: number,
-    email: string,
-    curso: string,
-    ra: number,
-    rg: number,
-    modulo: string,
-    periodo: string
-  }
+  @Output() onSubmit = new EventEmitter<Postagem>();
+
+  // @Input() userData!: {
+  //   name: string,
+  //   age: number,
+  //   email: string,
+  //   curso: string,
+  //   ra: number,
+  //   rg: number,
+  //   modulo: string,
+  //   periodo: string
+  // }
 
   currentPostId: number | null = null;
+
   postagens: Postagem[] = [];
-  resPost: RespostaPost[] = []
+  resPost: RespostaPost[] = [];
+
+  postagemForm!: FormGroup;
  
   constructor(private feedService: FeedService) {}
 
@@ -47,38 +59,51 @@ export class FeedComponent implements OnInit{
       this.postagens = postagens;
 
     });
+
+    this.postagemForm = new FormGroup({
+      titulo: new FormControl('Default'),
+      conteudo: new FormControl('',[Validators.required]),
+      autor: new FormControl('Default'),
+      imagem: new FormControl(''),
+      tags: new FormControl(''),
+    });
   }
 
-  // toggleComment(postagemId: number):void{
-  //   if(this.currentPostId === postagemId){
-  //   this.currentPostId = null;
-  //   } else {
-  //   this.currentPostId = postagemId;
-  //   }
-  // }
+  get titulo() {
+    return this.postagemForm.get('titulo');
+  }
+
+  get conteudo() {
+    return this.postagemForm.get('conteudo');
+  }
+
+  submit() {
+    if (this.postagemForm.invalid) {
+      return;
+    }
   
-  adicionarPostagem(){
-    // const postagemInput = document.getElementById('post') as HTMLInputElement;
-    // const postagem = postagemInput.value;
-    // this.feedService.novaPostagem(this.postagens, postagem);
-    // postagemInput.value = '';
+    this.feedService.novaPostagem(this.postagemForm.value).subscribe(
+      (response) => {
+        console.log('Postagem criada com sucesso:', response);
+        this.postagemForm.reset();
+      },
+      (error) => {
+        console.error('Erro ao criar a postagem:', error);
+      }
+    );
   }
 
-  // removerPostagem(){
-  //   const index = this.postagens.length - 1;
-  //   this.feedService.remover(this.postagens, index);
-  // }
-
-  // adicionarResposta(postagemId: number, event: Event){
-  //   event.preventDefault();
-  //   const KeyboardEvent = event as KeyboardEvent;
-  //   const respostaInput = KeyboardEvent.target as HTMLInputElement;
-  //   const resposta = respostaInput.value;
-  //   this.feedService.novaResposta(this.postagens, postagemId, resposta);
-  //   respostaInput.value = '';
-  // }
-
-  // removerResposta(postagemId: number, respostaId: number){
-  //   this.feedService.removerResposta(this.postagens, postagemId, respostaId);
-  // }
+  removePostagem(id: number) {
+    this.feedService.remover(id).subscribe(
+      () => {
+        alert('Postagem removida com sucesso!');
+        // Atualizar a listar de postagem
+      },
+      (error) => {
+        alert('Erro ao remover a postagem:');
+        console.error(error);
+      }
+    );
+  }
+  
 }
