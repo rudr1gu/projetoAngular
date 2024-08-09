@@ -8,6 +8,6 @@ export interface Postagem {
     imagem?: string;
     tags?: string;
     qntd_estrelas?: number;
-    createdAt?: Date;
-    updatedAt?: Date;
+    createdAt?: string;
+    updatedAt?: string;
 }

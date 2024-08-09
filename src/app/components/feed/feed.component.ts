@@ -51,9 +51,9 @@ export class FeedComponent implements OnInit{
           imagem: item.imagem,
           tags: item.tags,
           qntd_estrelas: item.qntd_estrelas,
-          createdAt: item.createdAt,
+          createdAt: item.createdAt = new Date(item.createdAt!).toLocaleDateString('pt-BR'),
           updatedAt: item.updatedAt
-        }
+        };
       });
 
       this.postagens = postagens;
@@ -69,6 +69,17 @@ export class FeedComponent implements OnInit{
     });
   }
 
+  loadPostagem() {
+    this.feedService.getAllPostagens().subscribe(
+      (data) => {
+        this.postagens = data;
+      },
+      (error) => {
+        console.error('Erro ao carregar as postagens:', error);
+      }
+    );
+  }
+
   get titulo() {
     return this.postagemForm.get('titulo');
   }
@@ -79,6 +90,7 @@ export class FeedComponent implements OnInit{
 
   submit() {
     if (this.postagemForm.invalid) {
+      alert('Formulário inválido!');
       return;
     }
   
@@ -86,6 +98,7 @@ export class FeedComponent implements OnInit{
       (response) => {
         console.log('Postagem criada com sucesso:', response);
         this.postagemForm.reset();
+        this.loadPostagem();
       },
       (error) => {
         console.error('Erro ao criar a postagem:', error);
@@ -93,11 +106,12 @@ export class FeedComponent implements OnInit{
     );
   }
 
+
   removePostagem(id: number) {
     this.feedService.remover(id).subscribe(
       () => {
-        alert('Postagem removida com sucesso!');
-        // Atualizar a listar de postagem
+        alert('Postagem removida com sucesso!');   
+        this.loadPostagem();
       },
       (error) => {
         alert('Erro ao remover a postagem:');
