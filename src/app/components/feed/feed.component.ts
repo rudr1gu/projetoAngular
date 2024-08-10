@@ -6,6 +6,7 @@ import { Comentarios } from '../../models/Comentarios';
 import { FeedService } from '../../services/feed/feed.service';
 
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+
 // import { EventEmitter } from '@angular/core';
 
 
@@ -39,6 +40,7 @@ export class FeedComponent implements OnInit{
   comentarios: Comentarios[] = [];
 
   postagemForm!: FormGroup;
+  comentarioForm!: FormGroup;
  
   constructor(private feedService: FeedService) {}
 
@@ -48,6 +50,10 @@ export class FeedComponent implements OnInit{
 
       data.map((postagem) => {
         postagem.createdAt = new Date(postagem.createdAt!).toLocaleString('pt-BR');
+
+        postagem.comentarios?.map((comentario) => {
+          comentario.createdAt = new Date(comentario.createdAt!).toLocaleString('pt-BR');
+        });
        
       });
 
@@ -62,6 +68,12 @@ export class FeedComponent implements OnInit{
       imagem: new FormControl(''),
       comentarios: new FormControl(''),
       tags: new FormControl(''),
+    });
+
+    this.comentarioForm = new FormGroup({
+      autor: new FormControl('Default'),
+      conteudo: new FormControl('',[Validators.required]),
+      qntd_estrelas: new FormControl(''),
     });
   }
 
@@ -95,7 +107,7 @@ export class FeedComponent implements OnInit{
       alert('Formulário inválido!');
       return;
     }
-  
+
     this.feedService.novaPostagem(this.postagemForm.value).subscribe(
       (response) => {
         console.log('Postagem criada com sucesso:', response);
@@ -107,6 +119,33 @@ export class FeedComponent implements OnInit{
       }
     );
   }
+
+  get autor() {
+    return this.comentarioForm.get('autor');
+  }
+
+  async submitComentario() {
+    if (this.comentarioForm.invalid) {
+      alert('Formulário inválido!');
+      return;
+    }
+
+    const comentarioData = this.comentarioForm.value;
+    comentarioData.postagemId = Number(this.currentPostId!);
+
+    await this.feedService.addComentario( comentarioData).subscribe(
+      (response) => {
+        console.log('Comentário criado com sucesso:', response);
+        this.comentarioForm.reset();
+        this.loadPostagem();
+      },
+      (error) => {
+        console.error('Erro ao criar o comentário:', error);
+      }
+    );
+  }
+
+ 
 
 
   removePostagem(id: number) {
@@ -122,8 +161,8 @@ export class FeedComponent implements OnInit{
     );
   }
 
-  showComments() {
-    this.comments = !this.comments;
+  showComments(postagemId: number): void {
+    this.currentPostId = this.currentPostId === postagemId ? null : postagemId;
   }
   
 }

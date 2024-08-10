@@ -38,12 +38,12 @@
                 <div class="social-body">
                     <p>{{ postagem.conteudo }}</p>
                     <div class="btn-group">
-                        <button class="btn btn-white btn-xs"><i class='bx bxs-star'></i> Estrelas({{ postagem.qntd_estrelas }}0)</button>
-                        <button class="btn btn-white btn-xs" (click)="showComments()"><i class="fa fa-comments"></i> Comentar</button>
+                        <button class="btn btn-white btn-xs"><i class='bx bxs-star'></i> Estrelas</button>
+                        <button class="btn btn-white btn-xs" (click)="showComments(postagem.id!)"><i class="fa fa-comments"></i> Comentar</button>
                     </div>
                 </div>
-                <!-- <div class="social-footer" *ngIf="postagem.id === currentPostId"> -->
-                <div class="social-footer" *ngIf="comments">
+                <div class="social-footer" *ngIf="postagem.id === currentPostId">
+                
                     <div class="social-comment" *ngFor="let comentario of postagem.comentarios">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
@@ -62,9 +62,12 @@
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
-                        <div class="media-body">
-                            <textarea class="form-control" id="resposta-{{ postagem.id }}" placeholder="Escreva um Comentário..."></textarea>
-                        </div>
+                            <form (ngSubmit)="submitComentario()" [formGroup]="comentarioForm" #formDir="ngForm">
+                            <div class="media-body">
+                                <textarea class="form-control" id="conteudo" name="conteudo" formControlName="conteudo" placeholder="Escreva um Comentário..." ></textarea>
+                                <button class="btn btn-primary btn-xs" type="submit">Responder</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
