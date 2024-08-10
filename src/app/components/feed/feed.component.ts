@@ -2,7 +2,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 // importando o model Postagem para tipar o array de postagens
 import { Postagem } from '../../models/Postagem';
-import { RespostaPost } from '../../models/RespostaPost';
+import { Comentarios } from '../../models/Comentarios';
 import { FeedService } from '../../services/feed/feed.service';
 
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
@@ -36,29 +36,22 @@ export class FeedComponent implements OnInit{
   currentPostId: number | null = null;
 
   postagens: Postagem[] = [];
-  resPost: RespostaPost[] = [];
+  comentarios: Comentarios[] = [];
 
   postagemForm!: FormGroup;
  
   constructor(private feedService: FeedService) {}
 
   ngOnInit(): void {
-    this.feedService.getAllPostagens().subscribe(items => {
-      const postagens = items.map(item => {
-        return {
-          id: item.id,
-          titulo: item.titulo,
-          conteudo: item.conteudo,
-          autor: item.autor,
-          imagem: item.imagem,
-          tags: item.tags,
-          qntd_estrelas: item.qntd_estrelas,
-          createdAt: item.createdAt = new Date(item.createdAt!).toLocaleDateString('pt-BR'),
-          updatedAt: item.updatedAt
-        };
+    this.feedService.getAllPostagens().subscribe((items) => {
+      const data = items.data;
+
+      data.map((postagem) => {
+        postagem.createdAt = new Date(postagem.createdAt!).toLocaleString('pt-BR');
+       
       });
 
-      this.postagens = postagens;
+      this.postagens = data;
 
     });
 
@@ -67,14 +60,19 @@ export class FeedComponent implements OnInit{
       conteudo: new FormControl('',[Validators.required]),
       autor: new FormControl('Default'),
       imagem: new FormControl(''),
+      comentarios: new FormControl(''),
       tags: new FormControl(''),
     });
   }
 
   loadPostagem() {
     this.feedService.getAllPostagens().subscribe(
-      (data) => {
-        this.postagens = data;
+      (response) => {
+        this.postagens = response.data;
+
+        this.postagens.map((postagem) => {
+          postagem.createdAt = new Date(postagem.createdAt!).toLocaleString('pt-BR');
+        });
       },
       (error) => {
         console.error('Erro ao carregar as postagens:', error);
@@ -89,6 +87,8 @@ export class FeedComponent implements OnInit{
   get conteudo() {
     return this.postagemForm.get('conteudo');
   }
+
+
 
   submit() {
     if (this.postagemForm.invalid) {

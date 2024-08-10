@@ -1,4 +1,4 @@
-import { RespostaPost } from "./RespostaPost";
+import { Comentarios } from "./Comentarios";
 
 export interface Postagem {
     id?: number;
@@ -8,6 +8,7 @@ export interface Postagem {
     imagem?: string;
     tags?: string;
     qntd_estrelas?: number;
-    createdAt?: string;
+    comentarios?: Comentarios[];
+    createdAt?: string | null | undefined;
     updatedAt?: string;
 }

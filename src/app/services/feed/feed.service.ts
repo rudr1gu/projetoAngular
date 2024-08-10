@@ -5,11 +5,13 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 import { Postagem } from '../../models/Postagem';
-import { RespostaPost } from '../../models/RespostaPost';
+import { Comentarios } from '../../models/Comentarios';
+import { Response } from '../../models/Response';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FeedService {
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}api/postagems`;
@@ -21,8 +23,8 @@ export class FeedService {
     return this.http.post<FormData>(this.apiUrl, formData);
   }
 
-  getAllPostagens(): Observable<Postagem[]> {
-    return this.http.get<Postagem[]>(this.apiUrl);
+  getAllPostagens(): Observable<Response <Postagem[]>> {
+    return this.http.get<Response<Postagem[]>>(this.apiUrl);
   }
 
   getPostagem(id: number): Observable<Postagem> {
@@ -31,6 +33,10 @@ export class FeedService {
 
   remover(id: number): Observable<Postagem> {
     return this.http.delete<Postagem>(`${this.apiUrl}/${id}`);
+  }
+
+  addComentario(postagemId: number, comentario: Comentarios): Observable<Comentarios> {
+    return this.http.post<Comentarios>(`${this.apiUrl}/${postagemId}/comentarios`, comentario);
   }
 
   // novaResposta(postagens: Postagem[],postagemId: number, resposta: string):void {
@@ -46,14 +52,5 @@ export class FeedService {
   //   }  
   // }
 
-  // removerResposta(postagens: Postagem[], postagemId: number, respostaId: number):void {
-  //   const postagem = postagens.find(p => p.id === postagemId);
-  //   if(postagem){
-  //     const index = postagem.resposta.findIndex(r => r.id === respostaId);
-  //     if(index !== -1){
-  //       postagem.resposta.splice(index, 1);
-  //     }
-  //   }
-  // }
 
 }
