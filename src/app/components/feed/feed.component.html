@@ -44,16 +44,17 @@
                 </div>
                 <!-- <div class="social-footer" *ngIf="postagem.id === currentPostId"> -->
                 <div class="social-footer" *ngIf="comments">
-                    <div class="social-comment">
+                    <div class="social-comment" *ngFor="let comentario of postagem.comentarios">
                         <a href="" class="pull-left">
                             <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
                         </a>
                         <div class="media-body">
-                            <a href="#"> autor</a>
-                            um comentario gerado pelo sistema
+                            <a href="#"> {{ comentario.autor }}</a>
+                            
+                            <p>{{ comentario.conteudo }}</p>
                             <br>
-                            <a href="#" class="small"> <i class='bx bxs-star'></i> 0 Estrelas</a> -
-                            <small class="text-muted">08/09/2024</small>
+                            <a href="#" class="small"> <i class='bx bxs-star'></i> {{comentario.qntd_estrelas }} Estrelas</a> -
+                            <small class="text-muted"> {{ comentario.createdAt }}</small>
                         </div>
                     </div>
                     <!-- --------------------------------------------- Reponder publicação ----------------------------------------- -->

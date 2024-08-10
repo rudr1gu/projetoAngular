@@ -6,7 +6,7 @@ import { Comentarios } from '../../models/Comentarios';
 import { FeedService } from '../../services/feed/feed.service';
 
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
-import { EventEmitter } from '@angular/core';
+// import { EventEmitter } from '@angular/core';
 
 
 

@@ -35,22 +35,12 @@ export class FeedService {
     return this.http.delete<Postagem>(`${this.apiUrl}/${id}`);
   }
 
-  addComentario(postagemId: number, comentario: Comentarios): Observable<Comentarios> {
-    return this.http.post<Comentarios>(`${this.apiUrl}/${postagemId}/comentarios`, comentario);
-  }
+  //comentarios
 
-  // novaResposta(postagens: Postagem[],postagemId: number, resposta: string):void {
-  //   const postagem = postagens.find(p => p.id === postagemId);
-  //   if(postagem){
-  //     const respostaObj: RespostaPost = {
-  //       id: postagem.resposta.length,
-  //       resposta: resposta,
-  //       autor: 'Default',
-  //       data: new Date()
-  //     }
-  //   postagem.resposta.push(respostaObj);
-  //   }  
-  // }
+  addComentario(data: Comentarios): Observable<Response<Comentarios>> {
+    const url = `${this.apiUrl}/${data.postagemId}/comentarios`;
+    return this.http.post<Response<Comentarios>>(url, data);
+  }
 
 
 }
