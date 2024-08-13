@@ -12,6 +12,7 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
 import { ArquivosComponent } from './components/arquivos/arquivos.component';
 import { CursoComponent } from './components/curso/curso.component';
 import { HomeComponent } from './components/home/home.component';
+import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './components/home/home.component';
     CalendarioComponent,
     ArquivosComponent,
     CursoComponent,
-    HomeComponent
+    HomeComponent,
+    CadastroAlunoComponent
   ],
   imports: [
     BrowserModule,

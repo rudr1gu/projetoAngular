@@ -1,0 +1,30 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 80%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group .error-message {
+    color: red;
+    margin-top: 5px;
+}
