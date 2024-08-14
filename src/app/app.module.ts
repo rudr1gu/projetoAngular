@@ -13,6 +13,7 @@ import { ArquivosComponent } from './components/arquivos/arquivos.component';
 import { CursoComponent } from './components/curso/curso.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
+import { LoginAlunoComponent } from './components/login-aluno/login-aluno.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-alu
     ArquivosComponent,
     CursoComponent,
     HomeComponent,
-    CadastroAlunoComponent
+    CadastroAlunoComponent,
+    LoginAlunoComponent
   ],
   imports: [
     BrowserModule,

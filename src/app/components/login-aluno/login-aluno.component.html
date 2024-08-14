@@ -1,0 +1,16 @@
+<section>
+   <form>
+        <div class="form-group">
+             <label for="email">Email</label>
+             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu email">
+        </div>
+        <div class="form-group">
+             <label for="senha">Senha</label>
+             <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="Login()">Entrar</button>
+   </form>
+   <article>
+        <p>Não tem uma conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+   </article>
+</section>
