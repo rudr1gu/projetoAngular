@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginAlunoService } from '../../services/login/login-aluno.service';
-import { Alunos } from '../../models/Alunos';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -9,17 +11,37 @@ import { Alunos } from '../../models/Alunos';
   styleUrl: './login-aluno.component.css'
 })
 export class LoginAlunoComponent implements OnInit {
-  constructor(private loginService: LoginAlunoService) { }
+  credencial = {
+    email: '',
+    senha: ''
+  }
 
-  alunos: Alunos[] = [];
+  loginForm!: FormGroup;
+
+  constructor(private loginService: LoginAlunoService,
+    private router: Router
+  ) { }
+  
 
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required])
+    });
   }
 
-  Login(): void {
-    let email = (<HTMLInputElement>document.getElementById('email')).value;
-    let senha = (<HTMLInputElement>document.getElementById('senha')).value;
-    this.loginService.logar(email, senha)
+  async onLogin(){
+    this.credencial.email = this.loginForm.get('email')?.value;
+    this.credencial.senha = this.loginForm.get('senha')?.value;
+    
+    await this.loginService.login(this.credencial).subscribe(
+      (response) => {
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log('erro ao fazer login',error);
+      }
+    );
   }
-
 }

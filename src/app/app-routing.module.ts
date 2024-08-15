@@ -7,13 +7,14 @@ import { CursoComponent } from './components/curso/curso.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
 import { LoginAlunoComponent } from './components/login-aluno/login-aluno.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'forum', component: FeedComponent},
-  {path:'calendario', component: CalendarioComponent},
-  {path: 'arquivos', component: ArquivosComponent},
-  {path:'curso', component: CursoComponent},
+  {path:'', component: HomeComponent, canActivate: [authGuard]},
+  {path:'forum', component: FeedComponent, canActivate: [authGuard]},
+  {path:'calendario', component: CalendarioComponent, canActivate: [authGuard]},
+  {path: 'arquivos', component: ArquivosComponent, canActivate: [authGuard]},
+  {path:'curso', component: CursoComponent, canActivate: [authGuard]},
   {path:'cadastro', component: CadastroAlunoComponent},
   {path:'login', component: LoginAlunoComponent}
 ];
