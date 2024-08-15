@@ -34,10 +34,19 @@ export class LoginAlunoComponent implements OnInit {
     this.credencial.email = this.loginForm.get('email')?.value;
     this.credencial.senha = this.loginForm.get('senha')?.value;
     
-    await this.loginService.login(this.credencial).subscribe(
+    this.loginService.login(this.credencial).subscribe(
       (response) => {
+        if(!response.token){
+          console.log('erro ao fazer login');
+          return;
+        }
+
+
+
         localStorage.setItem('token', response.token);
         this.router.navigate(['/']);
+        // atualizar a página
+        window.location.reload();
       },
       (error) => {
         console.log('erro ao fazer login',error);
