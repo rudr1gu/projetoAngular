@@ -11,6 +11,7 @@ import { LoginResponse } from '../../models/LoginResponse';
 export class LoginAlunoService {
   baseApiUrl = environment.baseApiUrl;
   apiUrl = `${this.baseApiUrl}api/alunos/login`;
+  alunos: Alunos[] = [];
 
   constructor(private httpClient: HttpClient) { }
  
@@ -23,6 +24,7 @@ export class LoginAlunoService {
 
   login(credencial: any): Observable<LoginResponse> {
     return this.httpClient.post<LoginResponse>(this.apiUrl, credencial);
+    
   }
 
   logout(): void {
@@ -30,6 +32,9 @@ export class LoginAlunoService {
       localStorage.removeItem('token');
       window.location.reload();
     }
+  }
+
+  getAluno(): void {    
   }
 
 }

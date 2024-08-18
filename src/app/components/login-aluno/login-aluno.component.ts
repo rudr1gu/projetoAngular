@@ -46,6 +46,7 @@ export class LoginAlunoComponent implements OnInit {
       },
       (error) => {
         console.log('erro ao fazer login',error);
+        alert('erro ao fazer login');
       }
     );
   }
