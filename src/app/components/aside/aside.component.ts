@@ -1,4 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
+import { LoginAlunoService } from '../../services/login/login-aluno.service';
 
 @Component({
   selector: 'app-aside',
@@ -29,10 +30,13 @@ export class AsideComponent implements OnInit{
     navFeed: 'navFeed',
   }
 
-  constructor() {
-
+  constructor(private loginService: LoginAlunoService) {
   }
 
   ngOnInit() {}
+
+  logout(){
+    this.loginService.logout();
+  }
 
 }

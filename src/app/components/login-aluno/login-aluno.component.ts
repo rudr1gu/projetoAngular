@@ -3,8 +3,6 @@ import { LoginAlunoService } from '../../services/login/login-aluno.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-login-aluno',
   templateUrl: './login-aluno.component.html',
@@ -37,20 +35,19 @@ export class LoginAlunoComponent implements OnInit {
     this.loginService.login(this.credencial).subscribe(
       (response) => {
         if(!response.token){
-          console.log('erro ao fazer login');
+          alert('verifique suas credenciais');
           return;
         }
 
-
-
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/']);
-        // atualizar a página
         window.location.reload();
+        this.router.navigate(['/']);
+          
       },
       (error) => {
         console.log('erro ao fazer login',error);
       }
     );
   }
+  
 }

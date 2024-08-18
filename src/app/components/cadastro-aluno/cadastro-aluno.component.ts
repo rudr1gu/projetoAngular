@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Alunos } from '../../models/Alunos';
 import { CadastroAlunosService } from '../../services/cadastro/cadastro-alunos.service';
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-aluno',
@@ -12,7 +13,10 @@ export class CadastroAlunoComponent implements OnInit {
   alunos: Alunos[] = [];
   alunosForm!: FormGroup;
   
-  constructor(private alunosService: CadastroAlunosService) { }
+  constructor(
+    private alunosService: CadastroAlunosService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.alunosForm = new FormGroup({
@@ -35,10 +39,11 @@ export class CadastroAlunoComponent implements OnInit {
       return;
     }
 
-    await this.alunosService.novoAluno(this.alunosForm.value).subscribe((response) => {
+    this.alunosService.novoAluno(this.alunosForm.value).subscribe((response) => {
       console.log(response);
       alert('Aluno cadastrado com sucesso');
       this.alunosForm.reset();
+      this.router.navigate(['/login']);
     },
     (error) => {
       console.log(error);

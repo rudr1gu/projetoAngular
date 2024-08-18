@@ -80,3 +80,16 @@ img.fotoPerfil {
 .textWhite, .nome {
     color: #fff;
 }
+
+button{
+    background: linear-gradient(to bottom, rgba(233, 83, 72, 0.8), rgba(248, 0, 0, 0.8));
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: linear-gradient(to bottom, rgba(248, 0, 0, 0.8), rgba(233, 83, 72, 0.8));
+}

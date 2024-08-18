@@ -25,4 +25,11 @@ export class LoginAlunoService {
     return this.httpClient.post<LoginResponse>(this.apiUrl, credencial);
   }
 
+  logout(): void {
+    if(typeof window !== 'undefined'){
+      localStorage.removeItem('token');
+      window.location.reload();
+    }
+  }
+
 }

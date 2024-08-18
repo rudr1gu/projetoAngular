@@ -1,18 +1,19 @@
-<section>
-    <form (ngSubmit)="onSubmit()" [formGroup]="alunosForm" #formDir="ngForm">
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" formControlName="nome" placeholder="Nome">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Email">    
-        </div>
-        <div class="form-group">
-            <label for="senha">Senha</label>
-            <input type="text" class="form-control" id="senha" name="senha" formControlName="senha" placeholder="senha">
-        </div>
-        <input type="submit">
-
-    </form>
+<section class="corpo">
+    <section class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="alunosForm" #formDir="ngForm">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" formControlName="nome" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" formControlName="senha" placeholder="senha">
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
 </section>
