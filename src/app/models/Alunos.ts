@@ -2,7 +2,7 @@ export interface Alunos {
     id: number;
     nome: string;
     email: string;
-    senha: string;
+    senha?: string;
     rg?: string;
     cpf?: string;
     matricula?: string;
@@ -10,6 +10,6 @@ export interface Alunos {
     telefone?: string;
     turma?: string;
     genero?: string;
-    createdAt: string | null | undefined;
-    updatedAt: string;
+    createdAt?: string | null | undefined;
+    updatedAt?: string;
 }
