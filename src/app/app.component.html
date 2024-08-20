@@ -1,6 +1,6 @@
 <header></header>
-<aside *ngIf="islogado">
-  <app-aside></app-aside>
+<aside *ngIf="islogado" >
+  <app-aside [userData]="userData"></app-aside>
 </aside>
 <main>
   <router-outlet></router-outlet>

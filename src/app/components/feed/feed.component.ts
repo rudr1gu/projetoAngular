@@ -6,6 +6,8 @@ import { Comentarios } from '../../models/Comentarios';
 import { FeedService } from '../../services/feed/feed.service';
 
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+import { Alunos } from '../../models/Alunos';
+import { UserDataServiceService } from '../../services/user-data-service.service';
 
 // import { EventEmitter } from '@angular/core';
 
@@ -19,18 +21,8 @@ import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
 
 export class FeedComponent implements OnInit{
 
-  // @Output() onSubmit = new EventEmitter<Postagem>();
 
-  // @Input() userData!: {
-  //   name: string,
-  //   age: number,
-  //   email: string,
-  //   curso: string,
-  //   ra: number,
-  //   rg: number,
-  //   modulo: string,
-  //   periodo: string
-  // }
+  @Input() userData!: Alunos;
 
   comments: boolean = false;
 
@@ -42,7 +34,10 @@ export class FeedComponent implements OnInit{
   postagemForm!: FormGroup;
   comentarioForm!: FormGroup;
  
-  constructor(private feedService: FeedService) {}
+  constructor(
+    private feedService: FeedService,
+    private userDataService: UserDataServiceService
+  ) {}
 
   ngOnInit(): void {
     this.feedService.getAllPostagens().subscribe((items) => {
@@ -61,20 +56,29 @@ export class FeedComponent implements OnInit{
 
     });
 
+    this.userDataService.currentUserData.subscribe((userData) => {
+      if (userData) {
+        this.userData = userData!;
+        console.log('userData', this.userData); 
+      }
+    });
+
     this.postagemForm = new FormGroup({
       titulo: new FormControl('Default'),
       conteudo: new FormControl('',[Validators.required]),
-      autor: new FormControl('Default'),
+      autor: new FormControl(this.userData.nome),
       imagem: new FormControl(''),
       comentarios: new FormControl(''),
       tags: new FormControl(''),
     });
 
     this.comentarioForm = new FormGroup({
-      autor: new FormControl('Default'),
+      autor: new FormControl(this.userData.nome),
       conteudo: new FormControl('',[Validators.required]),
       qntd_estrelas: new FormControl(''),
     });
+
+  
   }
 
   loadPostagem() {

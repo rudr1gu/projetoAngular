@@ -26,8 +26,6 @@ export class AsideComponent implements OnInit{
   }
 
   ngOnInit() {
-    console.log(this.userData);
-    console.log(this.userData.nome);
   }
 
   logout(){
