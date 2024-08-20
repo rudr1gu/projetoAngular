@@ -38,6 +38,6 @@ export class AppComponent implements OnInit {
     } else {
       console.log('usuário não está logado');
     }
-    
+     
   }
 }
