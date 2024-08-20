@@ -21,7 +21,7 @@
         <div class="social-feed-separated" *ngFor="let postagem of postagens">
             <div class="social-avatar">
                 <a href="">
-                    <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    <img alt="image" src="{{ imgDefault }}">
                 </a>
             </div>
             <div class="social-feed-box">
@@ -46,7 +46,7 @@
                 
                     <div class="social-comment" *ngFor="let comentario of postagem.comentarios">
                         <a href="" class="pull-left">
-                            <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                            <img alt="image" src="{{ imgDefault }}">
                         </a>
                         <div class="media-body">
                             <a href="#"> {{ comentario.autor }}</a>
@@ -60,7 +60,7 @@
                     <!-- --------------------------------------------- Reponder publicação ----------------------------------------- -->
                     <div class="social-comment">
                         <a href="" class="pull-left">
-                            <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                            <img alt="image" src="{{ imgDefault }}">
                         </a>
                             <form (ngSubmit)="submitComentario()" [formGroup]="comentarioForm" #formDir="ngForm">
                             <div class="media-body">
