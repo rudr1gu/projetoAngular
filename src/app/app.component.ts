@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginAlunoService } from './services/login/login-aluno.service';
-import {authGuard} from './auth.guard';
+import { Alunos } from './models/Alunos';
+import { UserDataServiceService } from './services/user-data-service.service';
 
 @Component({
   selector: 'app-root',
@@ -10,24 +11,33 @@ import {authGuard} from './auth.guard';
 export class AppComponent implements OnInit {
   
   islogado: boolean = false;
+
+  userData!: Alunos;
   
-  constructor(private loginService: LoginAlunoService,
+  title = 'rede-de-apoio';
   
+  constructor(
+    private loginService: LoginAlunoService,
+    private userDataService: UserDataServiceService
   ) { }
   
   ngOnInit(): void {
-    this.islogado = this.loginService.isAuthenticated();   
-  }
+    this.islogado = this.loginService.isAuthenticated();
 
-  userData = {
-    name: 'José Pedro',
-    age: 20,
-    email: 'zepedro@etec.sp.gov.br',
-    curso: 'Tec. Desenvolvimento de Sistemas',
-    ra: 123,
-    rg: 123456789,
-    modulo: 'Segundo Semestres',
-    periodo: 'Noturno'
-  };
-  title = 'rede-de-apoio';
+    if(this.islogado){
+      this.loginService.getCurrentUser().subscribe(
+        (aluno) => {
+          this.userData = aluno as Alunos;
+          // console.log('userData', this.userData);
+          this.userDataService.updateUserData(this.userData);
+        },
+        (error) => {
+          console.log('erro ao pegar o usuário logado', error);
+        }
+      );
+    } else {
+      console.log('usuário não está logado');
+    }
+    
+  }
 }

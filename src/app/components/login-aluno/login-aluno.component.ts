@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginAlunoService } from '../../services/login/login-aluno.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Alunos } from '../../models/Alunos';
 
 @Component({
   selector: 'app-login-aluno',
@@ -39,13 +40,14 @@ export class LoginAlunoComponent implements OnInit {
           return;
         }
 
-        localStorage.setItem('token', response.token);
+        this.loginService.setUserData(response.aluno, response.token);
         window.location.reload();
         this.router.navigate(['/']);
           
       },
       (error) => {
         console.log('erro ao fazer login',error);
+        alert('erro ao fazer login');
       }
     );
   }

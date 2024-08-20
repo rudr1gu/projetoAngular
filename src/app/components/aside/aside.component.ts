@@ -1,5 +1,6 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { LoginAlunoService } from '../../services/login/login-aluno.service';
+import { Alunos } from '../../models/Alunos';
 
 @Component({
   selector: 'app-aside',
@@ -7,16 +8,7 @@ import { LoginAlunoService } from '../../services/login/login-aluno.service';
   styleUrl: './aside.component.css'
 })
 export class AsideComponent implements OnInit{
-  @Input() userData!: {
-    name: string;
-    age: number;
-    email: string;
-    curso: string;
-    ra: number;
-    rg: number;
-    modulo: string;
-    periodo: string;
-  };
+  @Input() userData!: Alunos;
 
   class = {
     sidebars: 'sidebars',
@@ -33,7 +25,8 @@ export class AsideComponent implements OnInit{
   constructor(private loginService: LoginAlunoService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   logout(){
     this.loginService.logout();
