@@ -1,11 +1,11 @@
-.corpo{
+/* .corpo{
     position: absolute;
     width: 100%;
     height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .container {
     max-width: 600px;
     padding: 20px;
