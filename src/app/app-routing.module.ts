@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
 import { LoginAlunoComponent } from './components/login-aluno/login-aluno.component';
 import { authGuard } from './auth.guard';
+import { publicGuard } from './public.guard';
 
 const routes: Routes = [
   {path:'', component: HomeComponent, canActivate: [authGuard]},
@@ -15,8 +16,8 @@ const routes: Routes = [
   {path:'calendario', component: CalendarioComponent, canActivate: [authGuard]},
   {path: 'arquivos', component: ArquivosComponent, canActivate: [authGuard]},
   {path:'curso', component: CursoComponent, canActivate: [authGuard]},
-  {path:'cadastro', component: CadastroAlunoComponent},
-  {path:'login', component: LoginAlunoComponent}
+  {path:'cadastro', component: CadastroAlunoComponent, canActivate: [publicGuard]},
+  {path:'login', component: LoginAlunoComponent, canActivate: [publicGuard]}
 ];
 
 @NgModule({

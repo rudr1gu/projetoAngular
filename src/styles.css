@@ -27,10 +27,12 @@ body{
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    z-index: 1;
 }
 
 aside{
+
     position: fixed;
     left: 0;
     top: 0;
@@ -40,6 +42,7 @@ aside{
     color: #fff;
     padding: 0px;
     height: 100%;
+    z-index: 999;
 }
 
 main{
