@@ -13,6 +13,13 @@
                 <label for="senha">Senha</label>
                 <input type="password" class="form-control" id="senha" name="senha" formControlName="senha" placeholder="senha">
             </div>
+            <div class="form-group">
+                <label for="confirmarSenha">Curso</label>
+                <input type="text" class="form-control" id="curso" name="curso" formControlName="curso" placeholder="Curso">
+            </div>
+            <div class="form-group">
+                <input type="file" name="img" id="img" formControlName="img" (change)="onFileSelected($event)">
+            </div>
             <button type="submit">Registrar</button>
         </form>
     </section>

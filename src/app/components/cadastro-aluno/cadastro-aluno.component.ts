@@ -28,8 +28,9 @@ export class CadastroAlunoComponent implements OnInit {
       matricula: new FormControl(''),
       data_nascimento: new FormControl(''),
       telefone: new FormControl(''),
-      turma: new FormControl(''),
-      genero: new FormControl('')
+      curso: new FormControl('Desenvolvimento de Sistemas'),
+      genero: new FormControl(''),
+      img: new FormControl('')
     });
   }
 
@@ -49,7 +50,13 @@ export class CadastroAlunoComponent implements OnInit {
       console.log(error);
       alert('Erro ao cadastrar aluno');
 
-  });
+    });
+  }
+
+onFileSelected(event: any){
+  const file: File = event.target.files[0];
+
+  this.alunosForm.patchValue({img: file});
 }
 
 }
