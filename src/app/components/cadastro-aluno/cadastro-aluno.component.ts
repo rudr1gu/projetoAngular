@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CadastroAlunoComponent implements OnInit {
   alunos: Alunos[] = [];
   alunosForm!: FormGroup;
+  selectedFile?: File;
   
   constructor(
     private alunosService: CadastroAlunosService,
@@ -21,7 +22,7 @@ export class CadastroAlunoComponent implements OnInit {
   ngOnInit(): void {
     this.alunosForm = new FormGroup({
       nome: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
       senha: new FormControl('', Validators.required),
       rg: new FormControl(''),
       cpf: new FormControl(''),
@@ -30,7 +31,7 @@ export class CadastroAlunoComponent implements OnInit {
       telefone: new FormControl(''),
       curso: new FormControl('Desenvolvimento de Sistemas'),
       genero: new FormControl(''),
-      img: new FormControl('')
+      img: new FormControl(null)
     });
   }
 
@@ -40,7 +41,19 @@ export class CadastroAlunoComponent implements OnInit {
       return;
     }
 
-    this.alunosService.novoAluno(this.alunosForm.value).subscribe((response) => {
+    const formData = new FormData();
+    formData.append('nome', this.alunosForm.get('nome')!.value);
+    formData.append('email', this.alunosForm.get('email')!.value);
+    formData.append('senha', this.alunosForm.get('senha')!.value);
+    formData.append('curso', this.alunosForm.get('curso')!.value);
+
+    if(this.selectedFile){
+      formData.append('img', this.selectedFile);
+    }
+
+
+
+    this.alunosService.novoAluno(formData).subscribe((response) => {
       console.log(response);
       alert('Aluno cadastrado com sucesso');
       this.alunosForm.reset();
@@ -53,10 +66,14 @@ export class CadastroAlunoComponent implements OnInit {
     });
   }
 
-onFileSelected(event: any){
-  const file: File = event.target.files[0];
+  onFileSelected(event: Event):void{
+    const input = event.target as HTMLInputElement;
+    if(input.files && input.files.length > 0){
+      this.selectedFile = input.files[0];
+      console.log('arquivo selecionado',this.selectedFile);
+    }
 
-  this.alunosForm.patchValue({img: file});
-}
+
+  }
 
 }
