@@ -8,9 +8,7 @@ import { FeedService } from '../../services/feed/feed.service';
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
 import { Alunos } from '../../models/Alunos';
 import { UserDataServiceService } from '../../services/user-data-service.service';
-
-// import { EventEmitter } from '@angular/core';
-
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -21,11 +19,12 @@ import { UserDataServiceService } from '../../services/user-data-service.service
 
 export class FeedComponent implements OnInit{
 
-
   @Input() userData!: Alunos;
 
+  apiUrl = environment.baseApiUrl;
 
-  imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek='
+ 
+  imgDefault!: string;
   comments: boolean = false;
 
   currentPostId: number | null = null;
@@ -65,10 +64,17 @@ export class FeedComponent implements OnInit{
       }
     });
 
+    if(this.userData.img){
+      this.imgDefault = `${this.apiUrl}uploads/${this.userData.img}`
+    } else {
+      this.imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek='
+    }
+
     this.postagemForm = new FormGroup({
       titulo: new FormControl('Default'),
       conteudo: new FormControl('',[Validators.required]),
       autor: new FormControl(this.userData.nome),
+      img_autor: new FormControl(this.userData.img),
       imagem: new FormControl(''),
       comentarios: new FormControl(''),
       tags: new FormControl(''),
@@ -76,10 +82,10 @@ export class FeedComponent implements OnInit{
 
     this.comentarioForm = new FormGroup({
       autor: new FormControl(this.userData.nome),
+      img_autor: new FormControl(this.userData.img),
       conteudo: new FormControl('',[Validators.required]),
       qntd_estrelas: new FormControl(''),
     });
-
   
   }
 
@@ -105,8 +111,6 @@ export class FeedComponent implements OnInit{
   get conteudo() {
     return this.postagemForm.get('conteudo');
   }
-
-
 
   submit() {
     if (this.postagemForm.invalid) {
@@ -150,9 +154,6 @@ export class FeedComponent implements OnInit{
       }
     );
   }
-
- 
-
 
   removePostagem(id: number) {
     this.feedService.remover(id).subscribe(

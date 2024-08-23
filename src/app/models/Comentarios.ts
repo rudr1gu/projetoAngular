@@ -1,6 +1,7 @@
 export interface Comentarios {
     id: number;
     autor: string;
+    img_autor?: string;
     conteudo: string;
     postagemId: number;
     qntd_estrelas: number;
