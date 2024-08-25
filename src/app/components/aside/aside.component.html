@@ -1,9 +1,9 @@
-<aside [ngClass]="class.sidebars">
+<aside [ngClass]="class.sidebars" *ngIf="userData">
     <div [ngClass]="class.container">
         <section [ngClass]="class.row">
             <div [ngClass]="class.col">
                 <div [ngClass]="class.cardPerfil">
-                    <img src="{{ imgDefault }}" alt="user" [ngClass]="class.fotoPerfil">
+                    <img src="{{imgDefault}}" alt="user" [ngClass]="class.fotoPerfil">
                     <div [ngClass]="class.nome">
                         <h5><a href="#" class="textWhite">{{userData!.nome}}</a></h5>
                         <a href="#" class="textWhite"><i class="fa fa-user"></i>{{userData!.curso}}</a>
