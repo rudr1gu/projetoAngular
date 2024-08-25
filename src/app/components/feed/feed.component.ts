@@ -60,15 +60,18 @@ export class FeedComponent implements OnInit{
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
-        console.log('userData', this.userData); 
+        console.log('userData', this.userData);
+        
+        if(this.userData.img){
+          this.imgDefault = `${this.apiUrl}uploads/${this.userData.img}`
+        } else {
+          this.imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek='
+        }
       }
+
     });
 
-    if(this.userData.img){
-      this.imgDefault = `${this.apiUrl}uploads/${this.userData.img}`
-    } else {
-      this.imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek='
-    }
+    
 
     this.postagemForm = new FormGroup({
       titulo: new FormControl('Default'),
@@ -104,14 +107,6 @@ export class FeedComponent implements OnInit{
     );
   }
 
-  get titulo() {
-    return this.postagemForm.get('titulo');
-  }
-
-  get conteudo() {
-    return this.postagemForm.get('conteudo');
-  }
-
   submit() {
     if (this.postagemForm.invalid) {
       alert('Formulário inválido!');
@@ -128,10 +123,6 @@ export class FeedComponent implements OnInit{
         console.error('Erro ao criar a postagem:', error);
       }
     );
-  }
-
-  get autor() {
-    return this.comentarioForm.get('autor');
   }
 
   async submitComentario() {
@@ -171,5 +162,4 @@ export class FeedComponent implements OnInit{
   showComments(postagemId: number): void {
     this.currentPostId = this.currentPostId === postagemId ? null : postagemId;
   }
-  
 }
