@@ -1,32 +1,24 @@
-// importando o Component, OnInit e Input e Output para criar um componente
-import { Component, OnInit, Input, Output } from '@angular/core';
-// importando o model Postagem para tipar o array de postagens
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Postagem } from '../../models/Postagem';
 import { Comentarios } from '../../models/Comentarios';
 import { FeedService } from '../../services/feed/feed.service';
-
-import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Alunos } from '../../models/Alunos';
 import { UserDataServiceService } from '../../services/user-data-service.service';
 import { environment } from '../../../environments/environment';
 
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrl: './feed.component.css'
+  styleUrls: ['./feed.component.css']
 })
-
-export class FeedComponent implements OnInit{
+export class FeedComponent implements OnInit, OnChanges {
 
   @Input() userData!: Alunos;
 
   apiUrl = environment.baseApiUrl;
 
- 
-  imgDefault!: string;
   comments: boolean = false;
-
   currentPostId: number | null = null;
 
   postagens: Postagem[] = [];
@@ -34,48 +26,43 @@ export class FeedComponent implements OnInit{
 
   postagemForm!: FormGroup;
   comentarioForm!: FormGroup;
- 
+
+  imgDefault!: string;
+
   constructor(
     private feedService: FeedService,
     private userDataService: UserDataServiceService
   ) {}
 
   ngOnInit(): void {
+    this.setImage();
+    this.loadPostagem();
     this.feedService.getAllPostagens().subscribe((items) => {
       const data = items.data;
-
-      data.map((postagem) => {
+      this.postagens = data.map(postagem => {
         postagem.createdAt = new Date(postagem.createdAt!).toLocaleString('pt-BR');
 
-        postagem.comentarios?.map((comentario) => {
+        postagem.comentarios?.map(comentario => {
           comentario.createdAt = new Date(comentario.createdAt!).toLocaleString('pt-BR');
         });
-       
+    
+        return postagem;
       });
-
-      this.postagens = data;
-
+    
+      console.log('Postagens carregadas:', this.postagens);
     });
+    
 
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
         console.log('userData', this.userData);
-        
-        if(this.userData.img){
-          this.imgDefault = `${this.apiUrl}uploads/${this.userData.img}`
-        } else {
-          this.imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek='
-        }
       }
-
     });
-
-    
 
     this.postagemForm = new FormGroup({
       titulo: new FormControl('Default'),
-      conteudo: new FormControl('',[Validators.required]),
+      conteudo: new FormControl('', [Validators.required]),
       autor: new FormControl(this.userData.nome),
       img_autor: new FormControl(this.userData.img),
       imagem: new FormControl(''),
@@ -86,10 +73,15 @@ export class FeedComponent implements OnInit{
     this.comentarioForm = new FormGroup({
       autor: new FormControl(this.userData.nome),
       img_autor: new FormControl(this.userData.img),
-      conteudo: new FormControl('',[Validators.required]),
+      conteudo: new FormControl('', [Validators.required]),
       qntd_estrelas: new FormControl(''),
     });
-  
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['userData'] && this.userData) {
+      this.setImage();
+    }
   }
 
   loadPostagem() {
@@ -134,7 +126,7 @@ export class FeedComponent implements OnInit{
     const comentarioData = this.comentarioForm.value;
     comentarioData.postagemId = Number(this.currentPostId!);
 
-    await this.feedService.addComentario( comentarioData).subscribe(
+    await this.feedService.addComentario(comentarioData).subscribe(
       (response) => {
         console.log('Comentário criado com sucesso:', response);
         this.comentarioForm.reset();
@@ -162,4 +154,17 @@ export class FeedComponent implements OnInit{
   showComments(postagemId: number): void {
     this.currentPostId = this.currentPostId === postagemId ? null : postagemId;
   }
+
+  getImageUrl(imgAutor: string | undefined): string {
+    return imgAutor ? `http://localhost:3333/uploads/${imgAutor}` : 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
+  }
+
+  setImage() {
+    if (this.userData?.img) {
+      this.imgDefault = `${this.apiUrl}uploads/${this.userData.img}`;
+    } else {
+      this.imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
+    }
+  }
+  
 }

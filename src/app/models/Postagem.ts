@@ -5,7 +5,7 @@ export interface Postagem {
     titulo: string;
     conteudo: string;
     autor: string;
-    img_autor?: string;
+    imgAutor?: string;
     imagem?: string;
     tags?: string;
     qntd_estrelas?: number;
