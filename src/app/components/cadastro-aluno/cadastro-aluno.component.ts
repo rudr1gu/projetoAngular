@@ -29,7 +29,7 @@ export class CadastroAlunoComponent implements OnInit {
       matricula: new FormControl(''),
       data_nascimento: new FormControl(''),
       telefone: new FormControl(''),
-      curso: new FormControl('Desenvolvimento de Sistemas'),
+      cursoId: new FormControl(''),
       genero: new FormControl(''),
       img: new FormControl(null)
     });
@@ -45,7 +45,6 @@ export class CadastroAlunoComponent implements OnInit {
     formData.append('nome', this.alunosForm.get('nome')!.value);
     formData.append('email', this.alunosForm.get('email')!.value);
     formData.append('senha', this.alunosForm.get('senha')!.value);
-    formData.append('curso', this.alunosForm.get('curso')!.value);
 
     if(this.selectedFile){
       formData.append('img', this.selectedFile);

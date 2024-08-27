@@ -8,9 +8,9 @@ export interface Alunos {
     matricula?: string;
     data_nascimento?: string;
     telefone?: string;
-    curso?: string;
+    cursoId?: number;
     genero?: string;
     img?: string;
-    createdAt?: string | null | undefined;
+    createdAt?: string;
     updatedAt?: string;
 }
