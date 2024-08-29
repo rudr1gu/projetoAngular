@@ -46,7 +46,7 @@
                 
                     <div class="social-comment" *ngFor="let comentario of postagem.comentarios">
                         <a href="" class="pull-left">
-                            <img [src]="getImageUrl(postagem.imgAutor)" alt="imagem autor">
+                            <img [src]="getImageUrl(comentario.imgAutor)" alt="imagem autor">
                         </a>
                         <div class="media-body">
                             <a href="#"> {{ comentario.autor }}</a>
@@ -60,7 +60,7 @@
                     <!-- --------------------------------------------- Reponder publicação ----------------------------------------- -->
                     <div class="social-comment">
                         <a href="" class="pull-left">
-                            <img [src]="imgDefault" alt="imagem autor">
+                            <img [src]="getImageUrl(userData.img)" alt="imagem autor">
                         </a>
                             <form (ngSubmit)="submitComentario()" [formGroup]="comentarioForm" #formDir="ngForm">
                             <div class="media-body">
