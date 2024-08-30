@@ -26,7 +26,7 @@
             </div>
             <div class="social-feed-box">
                 <div class="pull-right social-action dropdown">
-                    <button data-toggle="dropdown" class="dropdown-toggle btn-white" (click)="removePostagem(postagem.id!)">
+                    <button data-toggle="dropdown" class="dropdown-toggle btn-white" (click)="removePostagem(postagem.id!)" *ngIf="userData.nome === postagem.autor">
                         <i class='bx bx-trash'></i>
                     </button>
                 </div>
