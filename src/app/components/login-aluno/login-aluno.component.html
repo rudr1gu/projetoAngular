@@ -9,6 +9,14 @@
                   <label for="senha">Senha</label>
                   <input type="password" class="form-control" id="senha" name="senha" formControlName="senha" placeholder="Digite sua senha">
              </div>
+             <div>
+               <label for="tipo">Você é:</label>
+               <select id="tipo" formControlName="tipo" required>
+                 <option value="" disabled selected>Selecione</option>
+                 <option value="aluno">Aluno</option>
+                 <option value="professor">Professor</option>
+               </select>
+             </div>
              <button type="submit" class="form-control">Entrar</button>
         </form>
         <article>
