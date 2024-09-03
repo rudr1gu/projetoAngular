@@ -1,5 +1,5 @@
 <header></header>
-<aside *ngIf="islogado" >
+<aside *ngIf="isAlunologado || isProfessorlogado" >
   <app-aside [userData]="userData"></app-aside>
 </aside>
 <main>

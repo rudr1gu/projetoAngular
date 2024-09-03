@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Alunos } from '../../models/Alunos';
 import { UserDataServiceService } from '../../services/user-data-service.service';
 import { environment } from '../../../environments/environment';
+import { Professor } from '../../models/Professor';
 
 @Component({
   selector: 'app-feed',
@@ -14,7 +15,7 @@ import { environment } from '../../../environments/environment';
 })
 export class FeedComponent implements OnInit, OnChanges {
 
-  @Input() userData!: Alunos;
+  @Input() userData!: Alunos | Professor; 
 
   apiUrl = environment.baseApiUrl;
 

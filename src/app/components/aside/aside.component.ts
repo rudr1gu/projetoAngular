@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { LoginAlunoService } from '../../services/login/login-aluno.service';
 import { Alunos } from '../../models/Alunos';
 import { environment } from '../../../environments/environment';
+import { Professor } from '../../models/Professor';
 
 @Component({
   selector: 'app-aside',
@@ -9,7 +10,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent implements OnInit, OnChanges {
-  @Input() userData!: Alunos;
+  @Input() userData!: Alunos | Professor;
 
   apiUrl = environment.baseApiUrl;
   imgDefault!: string;

@@ -19,10 +19,10 @@ export class LoginAlunoService {
   constructor(private httpClient: HttpClient) { }
  
   isAuthenticated(): boolean {
-    if(typeof window !== 'undefined' && localStorage.getItem('token')){
+    if (typeof window !== 'undefined' && localStorage.getItem('token') && localStorage.getItem('userType') === 'aluno') {
       return true;
     }
-    return false; 
+    return false;
   }
 
   login(credencial: any): Observable<LoginResponse> {
@@ -40,6 +40,7 @@ export class LoginAlunoService {
 
   setUserData(aluno: Alunos, token: string): void {
     localStorage.setItem('token', token);
+    localStorage.setItem('userType', 'aluno');
     this.currentUserSubject.next(aluno);
   }
 

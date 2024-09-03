@@ -29,7 +29,7 @@ export class LoginProfessorService {
   }
 
   isAuthenticated(): boolean {
-    if (typeof window !== 'undefined' && localStorage.getItem('token')) {
+    if (typeof window !== 'undefined' && localStorage.getItem('token') && localStorage.getItem('userType') === 'professor') {
       return true;
     }
     return false;
@@ -37,6 +37,7 @@ export class LoginProfessorService {
 
   setUserData(professor: Professor, token: string): void {
     localStorage.setItem('token', token);
+    localStorage.setItem('userType', 'professor');
     this.currentUserSubject.next(professor);
   }
 
@@ -44,7 +45,7 @@ export class LoginProfessorService {
     const token = localStorage.getItem('token');
     const headers = { Authorization: `Bearer ${token}` };
 
-    const apiUrl = `${this.baseApiUrl}api/professor/${id}`;
+    const apiUrl = `${this.baseApiUrl}api/professores/${id}`;
     return this.httpClient.get<Professor>(apiUrl, { headers });
   }
 
