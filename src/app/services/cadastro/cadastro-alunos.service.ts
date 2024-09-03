@@ -19,4 +19,8 @@ export class CadastroAlunosService {
   novoAluno(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }
+
+  novoProfessor(formData: FormData): Observable<FormData> {
+    return this.http.post<FormData>(`${this.baseApiUrl}api/professores`, formData);
+  }
 }
