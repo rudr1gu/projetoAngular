@@ -21,7 +21,7 @@
         <button class="btnBuscar">Buscar</button>
     </section>
     <section class="addQuest">
-        <button class=".btn">Adicionar Questão</button>
+        <button class="btn" (click)="showForm()">Adicionar Questão</button>
     </section>
     <section class="questoes">
         <div class="questao">
@@ -42,4 +42,8 @@
                 <button class="btnResposta"><i class='bx bx-message-rounded-add' ></i>  Responder</button>
             </div>
         </div>
+</section>
+
+<section class="form"  *ngIf="newQuestion">
+    <app-new-question></app-new-question>
 </section>

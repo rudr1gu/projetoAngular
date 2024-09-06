@@ -1,0 +1,95 @@
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: 20px;
+    padding: 5px;
+    background-color: white;
+    padding: 5px;
+
+}
+
+.form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-group label{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.form-group input{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form-group textarea{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+button{
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+    color: black;
+}
+
+.form-control{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus{
+    outline: none;
+}
+
+span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50%;
+    border: 1px solid  red;
+    padding: 3px;
+    margin: 5px;
+}
+
+
