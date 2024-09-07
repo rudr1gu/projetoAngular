@@ -1,0 +1,185 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: 20px;
+    padding: 5px;
+}
+
+.filtros{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.select{
+    width: 35%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select select{
+    width: 100%;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.select select:focus{
+    outline: none;
+}
+
+.btnBuscar{
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnBuscar:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.addQuest{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addQuest button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    transition: 0.3s;
+}
+
+.addQuest button:hover{
+    background-color: #f0f0f0;
+    color: black;
+    cursor: pointer;
+}
+
+.questoes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.questao{
+    position: relative;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.questao h3{
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+}
+
+.questao p{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.questao button{
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.questao button:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+    color: black;
+}
+
+.questao .autor{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width:  50%;
+}
+
+.questao .autor span{
+    font-size: 12px;
+    font-weight: 500;
+    color: black;
+}
+
+.questao ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.questao ul li{
+    margin-right: 10px;
+    font-size: 12px;
+    border: 1px solid #4CAF50;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.questao .respostas{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    padding: 5px;
+}
+
+section .form{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+
+}

@@ -9,10 +9,12 @@ import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-alu
 import { LoginAlunoComponent } from './components/login-aluno/login-aluno.component';
 import { authGuard } from './auth.guard';
 import { publicGuard } from './public.guard';
+import { ForumComponent } from './components/forum/forum.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent, canActivate: [authGuard]},
-  {path:'forum', component: FeedComponent, canActivate: [authGuard]},
+  {path:'feed', component: FeedComponent, canActivate: [authGuard]},
+  {path:'forum', component: ForumComponent, canActivate: [authGuard]},
   {path:'calendario', component: CalendarioComponent, canActivate: [authGuard]},
   {path: 'arquivos', component: ArquivosComponent, canActivate: [authGuard]},
   {path:'curso', component: CursoComponent, canActivate: [authGuard]},

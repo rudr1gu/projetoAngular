@@ -14,6 +14,8 @@ import { CursoComponent } from './components/curso/curso.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
 import { LoginAlunoComponent } from './components/login-aluno/login-aluno.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { NewQuestionComponent } from './components/forum/new-question/new-question.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { LoginAlunoComponent } from './components/login-aluno/login-aluno.compon
     CursoComponent,
     HomeComponent,
     CadastroAlunoComponent,
-    LoginAlunoComponent
+    LoginAlunoComponent,
+    ForumComponent,
+    NewQuestionComponent
   ],
   imports: [
     BrowserModule,
