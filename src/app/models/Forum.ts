@@ -1,3 +1,5 @@
+import { Alunos } from './Alunos';
+import { Materias } from './Materias';
 import { Resposta } from './Resposta';
 
 export interface Forum {
@@ -6,7 +8,9 @@ export interface Forum {
     descricao: string;
     alunoId: number;
     materiaId: number;
-    respostas: Resposta[];
+    aluno: Alunos;
+    materia: Materias;
+    respostas?: Resposta[];
     createdAt?: string;
     updatedAt?: Date;
 }
