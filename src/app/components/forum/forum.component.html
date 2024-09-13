@@ -23,16 +23,16 @@
     <section class="addQuest">
         <button class="btn" (click)="showForm()">Adicionar Questão</button>
     </section>
-    <section class="questoes">
+    <section class="questoes" *ngFor="let forum of forums">
         <div class="questao">
-            <h3>Como faço para criar um site?</h3>
+            <h3>{{forum.titulo}}</h3>
             <div class="autor">
-                <p><span>Autor:</span> Rodrigo</p>
-                <p><span>Data:</span> 06/09/2024</p>
+                <p><span>Autor:</span> {{forum.alunoId}}</p>
+                <p><span>Data:</span> {{forum.createdAt}}</p>
             </div>
-            <p>Estou com dificuldades para criar um site, alguém pode me ajudar?</p>
+            <p>{{forum.descricao}}</p>
            
-            <p>Componente: Desenvolvimento Web I</p>
+            <p>{{forum.materiaId}}</p>
             <ul>
                 <li>HTML</li>
                 <li>CSS</li>
