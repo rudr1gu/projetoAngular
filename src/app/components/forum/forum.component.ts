@@ -29,7 +29,7 @@ export class ForumComponent implements OnInit {
       const data = items;
       this.forums = data.map(forum => {
         forum.createdAt = new Date(forum.createdAt!).toLocaleString('pt-BR');
-        
+
         return forum;
       });
 
@@ -39,6 +39,10 @@ export class ForumComponent implements OnInit {
   }
 
   showForm() {
+    this.newQuestion = !this.newQuestion;
+  }
+
+  toggleForm() {
     this.newQuestion = !this.newQuestion;
   }
 

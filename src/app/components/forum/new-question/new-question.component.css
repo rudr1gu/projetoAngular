@@ -87,7 +87,7 @@ span{
     cursor: pointer;
     transition: 0.3s;
     border-radius: 50%;
-    border: 1px solid  red;
+    border: 1px solid black;
     padding: 3px;
     margin: 5px;
 }

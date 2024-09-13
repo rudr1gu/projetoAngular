@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ForumService } from '../../../services/forum/forum.service';
 import { Alunos } from '../../../models/Alunos';
@@ -13,6 +13,8 @@ import { UserDataServiceService } from '../../../services/user-data-service.serv
 })
 export class NewQuestionComponent implements OnInit {
   @Input() userData!: Alunos | Professor;
+  @Input() showForm!: boolean;
+  @Output() closeForm = new EventEmitter<void>();
 
   apiUrl = environment.baseApiUrl;
   
@@ -44,9 +46,13 @@ export class NewQuestionComponent implements OnInit {
       this.forumService.createForum(this.forumForm.value).subscribe((data) => {
         console.log('Forum criado com sucesso', data);
         this.forumForm.reset();
-        
+        this.closeQuestionForm();
       });
     }
+  }
+
+  closeQuestionForm() {
+    this.closeForm.emit();
   }
 
 }

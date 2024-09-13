@@ -45,5 +45,5 @@
 </section>
 
 <section class="form"  *ngIf="newQuestion">
-    <app-new-question></app-new-question>
+    <app-new-question [showForm]="newQuestion" (closeForm)="toggleForm()"></app-new-question>
 </section>
