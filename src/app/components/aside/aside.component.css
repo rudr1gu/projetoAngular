@@ -1,95 +1,87 @@
-.sidebars{
-    padding: 5px;
-    margin: 0;
+nav{
+  
 }
-.cardPerfil{
-  background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8));
-  background-size: cover;
-  width: 100%;
-  min-height: 90px;
-  border-radius: 4px;
-  padding: 10px 20px;
-  color: #fff;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
+nav ul {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 260px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #0c101e;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-
-.cardPerfil img.fotoPerfil{
-    float: left;
-    margin-right: 20px;
-    position: relative;
-    top: 0px;
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+nav ul li {
+	list-style: none;
 }
-
-.cardPerfil h5 a{
-  font-size: 18px;
+nav ul li a {
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #fff;
+	position: relative;
+	padding: 10px 0 10px 38px;
+  	margin-top: 20px;
+  	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.699);
 }
-
-.cardPerfil a{
-  font-size: 14px;
+nav ul li a:before {
+	content: '';
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 0%;
+	height: 100%;
+	background: #d5d4d4;
+	border-radius: 40px 0px 0px 40px;
+	z-index: -1;
+	transition: all 300ms ease-in-out;
+	text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.856);
 }
-
-ul.navFeed{
-    padding: 10px 10px 10px 0;
-    margin: 0 0 40px 0;
-    background:#fff;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
+nav ul li a:hover {
+	color: #0c101e;
 }
-
-ul.navFeed li{
-  list-style: none;
-  display: block;
-  padding: 15px 0;
+nav ul li a:hover:before {
+	width: 95%;
 }
-
-ul.navFeed li div{
-  position: relative;
-  margin-left: 30px;
-  }
-
-ul.navFeed li div::after{
-  content: "";
-  width: 100%;
-  height: 1px;
-  border-top: 1px solid #f1f2f2;
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-}
-
-ul.navFeed li a{
-    color: #6d6e71;
-}
-
-ul.navFeed li i{
-  font-size: 18px;
-  margin-right: 15px;
-  float: left;
-}
-
-img.fotoPerfil {
-    height: 40px;
-    width: 40px;
-}
-
-.textWhite, .nome {
-    color: #fff;
-}
-
 button{
-    background: linear-gradient(to bottom, rgba(233, 83, 72, 0.8), rgba(248, 0, 0, 0.8));
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+  background: rgba(255, 21, 21, 0.848);
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-left: 80px;
+  font-weight: 600;
 }
 
 button:hover{
-    background: linear-gradient(to bottom, rgba(248, 0, 0, 0.8), rgba(233, 83, 72, 0.8));
+  background: rgb(251, 31, 31);
+}
+#foto{
+  height: 40px;
+  width: 40px;
+  flex-direction: column;
+  margin-right: 20px;
+  top: 30px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 70px;
+}
+#ds{
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 40px;
+}
+#nome{
+	font-weight: 300;
+	text-align: center;
+	margin-top: 70px;
 }
