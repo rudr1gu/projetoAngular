@@ -1,58 +1,33 @@
-<!-- <aside [ngClass]="class.sidebars">
-    <div [ngClass]="class.container">
-        <section [ngClass]="class.row">
-            <div>
-                <div [ngClass]="class.cardPerfil">
-                    <img src="" alt="user" [ngClass]="class.fotoPerfil">
-                    <div [ngClass]="class.nome">
-                        <h5><a href="#" class="textWhite">sdjkajdsljl</a></h5>
-                        <a href="#" class="textWhite"><i class="fa fa-user"></i> Desenvolvimento de Sistemas</a>
-                    </div>
-                </div>
-                <ul [ngClass]="class.navFeed">
-                    <li><div><a routerLink="/">Página Inicial</a></div></li>
-                    <li><div><a routerLink="/curso">Seu Curso</a></div></li>
-                    <li><div><a routerLink="/forum">Fórum</a></div></li>
-                    <li><div><a routerLink="/calendario">Calendário</a></div></li>
-                    <li><div><a routerLink="/arquivos">Arquivos</a></div></li>
-                    <li><div><button class="logout" (click)="logout()"><i class='bx bx-log-out'></i>Sair</button></div></li>
-                </ul>
-            </div>
-        </section>
-    </div>
-</aside> -->
-
-
-
-
-
-	<nav>
-		
-
+<aside>
+    <nav>
         <ul>
-            <li id="foto">
-                <img src="" alt="user">
-            </li>
-                <p id="nome">Maria Eduarda Serapili</p>
+            <div class="boxPerfil">
+                <li id="foto">
+                    <!-- <img [src]="imgDefault" alt="user"> -->
+                </li>
+                <li>
+                    <p id="nome">Maria Eduarda Serapili</p>
+                </li>
+                <li>
+                    <p id="ds">Desenvolvimento de Sistemas</p>
+                </li>
+            </div>
             <li>
-                <p id="ds">Desenvolvimento de Sistemas</p>
+                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-home"></i>  Página Inicial</a>
             </li>
-			<li>
-				<a routerLink="/"><i class="fa fa-home"></i>  Página Inicial</a>
-			</li>
-			<li>
-				<a routerLink="/curso"><i class="fa fa-book"></i>  Seu Curso</a>
-			</li>
-			<li>
-				<a routerLink="/forum"><i class="fa fa-users"></i>  Fórum</a>
-			</li>
-			<li>
-				<a routerLink="/calendario"><i class="fa fa-picture-o"></i>  Calendário</a>
-			</li>
-			<li>
-				<a href="#"><i class="fa fa-phone"></i>  Arquivos</a>
-			</li>
+            <li>
+                <a routerLink="/curso" routerLinkActive="active"><i class="fa fa-book"></i>  Seu Curso</a>
+            </li>
+            <li>
+                <a routerLink="/forum" routerLinkActive="active"><i class="fa fa-users" ></i>  Fórum</a>
+            </li>
+            <li>
+                <a routerLink="/calendario" routerLinkActive="active"><i class='bx bxs-calendar-star' ></i>  Calendário</a>
+            </li>
+            <li>
+                <a href="#" routerLinkActive="active"><i class='bx bx-paperclip'></i> Arquivos</a>
+            </li>
             <li><button class="logout" (click)="logout()"><i class='bx bx-log-out'></i>  SAIR</button></li>
-		</ul>
-	</nav>
-	
+        </ul>
+    </nav>
+</aside>

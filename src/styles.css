@@ -37,7 +37,6 @@ body{
 }
 
 aside{
-
     position: fixed;
     left: 0;
     top: 0;
@@ -48,6 +47,7 @@ aside{
     padding: 0px;
     height: 100%;
     z-index: 999;
+    overflow: auto;
 }
 
 main{

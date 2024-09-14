@@ -1,5 +1,5 @@
+
 .container{
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,67 +9,58 @@
     padding: 5px;
     background-color: white;
     padding: 5px;
-
+    position: relative;
 }
 
-.form-group{
-    width: 100%;
+.filtros{
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.select{
+    width: 35%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
 }
 
-.form-group label{
-    font-size: 20px;
+.select select{
+    width: 100%;
+    border: none;
+    background-color: white;
+    font-size: 16px;
     font-weight: 500;
     color: black;
 }
 
-.form-group input{
-    width: 100%;
-    padding: 5px;
-    border-radius: 10px;
-    border: 1px solid  #b1aeae;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+.select select:focus{
+    outline: none;
 }
 
-.form-group textarea{
-    width: 100%;
-    padding: 5px;
-    border-radius: 10px;
-    border: 1px solid  #b1aeae;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-}
-
-button{
+.btnBuscar{
     width: 20%;
-    background-color: #4CAF50;
+    background-color: #0c101e;
     color: white;
     padding: 5px;
     border-radius: 10px;
     border: 1px solid  #b1aeae;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button:hover{
-    background-color: #f0f0f0;
+.btnBuscar:hover{
+    background-color: #0c101ee4;
     cursor: pointer;
-    color: black;
-}
-
-.form-control{
-    width: 100%;
-    padding: 5px;
-    border-radius: 10px;
-    border: 1px solid  #b1aeae;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-}
-
-.form-control:focus{
-    outline: none;
 }
 
 span{
@@ -91,5 +82,3 @@ span{
     padding: 3px;
     margin: 5px;
 }
-
-

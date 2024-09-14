@@ -1,11 +1,9 @@
-nav{
-  
-}
+
 nav ul {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	width: 260px;
+	width: 300px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -27,6 +25,7 @@ nav ul li a {
 	padding: 10px 0 10px 38px;
   	margin-top: 20px;
   	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.699);
+	transition: all 600ms ease-in-out;
 }
 nav ul li a:before {
 	content: '';
@@ -38,8 +37,8 @@ nav ul li a:before {
 	background: #d5d4d4;
 	border-radius: 40px 0px 0px 40px;
 	z-index: -1;
-	transition: all 300ms ease-in-out;
-	text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.856);
+	transition: all 600ms ease-in-out;
+	text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.642);
 }
 nav ul li a:hover {
 	color: #0c101e;
@@ -47,6 +46,22 @@ nav ul li a:hover {
 nav ul li a:hover:before {
 	width: 95%;
 }
+
+nav ul li a.active {
+    color: #0c101e;
+	border-radius: 40px 0px 0px 40px;
+    background-color: #d5d4d4;
+}
+
+nav ul li a.active:before {
+	border-radius: 40px 0px 0px 40px;
+    width: 95%;
+}
+
+nav ul li a:hover:before {
+    width: 95%;
+}
+
 button{
   background: rgba(255, 21, 21, 0.848);
   color: #fff;
@@ -63,17 +78,11 @@ button:hover{
   background: rgb(251, 31, 31);
 }
 #foto{
-  height: 40px;
-  width: 40px;
-  flex-direction: column;
-  margin-right: 20px;
-  top: 30px;
   height: 70px;
   width: 70px;
   border-radius: 50%;
-  position: absolute;
-  top: 50px;
-  left: 70px;
+  overflow: hidden;
+  background-color: white;
 }
 #ds{
 	font-weight: 500;
@@ -83,5 +92,22 @@ button:hover{
 #nome{
 	font-weight: 300;
 	text-align: center;
-	margin-top: 70px;
+	margin-top: 20px;
+}
+
+#foto img{
+  height: 100%;
+  width: 100%;
+}
+
+.boxPerfil{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+	width: 100%;
 }

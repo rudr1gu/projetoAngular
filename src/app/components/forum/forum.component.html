@@ -1,28 +1,8 @@
-<section class="container">
-    <section class="filtros">
-        <div class="select">
-            <select name="filtroComponente">
-                <option value="1">Desenvolvimento Web I</option>
-                <option value="2">Programação e Algoritimos</option>
-                <option value="3">Banco de Dados I</option>
-                <option value="4">Desing Digital</option>
-                <option value="5">Fundamentos da Informatica</option>
-            </select>
-        </div>
-        <div class="select">
-            <select name="tags">
-                <option value="1">HTML</option>
-                <option value="2">CSS</option>
-                <option value="3">JavaScript</option>
-                <option value="4">PHP</option>
-            </select>
-        </div>
-    
-        <button class="btnBuscar">Buscar</button>
-    </section>
+<section>
     <section class="addQuest">
-        <button class="btn" (click)="showForm()">Adicionar Questão</button>
+        <button class="btn" (click)="showForm()"><i class='bx bxs-comment-add' ></i> Adicionar </button> <button class="btn" (click)="showFilter()"><i class='bx bx-filter-alt'></i> Filtrar</button>
     </section>
+    
     <section class="questoes">
         <div class="questao">
             <h3>Como faço para criar um site?</h3>
@@ -31,7 +11,7 @@
                 <p><span>Data:</span> 06/09/2024</p>
             </div>
             <p>Estou com dificuldades para criar um site, alguém pode me ajudar?</p>
-           
+    
             <p>Componente: Desenvolvimento Web I</p>
             <ul>
                 <li>HTML</li>
@@ -42,8 +22,13 @@
                 <button class="btnResposta"><i class='bx bx-message-rounded-add' ></i>  Responder</button>
             </div>
         </div>
-</section>
-
-<section class="form"  *ngIf="newQuestion">
-    <app-new-question></app-new-question>
+    </section>
+    
+    <section class="form"  *ngIf="newQuestion">
+        <app-new-question [showForm]="newQuestion" (closeForm)="showForm()" ></app-new-question>
+    </section>
+    
+    <section class="filtro" *ngIf="showFiltro">
+        <app-filtro [showFilter]="showFiltro"(closeFiltro)="showFilter()" ></app-filtro>
+    </section>
 </section>

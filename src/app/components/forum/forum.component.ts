@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class ForumComponent implements OnInit {
   newQuestion: boolean = false;
+  showFiltro: boolean = false;
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class ForumComponent implements OnInit {
 
   showForm() {
     this.newQuestion = !this.newQuestion;
+  }
+
+  showFilter() {
+    this.showFiltro = !this.showFiltro;
   }
 
 }
