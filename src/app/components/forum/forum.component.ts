@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { Forum } from '../../models/Forum';
+
+import { UserDataServiceService } from '../../services/user-data-service.service';
+import { ForumService } from '../../services/forum/forum.service';
 
 
 @Component({
@@ -11,9 +16,27 @@ export class ForumComponent implements OnInit {
   newQuestion: boolean = false;
   showFiltro: boolean = false;
 
-  constructor() { }
+  apiUrl = environment.baseApiUrl;
+
+  forums: Forum[] = [];
+
+  constructor(
+    private forumService: ForumService,
+    private userDataService: UserDataServiceService
+  ) { }
 
   ngOnInit(): void {
+    this.forumService.getAllForums().subscribe((items) => {
+      const data = items;
+      this.forums = data.map(forum => {
+        forum.createdAt = new Date(forum.createdAt!).toLocaleString('pt-BR');
+
+        return forum;
+      });
+
+      console.log('Forums carregados:', this.forums);
+    });
+
   }
 
   showForm() {

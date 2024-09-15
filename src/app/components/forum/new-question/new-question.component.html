@@ -1,16 +1,16 @@
 <section class="container">
-    <form>
+    <form (ngSubmit)="submitForum()" [formGroup]="forumForm" #formDir="ngForm">
         <div class="form-group">
             <label for="titulo">Título</label>
-            <input type="text" id="titulo" name="titulo" class="form-control" required>
+            <input type="text" id="titulo" name="titulo" class="form-control" formControlName="titulo" required>
         </div>
         <div class="form-group">
             <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" class="form-control" required></textarea>
+            <textarea id="descricao" name="descricao" class="form-control" formControlName="descricao" required></textarea>
         </div>
         <div class="form-group">
             <label for="componente">Componente</label>
-            <select name="componente" id="componente" class="form-control" required>
+            <select name="materiaId" id="materiaId" class="form-control" formControlName="materiaId" required>
                 <option value="1">Desenvolvimento Web I</option>
                 <option value="2">Programação e Algoritimos</option>
                 <option value="3">Banco de Dados I</option>
