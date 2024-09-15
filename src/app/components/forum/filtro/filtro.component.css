@@ -10,6 +10,7 @@
     background-color: white;
     padding: 5px;
     position: relative;
+    border-radius: 10px;
 }
 
 .filtros{
@@ -18,6 +19,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+    
 }
 
 .select{
