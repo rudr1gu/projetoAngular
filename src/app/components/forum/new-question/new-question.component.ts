@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ForumService } from '../../../services/forum/forum.service';
 import { Alunos } from '../../../models/Alunos';
@@ -12,6 +13,7 @@ import { UserDataServiceService } from '../../../services/user-data-service.serv
   styleUrl: './new-question.component.css'
 })
 export class NewQuestionComponent implements OnInit {
+  
   @Input() userData!: Alunos | Professor;
   @Input() showForm!: boolean;
   @Output() closeForm = new EventEmitter<void>();

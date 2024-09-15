@@ -16,6 +16,7 @@ import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-alu
 import { LoginAlunoComponent } from './components/login-aluno/login-aluno.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { NewQuestionComponent } from './components/forum/new-question/new-question.component';
+import { FiltroComponent } from './components/forum/filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NewQuestionComponent } from './components/forum/new-question/new-questi
     CadastroAlunoComponent,
     LoginAlunoComponent,
     ForumComponent,
-    NewQuestionComponent
+    NewQuestionComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,84 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: 20px;
+    padding: 5px;
+    background-color: white;
+    padding: 5px;
+    position: relative;
+}
+
+.filtros{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.select{
+    width: 35%;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select select{
+    width: 100%;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.select select:focus{
+    outline: none;
+}
+
+.btnBuscar{
+    width: 20%;
+    background-color: #0c101e;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnBuscar:hover{
+    background-color: #0c101ee4;
+    cursor: pointer;
+}
+
+span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 5px;
+}

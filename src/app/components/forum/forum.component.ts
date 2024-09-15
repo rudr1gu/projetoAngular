@@ -14,6 +14,7 @@ import { ForumService } from '../../services/forum/forum.service';
 
 export class ForumComponent implements OnInit {
   newQuestion: boolean = false;
+  showFiltro: boolean = false;
 
   apiUrl = environment.baseApiUrl;
 
@@ -42,8 +43,8 @@ export class ForumComponent implements OnInit {
     this.newQuestion = !this.newQuestion;
   }
 
-  toggleForm() {
-    this.newQuestion = !this.newQuestion;
+  showFilter() {
+    this.showFiltro = !this.showFiltro;
   }
 
 }
