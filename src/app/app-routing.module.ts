@@ -12,12 +12,12 @@ import { publicGuard } from './public.guard';
 import { ForumComponent } from './components/forum/forum.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'feed', component: FeedComponent},
-  {path:'forum', component: ForumComponent},
-  {path:'calendario', component: CalendarioComponent},
-  {path: 'arquivos', component: ArquivosComponent},
-  {path:'curso', component: CursoComponent},
+  {path:'', component: HomeComponent, canActivate: [authGuard]},
+  {path:'feed', component: FeedComponent, canActivate: [authGuard]},
+  {path:'forum', component: ForumComponent, canActivate: [authGuard]},
+  {path:'calendario', component: CalendarioComponent, canActivate: [authGuard]},
+  {path: 'arquivos', component: ArquivosComponent, canActivate: [authGuard]},
+  {path:'curso', component: CursoComponent, canActivate: [authGuard]},
   {path:'cadastro', component: CadastroAlunoComponent, canActivate: [publicGuard]},
   {path:'login', component: LoginAlunoComponent, canActivate: [publicGuard]}
 ];
