@@ -9,6 +9,7 @@
                 <p><span>Autor:</span> {{forum.aluno.nome}}</p>
                 <p><span>Data:</span> {{forum.createdAt}}</p>
             </div>
+            <p>{{forum.descricao}}</p>
 
             <ul>
                 <li>HTML</li>
@@ -22,7 +23,7 @@
     </section>
     
     <section class="form"  *ngIf="newQuestion">
-        <app-new-question [showForm]="newQuestion" (closeForm)="showForm()" ></app-new-question>
+        <app-new-question [showForm]="newQuestion" [forums]="forums" (closeForm)="showForm()" ></app-new-question>
     </section>
     
     <section class="filtro" *ngIf="showFiltro">

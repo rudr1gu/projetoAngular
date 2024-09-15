@@ -6,6 +6,8 @@ import { Alunos } from '../../../models/Alunos';
 import { Professor } from '../../../models/Professor';
 import { environment } from '../../../../environments/environment';
 import { UserDataServiceService } from '../../../services/user-data-service.service';
+import { Forum } from '../../../models/Forum';
+import { Materias } from '../../../models/Materias';
 
 @Component({
   selector: 'app-new-question',
@@ -16,9 +18,11 @@ export class NewQuestionComponent implements OnInit {
   
   @Input() userData!: Alunos | Professor;
   @Input() showForm!: boolean;
+  @Input() forums!: Forum[];
   @Output() closeForm = new EventEmitter<void>();
 
   apiUrl = environment.baseApiUrl;
+  materias: Materias[] = [];
   
   forumForm!: FormGroup;
   
@@ -41,6 +45,7 @@ export class NewQuestionComponent implements OnInit {
       materiaId: new FormControl('', Validators.required),
       alunoId: new FormControl(this.userData.id),
     });
+
   }
 
   submitForum() {
