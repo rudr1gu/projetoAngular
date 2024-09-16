@@ -8,6 +8,7 @@ import { environment } from '../../../../environments/environment';
 import { UserDataServiceService } from '../../../services/user-data-service.service';
 import { Forum } from '../../../models/Forum';
 import { Materias } from '../../../models/Materias';
+import { MateriaService } from '../../../services/materia/materia.service';
 
 @Component({
   selector: 'app-new-question',
@@ -28,7 +29,8 @@ export class NewQuestionComponent implements OnInit {
   
   constructor(
     private forumService: ForumService,
-    private userDataService: UserDataServiceService
+    private userDataService: UserDataServiceService,
+    private materiaService: MateriaService,
   ) {}
 
   ngOnInit() {
@@ -39,12 +41,21 @@ export class NewQuestionComponent implements OnInit {
       }
     });
 
+    this.materiaService.getAllMaterias().subscribe((items) => {
+      const data = items;
+      this.materias = data.map(materia => {
+        return materia;
+        
+      }); 
+    });
+
     this.forumForm = new FormGroup({
       titulo: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
       materiaId: new FormControl('', Validators.required),
       alunoId: new FormControl(this.userData.id),
     });
+
 
   }
 
