@@ -6,6 +6,7 @@
     justify-content: space-evenly;
 }
 
+
 .questoes{
     width: 100%;
     display: flex;
@@ -18,8 +19,9 @@
 .questao{
     position: relative;
     background-color: white;
-    width: 98%;
-    padding: 10px;
+    width: 92%;
+    margin-left: 5%;
+    padding: 15px;
     margin-top: 10px;
     border-radius: 10px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
@@ -37,13 +39,14 @@
     font-size: 16px;
     font-weight: 500;
     color: black;
+    margin-bottom: 10px;
 }
 
 .questao button{
     background-color: #0c101e;
     color: white;
     font-size: 14px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     border: 1px solid  #b1aeae;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.082);
@@ -58,14 +61,14 @@
 
 .questao .autor{
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width:  50%;
+    justify-content: flex-start;
+    width:  100%;
 }
 .questao .autor span{
     font-size: 12px;
     font-weight: 500;
     color: black;
+    margin-right: 20px;
 }
 .questao ul{
     list-style-type: none;
@@ -77,10 +80,10 @@
     margin-right: 6px;
     font-size: 11px;
     padding: 4px 7px;
-    border-radius: 5px;
-    background-color: #0c101e;
+    border-radius: 7px;
+    background: linear-gradient(#08f8f8, #0bbfbf);
     color: white;
-    font-weight: 400;
+    font-weight: 500;
 }
 .questao .respostas{
     position: absolute;

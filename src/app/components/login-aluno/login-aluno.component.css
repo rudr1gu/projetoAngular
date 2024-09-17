@@ -25,12 +25,13 @@
     width: fit-content;
     position: static;
     width: 275px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    
 }
 
 .form-group label {
     color: black;
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
     top: 0.5rem;
     margin: 0 0 0 7px;
@@ -68,10 +69,19 @@ p{
     margin-top: 5px;
 }
 select{
-    width: 150px;
+    width: 200px;
     margin-left: 15px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid  #0c101e;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 option{
     color: #fff;
     background-color: #0c101e;
+}
+label{
+    color: black;
+    font-weight: 600;
 }

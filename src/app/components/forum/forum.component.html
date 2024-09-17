@@ -3,11 +3,16 @@
         <button class="btn" (click)="showForm()"><i class='bx bxs-comment-add' ></i> Adicionar </button> <button class="btn" (click)="showFilter()"><i class='bx bx-filter-alt'></i> Filtrar</button>
     </section>
     <section class="questoes" *ngFor="let forum of forums">
+        <div class="img">
+            <div class="fotPerfil">
+                <img src="http://localhost:3333/uploads/{{forum.aluno.img}}" alt="">
+            </div>
+        </div>
         <div class="questao">
             <h3>{{forum.titulo}}</h3>
             <div class="autor">
-                <p><span>Autor:</span> {{forum.aluno.nome}}</p>
-                <p><span>Data:</span> {{forum.createdAt}}</p>
+                <p><span>Autor: {{forum.aluno.nome}}</span></p>
+                <p><span>Data: {{forum.createdAt}}</span></p>
             </div>
             <p>{{forum.descricao}}</p>
 

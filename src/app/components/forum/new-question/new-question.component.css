@@ -5,12 +5,11 @@
     align-items: center;
     justify-content: center;
     width: 95%;
-    margin: 20px;
-    padding: 5px;
+    margin: 50px;
+    padding: 15px;
     background-color: white;
     padding: 5px;
     border-radius: 10px;
-
 }
 
 .form-group{
@@ -18,7 +17,7 @@
     flex-direction: column;
     width: fit-content;
     position: static;
-    width: 275px;
+    width: 400px;
     margin-bottom: 15px;
 }
 
@@ -51,10 +50,6 @@
 .form-group input[type=text].input:focus {
     outline: none;
 }
-select{
-    width: 150px;
-
-}
 option{
     color: #fff;
     background-color: #0c101e;
@@ -79,10 +74,9 @@ button:hover{
 }
 
 .form-control{
-    width: 100%;
     padding: 5px;
     border-radius: 10px;
-    border: 1px solid  #b1aeae;
+    border: 2px solid  #0c101e;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
