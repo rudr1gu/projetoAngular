@@ -4,11 +4,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 95%;
-    margin: 50px;
-    padding: 15px;
+    padding: 40px;
     background-color: white;
-    padding: 5px;
     border-radius: 10px;
 }
 
