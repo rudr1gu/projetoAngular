@@ -22,7 +22,7 @@
                 <li>Java Script</li>
             </ul>
             <div class="respostas">
-                <button class="btnResposta"><i class='bx bx-message-rounded-add' ></i>  Responder</button>
+                <button class="btnResposta" (click)="showAnswers()"><i class='bx bx-message-rounded-add' ></i>  Responder</button>
             </div>
         </div>
     </section>
@@ -30,6 +30,9 @@
     <section class="form"  *ngIf="newQuestion">
         <app-new-question [showForm]="newQuestion" [forums]="forums" (closeForm)="showForm()" ></app-new-question>
     </section>
+
+    <app-resposta [isOpen]="showRespostas" (close)="showAnswers()"></app-resposta> <!-- Captura o evento close -->
+         
     
     <section class="filtro" *ngIf="showFiltro">
         <app-filtro [showFilter]="showFiltro"(closeFiltro)="showFilter()" ></app-filtro>

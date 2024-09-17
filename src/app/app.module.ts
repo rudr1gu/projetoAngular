@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import{ HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { LoginAlunoComponent } from './components/login-aluno/login-aluno.compon
 import { ForumComponent } from './components/forum/forum.component';
 import { NewQuestionComponent } from './components/forum/new-question/new-question.component';
 import { FiltroComponent } from './components/forum/filtro/filtro.component';
+import { RespostaComponent } from './components/forum/resposta/resposta.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,16 @@ import { FiltroComponent } from './components/forum/filtro/filtro.component';
     LoginAlunoComponent,
     ForumComponent,
     NewQuestionComponent,
-    FiltroComponent
+    FiltroComponent,
+    RespostaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),

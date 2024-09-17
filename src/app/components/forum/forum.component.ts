@@ -15,6 +15,7 @@ import { ForumService } from '../../services/forum/forum.service';
 export class ForumComponent implements OnInit {
   newQuestion: boolean = false;
   showFiltro: boolean = false;
+  showRespostas: boolean = false;
 
   apiUrl = environment.baseApiUrl;
 
@@ -46,5 +47,10 @@ export class ForumComponent implements OnInit {
   showFilter() {
     this.showFiltro = !this.showFiltro;
   }
+
+  showAnswers() {
+    this.showRespostas = !this.showRespostas; // Alterna ou fecha as respostas
+  }
+  
 
 }
