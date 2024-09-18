@@ -1,7 +1,26 @@
 <div @slideInOut [@slideInOut]="stateName" class="resposta-overlay">
     <div class="resposta">
+        <div class="publicacao">
+            <form>
+                <div class="publicacao-body">
+                    <textarea 
+                    class="form-control" 
+                    rows="2" placeholder="Responda ..." 
+                    id="conteudo" name="conteudo" formControlName="conteudo"></textarea>
+                    <div class="btns">
+                        <button class="btn btn-sm btn-primary pull-right" type="submit" ><i class="fa fa-pencil fa-fw"></i> Enviar</button>
+                            <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
+                            <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
+                            <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <button class="btn-close" (click)="closeResposta()"><i class='bx bxs-x-circle'></i></button>
         <h2>Respostas</h2>
         <p>Conteúdo da resposta...</p>
-        <button (click)="closeResposta()">Fechar</button> <!-- Botão que emite o evento de fechamento -->
+        
+        <!-- Botão que emite o evento de fechamento -->
     </div>
+    
 </div>

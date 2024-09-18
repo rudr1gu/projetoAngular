@@ -81,22 +81,13 @@ button:hover{
     outline: none;
 }
 
-span{
+.btn-close{
     position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 14px;
-    font-weight: 500;
+    right: 5px;
+    top: 5px;
     color: black;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: white;
+    border: 0;
+    font-size: 30px;
     cursor: pointer;
-    transition: 0.3s;
-    border-radius: 50%;
-    border: 1px solid black;
-    padding: 3px;
-    margin: 5px;
 }

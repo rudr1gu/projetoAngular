@@ -65,8 +65,13 @@ export class NewQuestionComponent implements OnInit {
         console.log('Forum criado com sucesso', data);
         this.forumForm.reset();
         this.closeQuestionForm();
+        this.loadForum();
       });
     }
+  }
+
+  loadForum() {
+    location.reload();
   }
 
   closeQuestionForm() {
