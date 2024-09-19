@@ -13,6 +13,9 @@ export class CadastroAlunoComponent implements OnInit {
   alunos: Alunos[] = [];
   alunosForm!: FormGroup;
   selectedFile?: File;
+
+  showPassword: boolean = false;
+  showPasswordConfirmation: boolean = false;
   
   constructor(
     private alunosService: CadastroAlunosService,
@@ -21,11 +24,11 @@ export class CadastroAlunoComponent implements OnInit {
 
   ngOnInit(): void {
     this.alunosForm = new FormGroup({
-      tipo: new FormControl('aluno', Validators.required),  // Adicionando o tipo ao formulário
+      tipo: new FormControl('selecione', Validators.required),  // Adicionando o tipo ao formulário
       nome: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       senha: new FormControl('', Validators.required),
-      curso_id: new FormControl(''), // Ajustando o nome para ser consistente com o HTML
+      curso_id: new FormControl('1'), // Ajustando o nome para ser consistente com o HTML
       img: new FormControl(null)
     });
   }
@@ -83,5 +86,13 @@ export class CadastroAlunoComponent implements OnInit {
       this.selectedFile = input.files[0];
       console.log('Arquivo selecionado', this.selectedFile);
     }
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  togglePasswordConfirmation() {
+    this.showPasswordConfirmation = !this.showPasswordConfirmation;
   }
 }
