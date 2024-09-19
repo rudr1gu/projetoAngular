@@ -21,11 +21,11 @@ export class CadastroAlunoComponent implements OnInit {
 
   ngOnInit(): void {
     this.alunosForm = new FormGroup({
-      tipo: new FormControl('aluno', Validators.required),  // Adicionando o tipo ao formulário
+      tipo: new FormControl('Selecione', Validators.required),  // Adicionando o tipo ao formulário
       nome: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       senha: new FormControl('', Validators.required),
-      curso_id: new FormControl(''), // Ajustando o nome para ser consistente com o HTML
+      curso_id: new FormControl('1'), // Ajustando o nome para ser consistente com o HTML
       img: new FormControl(null)
     });
   }
