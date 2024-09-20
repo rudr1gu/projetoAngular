@@ -1,8 +1,8 @@
 export interface Resposta {
-    id: number;
-    descricao: string;
+    id?: number;
+    resposta: string;
     forumId: number;
-    alunoId: number;
+    usuarioId: number;
     createdAt?: string;
     updatedAt?: Date;
 }

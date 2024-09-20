@@ -21,6 +21,9 @@ export class ForumComponent implements OnInit {
 
   forums: Forum[] = [];
 
+  selectedForum!: Forum;
+  selectedForumId!: number;
+
   constructor(
     private forumService: ForumService,
     private userDataService: UserDataServiceService
@@ -48,9 +51,9 @@ export class ForumComponent implements OnInit {
     this.showFiltro = !this.showFiltro;
   }
 
-  showAnswers() {
-    this.showRespostas = !this.showRespostas; // Alterna ou fecha as respostas
+  showAnswers(forumId: number) {
+   this.selectedForumId = forumId;
+   this.showRespostas = !this.showRespostas;
   }
   
-
 }

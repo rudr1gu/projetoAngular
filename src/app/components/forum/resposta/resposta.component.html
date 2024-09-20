@@ -1,12 +1,16 @@
 <div @slideInOut [@slideInOut]="stateName" class="resposta-overlay">
     <div class="resposta">
         <div class="publicacao">
-            <form>
+            <form [formGroup]="respostaForm" (ngSubmit)="adicionarResposta()">
                 <div class="publicacao-body">
                     <textarea 
-                    class="form-control" 
-                    rows="2" placeholder="Responda ..." 
-                    id="conteudo" name="conteudo" formControlName="conteudo"></textarea>
+                        class="form-control" 
+                        rows="2"
+                        placeholder="Responda ..." 
+                        id="resposta"
+                        name="resposta"
+                        formControlName="resposta">
+                    </textarea>
                     <div class="btns">
                         <button class="btn btn-sm btn-primary pull-right" type="submit" ><i class="fa fa-pencil fa-fw"></i> Enviar</button>
                             <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
