@@ -1,17 +1,42 @@
-/* .corpo{
-    position: absolute;
-    width: 100%;
-    height:100%;
+.container{
     display: flex;
     justify-content: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+    width: 60%;
+    height: 70%;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+.container1{
+    padding: 20px 80px 20px 80px;
+    width: 50%;
+    background: rgb(8,248,232);
+    background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-} */
-.container {
-    max-width: 600px;
-    padding: 20px;
+}
+
+.container2 {
+    width: 50%;
+    height: 100%;
+    padding: 20px 80px 20px 80px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
 }
 
 .container h2 {
@@ -24,14 +49,13 @@
     flex-direction: column;
     width: fit-content;
     position: static;
-    width: 275px;
-    margin-bottom: 15px;
-    
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .form-group label {
     color: black;
-    font-weight: 600;
+    font-weight: 500;
     position: relative;
     top: 0.5rem;
     margin: 0 0 0 7px;
@@ -41,15 +65,28 @@
 }
 
 .form-group input {
-    padding: 11px 10px;
-    font-size: 0.75rem;
-    border: 2px #0c101e solid;
+    padding: 5px 5px;
+    font-size: 1rem;
+    border: 1px #0c101e solid;
     border-radius: 5px;
     background: #fff;
+    width: 100%;
 }
+
+.form-group input:invalid {
+    border-color: red;
+}
+
 .form-group input[type=text].input:focus {
     outline: none;
-  }
+}
+
+select{
+    padding: 5px 5px;
+    font-size: 1rem;
+    border: 1px #0c101e solid;
+    border-radius: 5px;
+}
 
 button {
     width: 100%;
@@ -84,4 +121,18 @@ option{
 label{
     color: black;
     font-weight: 600;
+}
+
+.btn-cadastrar{
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 20px;
+    border: 2px solid white;
 }
