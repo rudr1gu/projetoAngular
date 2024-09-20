@@ -69,7 +69,8 @@ export class RespostaComponent implements OnInit {
     this.forumservice.createResposta(data).subscribe(
       (response) => {
         console.log('Resposta criada com sucesso:', response);
-        this.closeResposta();  // Fecha o modal de resposta após criar
+        
+        this.respostaForm.reset();
       },
       (error) => {
         console.error('Erro ao criar resposta:', error);
@@ -82,6 +83,7 @@ export class RespostaComponent implements OnInit {
   }
 
   closeResposta() {
+    this.isOpen = false;
     this.close.emit();
   }
 }

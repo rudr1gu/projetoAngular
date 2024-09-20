@@ -1,5 +1,5 @@
-<div @slideInOut [@slideInOut]="stateName" class="resposta-overlay">
-    <div class="resposta">
+<div  class="resposta-overlay" *ngIf="isOpen">
+    <div  @slideInOut [@slideInOut]="stateName" class="resposta">
         <div class="publicacao">
             <form [formGroup]="respostaForm" (ngSubmit)="adicionarResposta()">
                 <div class="publicacao-body">
@@ -23,8 +23,5 @@
         <button class="btn-close" (click)="closeResposta()"><i class='bx bxs-x-circle'></i></button>
         <h2>Respostas</h2>
         <p>Conteúdo da resposta...</p>
-        
-        <!-- Botão que emite o evento de fechamento -->
     </div>
-    
 </div>
