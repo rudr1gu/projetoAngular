@@ -36,7 +36,6 @@ export class FeedService {
   }
 
   //comentarios
-
   addComentario(data: Comentarios): Observable<Response<Comentarios>> {
     const url = `${this.apiUrl}/${data.postagemId}/comentarios`;
     return this.http.post<Response<Comentarios>>(url, data);

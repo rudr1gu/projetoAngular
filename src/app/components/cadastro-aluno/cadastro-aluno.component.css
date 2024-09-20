@@ -70,6 +70,10 @@ h1 {
     background: #fff;
 }
 
+.form-group input:invalid {
+    border-color: red;
+}
+
 .form-group input[type=text].input:focus {
     outline: none;
 }
@@ -79,6 +83,22 @@ select{
     font-size: 1rem;
     border: 1px #0c101e solid;
     border-radius: 5px;
+}
+
+select:focus {
+    outline: none;
+}
+
+select:invalid {
+    border-color: red;
+}
+
+select option {
+    color: black;
+}
+
+select option:disabled {
+    color: #ccc;
 }
 
 button {
@@ -111,20 +131,24 @@ input[type="file"] {
     display: none;
 }
 
-.custom-file{
+.custom-file {
     cursor: pointer;
     display: inline-block;
     padding: 10px;
     border-radius: 5px;
     font-size: 1em;
     border: 1px solid #0c101e;
-    background: #0c101e;
+    background: #0c101e !important ;
+    color: white !important;
+    transition: 300ms;
 }
 
-.custom-file:hover{
-    background: #0c101e;
-    color: white;
+/* Quando o mouse passa sobre o botão */
+.custom-file:hover {
+    background: #333 !important; /* Background alterado no hover, se desejado */
+    color: white; /* Certifique-se de que a cor do texto também fique visível no hover */
 }
+
 
 .senha-container {
     position: relative;
@@ -141,4 +165,9 @@ color: #0c101e;
 
 .toggle-password i {
 pointer-events: none;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

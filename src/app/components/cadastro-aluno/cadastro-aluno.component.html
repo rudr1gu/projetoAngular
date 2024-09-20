@@ -10,14 +10,14 @@
                 <div class="form-group">
                     <label for="tipo">Tipo</label>
                     <select name="tipo" id="tipo" formControlName="tipo">
-                        <option value="selecione">Selecione ...</option>
+                        <option value="selecione" disabled>Selecione ...</option>
                         <option value="aluno">Aluno</option>
                         <option value="professor">Professor</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="nome"><i class='bx bxs-user-circle' ></i> Nome</label>
-                    <input type="text" class="form-control" name="nome" id="nome">
+                    <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
                 </div>
                 <div class="form-group">
                     <label for="email"><i class='bx bxs-envelope'></i> Email</label>
@@ -31,8 +31,8 @@
                     </span>
                 </div>
                 <div class="form-group senha-container">
-                    <label for="senha"><i class='bx bxs-key'></i>Confirme a Senha</label>
-                    <input [type]="showPasswordConfirmation ? 'text' : 'password'" class="form-control" id="senha" name="senha" formControlName="senha">
+                    <label for="csenha"><i class='bx bxs-key'></i>Confirme a Senha</label>
+                    <input [type]="showPasswordConfirmation ? 'text' : 'password'" class="form-control" id="confirmarSenha" name="confirmarSenha" formControlName="confirmarSenha">
                     <span class="toggle-password" (click)="togglePasswordConfirmation()">
                       <i [class]="showPasswordConfirmation ? 'bx bxs-show' : 'bx bxs-hide'"></i>
                     </span>
@@ -47,7 +47,7 @@
                     <label for="img" class="custom-file"><i class='bx bx-image-add' ></i> Enviar Imagem</label>
                     <input type="file" id="img" (change)="onFileSelected($event)">
                 </div>
-                <button type="submit">Registrar</button>
+                <button type="submit" [disabled]="alunosForm.invalid">Registrar</button>
             </form>
         </section>
     </section>

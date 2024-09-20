@@ -24,11 +24,12 @@ export class CadastroAlunoComponent implements OnInit {
 
   ngOnInit(): void {
     this.alunosForm = new FormGroup({
-      tipo: new FormControl('selecione', Validators.required),  // Adicionando o tipo ao formulário
+      tipo: new FormControl('selecione', Validators.required),
       nome: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       senha: new FormControl('', Validators.required),
-      curso_id: new FormControl('1'), // Ajustando o nome para ser consistente com o HTML
+      curso_id: new FormControl('1', Validators.required),
+      confirmarSenha: new FormControl(''),
       img: new FormControl(null)
     });
   }
@@ -36,6 +37,13 @@ export class CadastroAlunoComponent implements OnInit {
   async onSubmit() {
     if (this.alunosForm.invalid) {
       alert('Preencha todos os campos');
+      console.log('Formulário inválido', this.alunosForm);
+      return;
+    }
+
+    if (this.alunosForm.get('senha')!.value !== this.alunosForm.get('confirmarSenha')!.value) {
+      alert('Senhas não conferem');
+
       return;
     }
 

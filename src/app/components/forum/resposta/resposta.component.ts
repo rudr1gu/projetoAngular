@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Resposta } from '../../../models/Resposta';
+import { ForumService } from '../../../services/forum/forum.service';
+import { Form, FormGroup } from '@angular/forms';
+import { UserDataServiceService } from '../../../services/user-data-service.service';
+import { Alunos } from '../../../models/Alunos';
+import { Professor } from '../../../models/Professor';
 
 
 @Component({
@@ -26,13 +32,28 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class RespostaComponent implements OnInit {
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter();
+  @Input() userData!: Alunos | Professor;
 
-  constructor() { }
+  respostaForm!: FormGroup;
 
-  ngOnInit(): void {}
+  resposta: Resposta[] = [];
+
+  constructor(
+    private forumservice: ForumService,
+    private userDataService: UserDataServiceService
+  ) { }
+
+  ngOnInit(): void {
+    this.userDataService.currentUserData.subscribe((userData) => {
+      if (userData) {
+        this.userData = userData!;
+        console.log('userData', this.userData);
+      }
+    });
+  }
 
   get stateName() {
-    return this.isOpen ? 'in' : 'out'; // Define o estado da animação
+    return this.isOpen ? 'in' : 'out';
   }
 
   closeResposta() {

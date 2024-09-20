@@ -36,5 +36,10 @@ export class ForumService {
     return this.http.delete<Forum>(`${this.apiUrl}/${id}`);
   }
 
+  createResposta(data: Resposta): Observable<Response<Resposta>> {
+    const url = `${this.apiUrl}/${data.forumId}/respostas`;
+    return this.http.post<Response<Resposta>>(url, data);
+  }
+
 
 }
