@@ -21,7 +21,39 @@ export class ForumComponent implements OnInit {
 
   forums: Forum[] = [];
 
-  selectedForum!: Forum;
+  selectedForum: Forum = {
+    id: 0,
+    titulo: '',
+    descricao: '',
+    aluno: {
+      id: 0,
+      nome: '',
+      email: '',
+      senha: '',
+      rg: '',
+      cpf: '',
+      matricula: '',
+      data_nascimento: '',
+      telefone: '',
+      cursoId: 0,
+      genero: '',
+      img: '',
+      createdAt: '',
+      updatedAt: ''
+    },
+    respostas: [],
+    createdAt: '',
+    alunoId: 0,
+    materiaId: 0,
+    materia: {
+      id: 0,
+      nome: '',
+      descricao: '',
+      cursoId: 0,
+      tags: [],
+    }
+  };
+  
   selectedForumId!: number;
 
   constructor(

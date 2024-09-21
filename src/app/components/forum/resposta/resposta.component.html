@@ -21,9 +21,17 @@
             </form>
         </div>
         <button class="btn-close" (click)="closeResposta()"><i class='bx bxs-x-circle'></i></button>
-        <div *ngFor="let resposta of respostas">
-            <p>{{ resposta.resposta }}</p>
-            <small>Postado em: {{ resposta.createdAt | date:'short' }}</small>
-        </div>
+        <div *ngFor="let resposta of respostas" class="resposta-card">
+            <div class="resposta-header">
+              <div class="fotoPerfil">
+                <img src="http://localhost:3333/uploads/{{resposta.aluno!.img}}" alt="foto de perfil">
+              </div>
+              <div class="resposta-info">
+                <p class="nome"><strong>{{ resposta.aluno!.nome }}</strong></p>
+                <small class="data">Postado em: {{ resposta.createdAt | date:'short' }}</small>
+              </div>
+            </div>
+            <p class="conteudo">{{ resposta.resposta }}</p>
+          </div>
     </div>
 </div>
