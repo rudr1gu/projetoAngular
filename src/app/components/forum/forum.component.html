@@ -31,14 +31,13 @@
         <app-new-question [showForm]="newQuestion" [forums]="forums" (closeForm)="showForm()" ></app-new-question>
     </section>
 
-    <app-resposta 
+    <app-resposta
         [isOpen]="showRespostas"
         [forumId]="selectedForumId"
         [respostas]="selectedForum.respostas || []"
         (close)="showAnswers(selectedForumId)">
     </app-resposta>
-         
-    
+
     <section class="filtro" *ngIf="showFiltro">
         <app-filtro [showFilter]="showFiltro"(closeFiltro)="showFilter()" ></app-filtro>
     </section>

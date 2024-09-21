@@ -1,5 +1,5 @@
-<div  class="resposta-overlay" *ngIf="isOpen">
-    <div  @slideInOut [@slideInOut]="stateName" class="resposta">
+<div  class="resposta-overlay"  @slideInOut [@slideInOut]="stateName">
+    <div  class="resposta">
         <div class="publicacao">
             <form [formGroup]="respostaForm" (ngSubmit)="adicionarResposta()">
                 <div class="publicacao-body">
