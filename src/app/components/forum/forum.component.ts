@@ -54,6 +54,14 @@ export class ForumComponent implements OnInit {
   showAnswers(forumId: number) {
    this.selectedForumId = forumId;
    this.showRespostas = !this.showRespostas;
+
+   if (this.showRespostas) {
+     this.forumService.getForum(forumId).subscribe((forum) => {
+       this.selectedForum = forum;
+       console.log('Forum selecionado:', this.selectedForum);
+     });
+   }
+
   }
   
 }

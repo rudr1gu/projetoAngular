@@ -36,10 +36,9 @@ export class RespostaComponent implements OnInit {
   @Input() userData!: Alunos | Professor;
   @Input() forum?: Forum;
   @Input() forumId!: number;
+  @Input() respostas!: Resposta[];
 
   respostaForm!: FormGroup;
-
-  resposta: Resposta[] = [];
 
   constructor(
     private forumservice: ForumService,
@@ -70,6 +69,13 @@ export class RespostaComponent implements OnInit {
       (response) => {
         console.log('Resposta criada com sucesso:', response);
         
+        this.forumservice.getForum(this.forumId).subscribe((forum) => {
+          this.forum = forum;
+          this.respostas = forum.respostas!;
+          console.log('Forum atualizado:', this.forum);
+        } );
+        
+
         this.respostaForm.reset();
       },
       (error) => {

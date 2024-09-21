@@ -21,7 +21,9 @@
             </form>
         </div>
         <button class="btn-close" (click)="closeResposta()"><i class='bx bxs-x-circle'></i></button>
-        <h2>Respostas</h2>
-        <p>Conteúdo da resposta...</p>
+        <div *ngFor="let resposta of respostas">
+            <p>{{ resposta.resposta }}</p>
+            <small>Postado em: {{ resposta.createdAt | date:'short' }}</small>
+        </div>
     </div>
 </div>
