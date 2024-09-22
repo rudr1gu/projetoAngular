@@ -10,17 +10,14 @@
         </div>
         <div class="form-group">
             <label for="componente">Componente</label>
-            <select name="materiaId" id="materiaId" class="form-control" formControlName="materiaId" required>
-                <option *ngFor="let materia of materias" value="{{ materia.id }}">{{ materia.nome }}</option>
+            <select name="materiaId" id="materiaId" class="form-control" formControlName="materiaId" required (change)="onMateriaChange()">
+                <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nome }}</option>
             </select>
         </div>
-        <div class="form-group">
+        <<div class="form-group">
             <label for="tags">Tags</label>
-            <select name="tags" id="tags" class="form-control" required>
-                <option value="1">HTML</option>
-                <option value="2">CSS</option>
-                <option value="3">JavaScript</option>
-                <option value="4">PHP</option>
+            <select name="tags" id="tags" class="form-control" formControlName="tags" multiple>
+                <option *ngFor="let tag of selectedTags" [value]="tag.nome">{{ tag.nome }}</option>
             </select>
         </div>
         <div class="form-group">

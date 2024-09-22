@@ -9,6 +9,7 @@ import { UserDataServiceService } from '../../../services/user-data-service.serv
 import { Forum } from '../../../models/Forum';
 import { Materias } from '../../../models/Materias';
 import { MateriaService } from '../../../services/materia/materia.service';
+import { Tag } from '../../../models/Tag';
 
 @Component({
   selector: 'app-new-question',
@@ -26,6 +27,8 @@ export class NewQuestionComponent implements OnInit {
   materias: Materias[] = [];
   
   forumForm!: FormGroup;
+
+  selectedTags: Tag[] = [];
   
   constructor(
     private forumService: ForumService,
@@ -44,6 +47,7 @@ export class NewQuestionComponent implements OnInit {
     this.materiaService.getAllMaterias().subscribe((items) => {
       const data = items;
       this.materias = data.map(materia => {
+        console.log('Materia:', materia);
         return materia;
         
       }); 
@@ -54,6 +58,7 @@ export class NewQuestionComponent implements OnInit {
       descricao: new FormControl('', Validators.required),
       materiaId: new FormControl('', Validators.required),
       alunoId: new FormControl(this.userData.id),
+      tags: new FormControl([]),
     });
 
 
@@ -69,6 +74,17 @@ export class NewQuestionComponent implements OnInit {
       });
     }
   }
+
+  onMateriaChange() {
+    const materiaId = this.forumForm.get('materiaId')?.value;
+    const materiaSelecionada = this.materias.find(materia => materia.id === Number(materiaId));
+    
+    if (materiaSelecionada) {
+        this.selectedTags = materiaSelecionada.tags; // Atualiza as tags
+        console.log('Tags selecionadas:', this.selectedTags); // Log para verificação
+        this.forumForm.get('tags')?.setValue([]); // Reseta as tags selecionadas
+    }
+}
 
   loadForum() {
     location.reload();
