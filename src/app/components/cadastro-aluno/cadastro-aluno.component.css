@@ -3,7 +3,6 @@
     width: 50%;
     background: rgb(8,248,232);
     background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
-    height: 100%;
     color: white;
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@
     justify-content: center;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
     width: 60%;
-    height: 70%;
     border-radius: 15px;
     overflow: auto;
 
@@ -170,4 +168,14 @@ pointer-events: none;
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+@media (max-width: 1200px){
+    .container1{
+        display: none;
+    }
+    .container2{
+        width: 100%;
+    }
+
 }
