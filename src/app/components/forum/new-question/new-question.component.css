@@ -32,7 +32,7 @@
 .form-group input{
     padding: 11px 10px;
     font-size: 0.75rem;
-    border: 2px #0c101e solid;
+    border: 1px #0c101e solid;
     border-radius: 5px;
     background: #fff;
 }
@@ -40,7 +40,7 @@
 .form-group textarea{
     padding: 11px 10px;
     font-size: 0.75rem;
-    border: 2px #0c101e solid;
+    border: 1px #0c101e solid;
     border-radius: 5px;
     background: #fff;
 }
@@ -48,8 +48,7 @@
     outline: none;
 }
 option{
-    color: #fff;
-    background-color: #0c101e;
+    color: black;
 }
 
 button{
@@ -91,3 +90,51 @@ button:hover{
     font-size: 30px;
     cursor: pointer;
 }
+
+.tags-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.tags-container h3{
+    color: black;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.btns-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content:  space-evenly;
+}
+
+.tag-btn {
+    background-color: #0c101e;
+    color: white;
+    font-size: 11px;
+    padding: 4px 7px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 300ms;
+
+  }
+  
+  .tag-btn.selected {
+    font-size: 11px;
+    padding: 4px 7px;
+    border-radius: 7px;
+    background: linear-gradient(#08f8f8, #0bbfbf);
+    color: white;
+    font-weight: 500;
+  }
+  
+  .tag-btn:hover {
+    background: linear-gradient(#08f8f8, #0bbfbf);
+    color: white;
+    font-weight: 500;
+    transform: scale(1.1);
+  }

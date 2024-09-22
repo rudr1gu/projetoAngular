@@ -29,6 +29,7 @@ export class NewQuestionComponent implements OnInit {
   forumForm!: FormGroup;
 
   selectedTags: Tag[] = [];
+  selectedTagList: Tag[] = [];  // Tags escolhidas pelo usuário
   
   constructor(
     private forumService: ForumService,
@@ -66,9 +67,13 @@ export class NewQuestionComponent implements OnInit {
 
   submitForum() {
     if (this.forumForm.valid) {
-      this.forumService.createForum(this.forumForm.value).subscribe((data) => {
+      this.forumService.createForum({
+        ...this.forumForm.value,
+        tags: this.selectedTagList.map(tag => tag.nome)
+      }).subscribe((data) => {
         console.log('Forum criado com sucesso', data);
         this.forumForm.reset();
+        this.selectedTagList = [];
         this.closeQuestionForm();
         this.loadForum();
       });
@@ -92,6 +97,20 @@ export class NewQuestionComponent implements OnInit {
 
   closeQuestionForm() {
     this.closeForm.emit();
+  }
+
+  toggleTagSelection(tag: Tag) {
+    const index = this.selectedTagList.findIndex(t => t.nome === tag.nome);
+    if (index >= 0) {
+      this.selectedTagList.splice(index, 1);
+    } else {
+      this.selectedTagList.push(tag);
+    }
+    this.forumForm.get('tags')?.setValue(this.selectedTagList);
+  }
+
+  isTagSelected(tag: Tag): boolean {
+    return this.selectedTagList.some(t => t.nome === tag.nome);
   }
 
 }

@@ -14,12 +14,24 @@
                 <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nome }}</option>
             </select>
         </div>
-        <<div class="form-group">
-            <label for="tags">Tags</label>
-            <select name="tags" id="tags" class="form-control" formControlName="tags" multiple>
-                <option *ngFor="let tag of selectedTags" [value]="tag.nome">{{ tag.nome }}</option>
-            </select>
+        <div class="form-group">
+            
+            <div class="tags-container" *ngIf="forumForm.valid">
+                <h3>Tags</h3>
+                <div class="btns-tags">
+                    <button
+                        *ngFor="let tag of selectedTags"
+                        type="button"
+                        class="tag-btn"
+                        [class.selected]="isTagSelected(tag)"
+                        (click)="toggleTagSelection(tag)"
+                    >
+                        {{ tag.nome }}
+                    </button>
+                </div>
+            </div>
         </div>
+          
         <div class="form-group">
             <label for="arquivo">Anexar Arquivo</label>
             <input type="file" id="arquivo" name="arquivo" class="form-control">
