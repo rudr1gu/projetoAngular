@@ -37,6 +37,7 @@ h1 {
     text-align: center;
     font-weight: 600;
     margin-bottom: 30px;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.33);
 }
 
 .container h2 {
@@ -89,18 +90,19 @@ select{
 }
 
 button {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     background-color: #0c101e;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     margin-top: 40px;
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 button:hover{
-    background-color: #0c101ee4;
+    background-color: #0c101edc;
 }
 p{
     margin-top: 5px;
@@ -125,14 +127,19 @@ label{
 
 .btn-cadastrar{
     text-align: center;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0);
     color: #fff;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 1em;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 20px;
     border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+.btn-cadastrar:hover{
+    background-color: #ffffffe4;
+    color: #0c101e;
 }
