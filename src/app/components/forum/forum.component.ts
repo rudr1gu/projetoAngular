@@ -20,6 +20,7 @@ export class ForumComponent implements OnInit {
   apiUrl = environment.baseApiUrl;
 
   forums: Forum[] = [];
+  allForums: Forum[] = [];
 
   selectedForum: Forum = {
     id: 0,
@@ -70,7 +71,8 @@ export class ForumComponent implements OnInit {
         return forum;
       });
 
-      console.log('Forums carregados:', this.forums);
+      this.forums = data;
+      this.allForums = data;
     });
 
   }
@@ -93,7 +95,21 @@ export class ForumComponent implements OnInit {
        console.log('Forum selecionado:', this.selectedForum);
      });
    }
-
   }
+
+  applyFilter(filter: { materiaId: number | null, tagId: number | null }) {
+    const { materiaId, tagId } = filter;
+    console.log('MateriaId selecionado:', materiaId);
+    console.log('TagId selecionado:', tagId);
   
+    this.forums = this.allForums.filter(forum => {
+      const matchesMateria = materiaId ? forum.materia.id === materiaId : true;
+      const matchesTag = tagId ? forum.materia.tags.some(tag => tag.id === tagId) : true;
+  
+      console.log(`Analisando fórum: ${forum.titulo} Materias: ${forum.materia.id} Tags:`, forum.materia.tags);
+      return matchesMateria && matchesTag;
+    });
+  
+    console.log('Fóruns filtrados:', this.forums);
+  }
 }

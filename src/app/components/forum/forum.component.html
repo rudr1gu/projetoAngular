@@ -38,6 +38,10 @@
     </app-resposta>
 
     <section class="filtro" *ngIf="showFiltro">
-        <app-filtro [showFilter]="showFiltro"(closeFiltro)="showFilter()" ></app-filtro>
+        <app-filtro 
+            [showFilter]="showFiltro" 
+            (closeFiltro)="showFilter()" 
+            (filterChange)="applyFilter($event)">
+        </app-filtro>
     </section>
 </section>
