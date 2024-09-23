@@ -3,7 +3,6 @@
     justify-content: center;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
     width: 60%;
-    height: 70%;
     border-radius: 15px;
     overflow: auto;
 }
@@ -13,7 +12,6 @@
     width: 50%;
     background: rgb(8,248,232);
     background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
-    height: 100%;
     color: white;
     display: flex;
     flex-direction: column;
@@ -116,7 +114,7 @@ select{
     border: 2px solid  #0c101e;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
-option{
+option:hover{
     color: #fff;
     background-color: #0c101e;
 }
@@ -142,4 +140,9 @@ label{
 .btn-cadastrar:hover{
     background-color: #ffffffe4;
     color: #0c101e;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
