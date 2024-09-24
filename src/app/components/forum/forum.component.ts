@@ -98,10 +98,10 @@ export class ForumComponent implements OnInit {
    }
   }
 
-  applyFilter(filter: { materiaId: number | null, tagId: number | null }) {
-    const { materiaId, tagId } = filter;
+  applyFilter(filter: { materiaId: number | null, tag: string | null }) {
+    const { materiaId, tag } = filter;
     console.log('MateriaId selecionado:', materiaId);
-    console.log('TagId selecionado:', tagId);
+    console.log('TagId selecionado:', tag);
     
     let filteredForums = this.allForums; // Supondo que this.allForums contém todos os fóruns
   
@@ -112,12 +112,12 @@ export class ForumComponent implements OnInit {
       });
     }
   
-    // if (tagId !== null) {
-    //   filteredForums = filteredForums.filter(forum => {
-    //     console.log('Fórum atual:', forum); // Log para depuração
-    //     return forum.tags!.some(tag => tag.id === Number(tagId)); // Verifica se alguma tag do fórum corresponde ao tagId
-    //   });
-    // }
+    if (tag !== null) {
+      filteredForums = filteredForums.filter(forum => {
+        console.log('Fórum atual:', forum); // Log para depuração
+        return forum.tags!.some(tags => tags.nome === tag); // Verifica se alguma tag do fórum corresponde ao tagId
+      });
+    }
   
     this.forums = filteredForums; // Atualiza os fóruns filtrados
     console.log('Fóruns filtrados:', this.forums);

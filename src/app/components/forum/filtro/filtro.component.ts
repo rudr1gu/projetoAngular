@@ -12,10 +12,10 @@ export class FiltroComponent implements OnInit {
   
   @Input() showFilter!: boolean;
   @Output() closeFiltro = new EventEmitter<void>();
-  @Output() filterChange = new EventEmitter<{ materiaId: number | null, tagId: number | null }>();
+  @Output() filterChange = new EventEmitter<{ materiaId: number | null, tag: string | null }>();
 
   selectedMateriaId: number | null = null;
-  selectedTagId: number | null = null;
+  selectedTag: string | null = null;
 
   materias: Materias[] = [];
   tags: Tag[] = [];
@@ -44,7 +44,7 @@ export class FiltroComponent implements OnInit {
   }
 
   applyFilter() {
-    this.filterChange.emit({ materiaId: this.selectedMateriaId, tagId: this.selectedTagId });
+    this.filterChange.emit({ materiaId: this.selectedMateriaId, tag: this.selectedTag });
   }
   
 

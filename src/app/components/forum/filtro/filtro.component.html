@@ -7,9 +7,9 @@
       </select>
     </div>
     <div class="select">
-      <select name="tags" [(ngModel)]="selectedTagId">
+      <select name="tags" [(ngModel)]="selectedTag">
         <option [value]="null">Selecione uma tag</option>
-        <option *ngFor="let tag of tags" [value]="tag.id">{{ tag.nome }}</option>
+        <option *ngFor="let tag of tags" [value]="tag.nome">{{ tag.nome }}</option>
       </select>
     </div>           
     <button class="btnBuscar" (click)="applyFilter()">Buscar</button>
