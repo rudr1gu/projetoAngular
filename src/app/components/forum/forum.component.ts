@@ -65,14 +65,15 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.forumService.getAllForums().subscribe((items) => {
       const data = items;
+      console.log('Fóruns carregados:', data);
       this.forums = data.map(forum => {
         forum.createdAt = new Date(forum.createdAt!).toLocaleString('pt-BR');
-
         return forum;
       });
-
-      this.forums = data;
+      
       this.allForums = data;
+      console.log('Todos os fóruns:', this.allForums);
+
     });
 
   }
@@ -101,15 +102,28 @@ export class ForumComponent implements OnInit {
     const { materiaId, tagId } = filter;
     console.log('MateriaId selecionado:', materiaId);
     console.log('TagId selecionado:', tagId);
+    
+    let filteredForums = this.allForums; // Supondo que this.allForums contém todos os fóruns
   
-    this.forums = this.allForums.filter(forum => {
-      const matchesMateria = materiaId ? forum.materia.id === materiaId : true;
-      const matchesTag = tagId ? forum.materia.tags.some(tag => tag.id === tagId) : true;
+    if (materiaId !== null) {
+      filteredForums = filteredForums.filter(forum => {
+        console.log('Fórum atual para filtro:', forum); // Log para depuração
+        return forum.materiaId === Number(materiaId); // Verifica se o materiaId do fórum corresponde ao filtro
+      });
+    }
   
-      console.log(`Analisando fórum: ${forum.titulo} Materias: ${forum.materia.id} Tags:`, forum.materia.tags);
-      return matchesMateria && matchesTag;
-    });
+    // if (tagId !== null) {
+    //   filteredForums = filteredForums.filter(forum => {
+    //     console.log('Fórum atual:', forum); // Log para depuração
+    //     return forum.tags!.some(tag => tag.id === Number(tagId)); // Verifica se alguma tag do fórum corresponde ao tagId
+    //   });
+    // }
   
+    this.forums = filteredForums; // Atualiza os fóruns filtrados
     console.log('Fóruns filtrados:', this.forums);
   }
+  
+  
+  
+  
 }

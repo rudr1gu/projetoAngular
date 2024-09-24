@@ -1,18 +1,18 @@
 <section class="container">
-    <section class="filtros">
-        <div class="select">
-            <select name="filtroComponente" [(ngModel)]="selectedMateriaId">
-              <option [value]="null">Selecione uma matéria</option>
-              <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nome }}</option>
-            </select>
-          </div>
-          <div class="select">
-            <select name="tags" [(ngModel)]="selectedTagId">
-              <option [value]="null">Selecione uma tag</option>
-              <option *ngFor="let tag of tags" [value]="tag.id">{{ tag.nome }}</option>
-            </select>
-          </div>         
-      <button class="btnBuscar" (click)="applyFilter()">Buscar</button>
-    </section>
-    <span class="btn-close" (click)="closeFilter()"><i class='bx bxs-x-circle'></i></span>
-  </section>  
+  <section class="filtros">
+    <div class="select">
+      <select name="filtroComponente" [(ngModel)]="selectedMateriaId">
+        <option [value]="null">Selecione uma matéria</option>
+        <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nome }}</option>
+      </select>
+    </div>
+    <div class="select">
+      <select name="tags" [(ngModel)]="selectedTagId">
+        <option [value]="null">Selecione uma tag</option>
+        <option *ngFor="let tag of tags" [value]="tag.id">{{ tag.nome }}</option>
+      </select>
+    </div>           
+    <button class="btnBuscar" (click)="applyFilter()">Buscar</button>
+  </section>
+  <span class="btn-close" (click)="closeFilter()"><i class='bx bxs-x-circle'></i></span>
+</section>
