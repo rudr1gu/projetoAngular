@@ -70,6 +70,8 @@ export class ForumComponent implements OnInit {
     this.forumService.getAllForums().subscribe((items) => {
       const data = items;
       console.log('Fóruns carregados:', data);
+      this.forums = data.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+
       this.forums = data.map(forum => {
         forum.createdAt = new Date(forum.createdAt!).toLocaleString('pt-BR');
         return forum;
@@ -137,9 +139,5 @@ export class ForumComponent implements OnInit {
     this.forumService.removeForum(forumId).subscribe(() => {
       this.forums = this.forums.filter(forum => forum.id !== forumId);
     });
-  }
-  
-  
-  
-  
+  } 
 }
