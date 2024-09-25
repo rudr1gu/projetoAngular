@@ -5,7 +5,7 @@
     <section class="questoes" *ngFor="let forum of forums">
         <div class="img">
             <div class="fotoPerfil">
-                <img src="http://localhost:3333/uploads/{{forum.aluno.img}}" alt="fotoperfil">
+                <img src="{{apiUrl}}uploads/{{forum.aluno.img}}" alt="fotoperfil">
             </div>
         </div>
         <div class="questao">
