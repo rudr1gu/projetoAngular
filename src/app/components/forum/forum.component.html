@@ -23,6 +23,7 @@
             <div class="respostas">
                 <button class="btnResposta" (click)="showAnswers(forum.id)"><i class='bx bx-message-rounded-add' ></i>  Responder</button>
             </div>
+            <span class="drop" *ngIf="forum.aluno.id === userData.id" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
         </div>
     </section>
     

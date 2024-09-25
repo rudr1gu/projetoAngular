@@ -117,6 +117,21 @@
     width: 100%;
     padding: 7px;
 }
+
+span.drop{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+span.drop:hover{
+    color: #0c101e;
+    border: 1px solid #0c101ecc;
+    border-radius: 5px;
+}
+
 section .form{
     position: absolute;
     top: 0;

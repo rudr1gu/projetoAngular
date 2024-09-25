@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Forum } from '../../models/Forum';
 
 import { UserDataServiceService } from '../../services/user-data-service.service';
 import { ForumService } from '../../services/forum/forum.service';
+import { Alunos } from '../../models/Alunos';
+import { Professor } from '../../models/Professor';
 
 
 @Component({
@@ -13,6 +15,8 @@ import { ForumService } from '../../services/forum/forum.service';
 })
 
 export class ForumComponent implements OnInit {
+  @Input() userData!: Alunos | Professor;
+
   newQuestion: boolean = false;
   showFiltro: boolean = false;
   showRespostas: boolean = false;
@@ -76,6 +80,12 @@ export class ForumComponent implements OnInit {
 
     });
 
+    this.userDataService.currentUserData.subscribe((userData) => {
+      if (userData) {
+        this.userData = userData!;
+      }
+    });
+
   }
 
   showForm() {
@@ -115,12 +125,18 @@ export class ForumComponent implements OnInit {
     if (tag !== null) {
       filteredForums = filteredForums.filter(forum => {
         console.log('Fórum atual:', forum); // Log para depuração
-        return forum.tags!.some(tags => tags.nome === tag); // Verifica se alguma tag do fórum corresponde ao tagId
+        return forum.tags!.some(tags => tags.nome === tag); // Verifica se o fórum possui a tag
       });
     }
   
     this.forums = filteredForums; // Atualiza os fóruns filtrados
     console.log('Fóruns filtrados:', this.forums);
+  }
+
+  deleteForum(forumId: number) {
+    this.forumService.removeForum(forumId).subscribe(() => {
+      this.forums = this.forums.filter(forum => forum.id !== forumId);
+    });
   }
   
   
