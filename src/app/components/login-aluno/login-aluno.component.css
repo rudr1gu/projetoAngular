@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 100px 20px;
 }
 
 h1 {
@@ -146,3 +147,11 @@ button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
