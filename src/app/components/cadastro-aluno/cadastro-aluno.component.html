@@ -44,7 +44,9 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="img" class="custom-file"><i class='bx bx-image-add' ></i> Enviar Imagem</label>
+                    <div class="addFoto">
+                        <p>Adicionar foto: </p><label for="img" class="custom-file"><i class='bx bx-image-add' ></i> Enviar Imagem</label>
+                    </div>
                     <input type="file" id="img" (change)="onFileSelected($event)">
                 </div>
                 <button type="submit" [disabled]="alunosForm.invalid">Registrar</button>
