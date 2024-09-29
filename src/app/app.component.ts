@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
         (aluno) => {
           this.userData = aluno as Alunos;
           this.userDataService.updateUserData(this.userData);
-          console.log('Aluno logado', aluno);
+          // console.log('Aluno logado', aluno);
         },
         (error) => {
           console.log('Erro ao pegar o aluno logado', error);
@@ -46,14 +46,14 @@ export class AppComponent implements OnInit {
           (professor) => {
             this.userData = professor as Professor;
             this.userDataService.updateUserData(this.userData);
-            console.log('Professor logado', professor);
+            // console.log('Professor logado', professor);
           },
           (error) => {
             console.log('Erro ao pegar o professor logado', error);
           }
         );
     } else {
-      console.log('Usuário não está logado');
+      // console.log('Usuário não está logado');
     }
      
   }

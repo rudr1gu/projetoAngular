@@ -78,7 +78,7 @@ export class ForumComponent implements OnInit {
       });
       
       this.allForums = data;
-      console.log('Todos os fóruns:', this.allForums);
+      // console.log('Todos os fóruns:', this.allForums);
 
     });
 
@@ -105,7 +105,7 @@ export class ForumComponent implements OnInit {
    if (this.showRespostas) {
      this.forumService.getForum(forumId).subscribe((forum) => {
        this.selectedForum = forum;
-       console.log('Forum selecionado:', this.selectedForum);
+      //  console.log('Forum selecionado:', this.selectedForum);
      });
    }
   }
