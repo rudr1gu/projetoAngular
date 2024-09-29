@@ -14,6 +14,5 @@ export class UserDataServiceService {
 
   updateUserData(userData: Alunos | Professor): void {
     this.UserDataSource.next(userData);
-    console.log('User Data Updated', userData);
   }
 }
