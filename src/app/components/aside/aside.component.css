@@ -115,3 +115,33 @@ button:hover{
 	bottom: 20px;
 	left: 110px;
 }
+
+@media screen and (max-width: 768px) {
+	nav ul {
+		width: 20%;
+	}
+	nav ul li a {
+		font-size: 22px;
+	}
+	nav ul li a:before {
+		border-radius: 40px 0px 0px 40px;
+	}
+	nav ul li a.active {
+		border-radius: 40px 0px 0px 40px;
+	}
+	nav ul li a.active:before {
+		border-radius: 40px 0px 0px 40px;
+	}
+	.container-btn{
+		left: 20px;
+	}
+
+	div.boxPerfil{
+		display: none;
+	}
+
+	p.text{
+		display: none;
+	}
+	
+}
