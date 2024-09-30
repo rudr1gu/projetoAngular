@@ -135,7 +135,11 @@ export class ForumComponent implements OnInit {
     console.log('Fóruns filtrados:', this.forums);
   }
 
-  deleteForum(forumId: number) {
+  deleteForum(forumId: number) {  
+    if (!confirm('Tem certeza que deseja excluir este fórum?')) {
+      return;
+    }
+
     this.forumService.removeForum(forumId).subscribe(() => {
       this.forums = this.forums.filter(forum => forum.id !== forumId);
     });
