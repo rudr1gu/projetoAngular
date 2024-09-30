@@ -10,6 +10,13 @@
     border-radius: 10px;
 }
 
+h1{
+    color: black;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
 .filtros{
     display: flex;
     flex-direction: column;
