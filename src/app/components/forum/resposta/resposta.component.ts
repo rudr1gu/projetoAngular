@@ -7,6 +7,7 @@ import { UserDataServiceService } from '../../../services/user-data-service.serv
 import { Alunos } from '../../../models/Alunos';
 import { Professor } from '../../../models/Professor';
 import { Forum } from '../../../models/Forum';
+import { environment } from '../../../../environments/environment';
 
 
 @Component({
@@ -37,6 +38,8 @@ export class RespostaComponent implements OnInit {
   @Input() forum?: Forum;
   @Input() forumId!: number;
   @Input() respostas!: Resposta[];
+
+  apiUrl = environment.baseApiUrl;
 
   respostaForm!: FormGroup;
 

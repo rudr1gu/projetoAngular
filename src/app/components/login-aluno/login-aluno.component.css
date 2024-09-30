@@ -155,3 +155,25 @@ form {
     justify-content: center;
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    .container1 {
+        display: none;
+    }
+    .container2 {
+        width: 100%;
+    }
+    .form-group input {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+    select{
+        width: 100%;
+    }
+    
+}
+

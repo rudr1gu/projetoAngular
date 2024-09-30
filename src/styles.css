@@ -63,3 +63,13 @@ button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+@media screen and (max-width: 768px) {
+    aside {
+        width: 10%;
+    }
+    main {
+        width: 80%;
+    }
+    
+}
