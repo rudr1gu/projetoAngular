@@ -1,6 +1,7 @@
 <section>
     <section class="addQuest">
-        <button class="btn" (click)="showForm()"><i class='bx bxs-comment-add' ></i> Adicionar </button> <button class="btn" (click)="showFilter()"><i class='bx bx-filter-alt'></i> Filtrar</button>
+        <button class="btn" (click)="showForm()"><i class='bx bx-plus-medical'></i> Adicionar Questão </button>
+        <button class="btn" (click)="showFilter()"><i class='bx bx-filter-alt'></i> Filtrar</button>
     </section>
     <section class="questoes" *ngFor="let forum of forums">
         <div class="img">
@@ -17,12 +18,14 @@
             </div>
             <p>{{forum.descricao}}</p>
 
+            <span><i class='bx bx-paperclip'></i> Anexo</span>
+
             <ul *ngIf="forum.tags && forum.tags.length > 0">
                 <li *ngFor="let tag of forum.tags">{{tag.nome}}</li>
             </ul>
             
             <div class="respostas">
-                <button class="btnResposta" (click)="showAnswers(forum.id)"><i class='bx bx-message-rounded-add' ></i>  Responder</button>
+                <button class="btnResposta" (click)="showAnswers(forum.id)">Responder ( {{forum.respostas?.length}} )</button>
             </div>
             <span class="drop" *ngIf="forum.aluno.id === userData.id" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
         </div>

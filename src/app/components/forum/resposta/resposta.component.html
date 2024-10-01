@@ -31,7 +31,9 @@
                 <small class="data">Postado em: {{ resposta.createdAt | date:'short' }}</small>
               </div>
             </div>
-            <p class="conteudo">{{ resposta.resposta }}</p>
+            <p class="conteudo">{{ resposta.resposta }} </p>
+            
+            <span class="drop" *ngIf="resposta.aluno?.id  === userData.id"><i class='bx bxs-trash'></i></span>
           </div>
     </div>
 </div>

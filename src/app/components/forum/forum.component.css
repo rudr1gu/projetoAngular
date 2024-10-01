@@ -158,7 +158,7 @@ section .filtro{
     z-index: 200;
 }
 
-.btn {
+.btn, .btnResposta {
     width: 200px;
     height: 50px;
     font-weight: 500;
@@ -170,6 +170,11 @@ section .filtro{
     border: 1px solid  #b1aeae;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     transition: 0.3s;
+}
+
+.btnResposta{
+    width: 150px;
+    height: 40px;
 }
 
 .btn:hover{

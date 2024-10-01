@@ -104,7 +104,10 @@ export class ForumComponent implements OnInit {
 
    if (this.showRespostas) {
      this.forumService.getForum(forumId).subscribe((forum) => {
+      // const data = forum
+      //  forum = data.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
        this.selectedForum = forum;
+       
       //  console.log('Forum selecionado:', this.selectedForum);
      });
    }

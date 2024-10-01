@@ -85,6 +85,8 @@ export class RespostaComponent implements OnInit {
         console.error('Erro ao criar resposta:', error);
       }
     );
+
+    alert('enviando a pergunta espera ...')
   }
 
   get stateName() {
