@@ -78,7 +78,6 @@ export class ForumComponent implements OnInit {
       });
       
       this.allForums = data;
-      // console.log('Todos os fóruns:', this.allForums);
 
     });
 
@@ -104,11 +103,11 @@ export class ForumComponent implements OnInit {
 
    if (this.showRespostas) {
      this.forumService.getForum(forumId).subscribe((forum) => {
-      // const data = forum
-      //  forum = data.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
-       this.selectedForum = forum;
-       
-      //  console.log('Forum selecionado:', this.selectedForum);
+      const data = forum;
+      data.createdAt = new Date(data.createdAt!).toLocaleString('pt-BR');
+      data.respostas = data.respostas!.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+
+      this.selectedForum = data;
      });
    }
   }
@@ -118,23 +117,23 @@ export class ForumComponent implements OnInit {
     console.log('MateriaId selecionado:', materiaId);
     console.log('TagId selecionado:', tag);
     
-    let filteredForums = this.allForums; // Supondo que this.allForums contém todos os fóruns
+    let filteredForums = this.allForums;
   
     if (materiaId !== null) {
       filteredForums = filteredForums.filter(forum => {
-        console.log('Fórum atual para filtro:', forum); // Log para depuração
-        return forum.materiaId === Number(materiaId); // Verifica se o materiaId do fórum corresponde ao filtro
+        console.log('Fórum atual para filtro:', forum); 
+        return forum.materiaId === Number(materiaId); 
       });
     }
   
     if (tag !== null) {
       filteredForums = filteredForums.filter(forum => {
-        console.log('Fórum atual:', forum); // Log para depuração
-        return forum.tags!.some(tags => tags.nome === tag); // Verifica se o fórum possui a tag
+        console.log('Fórum atual:', forum);
+        return forum.tags!.some(tags => tags.nome === tag); 
       });
     }
   
-    this.forums = filteredForums; // Atualiza os fóruns filtrados
+    this.forums = filteredForums;
     console.log('Fóruns filtrados:', this.forums);
   }
 
