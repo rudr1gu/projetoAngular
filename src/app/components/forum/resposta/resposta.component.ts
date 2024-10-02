@@ -43,6 +43,9 @@ export class RespostaComponent implements OnInit {
 
   respostaForm!: FormGroup;
 
+  imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
+
+
   constructor(
     private forumservice: ForumService,
     private userDataService: UserDataServiceService

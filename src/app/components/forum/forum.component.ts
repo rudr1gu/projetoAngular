@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Forum } from '../../models/Forum';
 
@@ -20,6 +20,7 @@ export class ForumComponent implements OnInit {
   newQuestion: boolean = false;
   showFiltro: boolean = false;
   showRespostas: boolean = false;
+  imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
 
   apiUrl = environment.baseApiUrl;
 
@@ -63,7 +64,8 @@ export class ForumComponent implements OnInit {
 
   constructor(
     private forumService: ForumService,
-    private userDataService: UserDataServiceService
+    private userDataService: UserDataServiceService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -78,7 +80,6 @@ export class ForumComponent implements OnInit {
       });
       
       this.allForums = data;
-      // console.log('Todos os fóruns:', this.allForums);
 
     });
 
@@ -92,10 +93,12 @@ export class ForumComponent implements OnInit {
 
   showForm() {
     this.newQuestion = !this.newQuestion;
+    this.toggleBodyScroll(this.newQuestion);
   }
 
   showFilter() {
     this.showFiltro = !this.showFiltro;
+    this.toggleBodyScroll(this.showFiltro);
   }
 
   showAnswers(forumId: number) {
@@ -104,11 +107,11 @@ export class ForumComponent implements OnInit {
 
    if (this.showRespostas) {
      this.forumService.getForum(forumId).subscribe((forum) => {
-      // const data = forum
-      //  forum = data.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
-       this.selectedForum = forum;
-       
-      //  console.log('Forum selecionado:', this.selectedForum);
+      const data = forum;
+      data.createdAt = new Date(data.createdAt!).toLocaleString('pt-BR');
+      data.respostas = data.respostas!.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+
+      this.selectedForum = data;
      });
    }
   }
@@ -118,23 +121,23 @@ export class ForumComponent implements OnInit {
     console.log('MateriaId selecionado:', materiaId);
     console.log('TagId selecionado:', tag);
     
-    let filteredForums = this.allForums; // Supondo que this.allForums contém todos os fóruns
+    let filteredForums = this.allForums;
   
     if (materiaId !== null) {
       filteredForums = filteredForums.filter(forum => {
-        console.log('Fórum atual para filtro:', forum); // Log para depuração
-        return forum.materiaId === Number(materiaId); // Verifica se o materiaId do fórum corresponde ao filtro
+        console.log('Fórum atual para filtro:', forum); 
+        return forum.materiaId === Number(materiaId); 
       });
     }
   
     if (tag !== null) {
       filteredForums = filteredForums.filter(forum => {
-        console.log('Fórum atual:', forum); // Log para depuração
-        return forum.tags!.some(tags => tags.nome === tag); // Verifica se o fórum possui a tag
+        console.log('Fórum atual:', forum);
+        return forum.tags!.some(tags => tags.nome === tag); 
       });
     }
   
-    this.forums = filteredForums; // Atualiza os fóruns filtrados
+    this.forums = filteredForums;
     console.log('Fóruns filtrados:', this.forums);
   }
 
@@ -146,5 +149,16 @@ export class ForumComponent implements OnInit {
     this.forumService.removeForum(forumId).subscribe(() => {
       this.forums = this.forums.filter(forum => forum.id !== forumId);
     });
-  } 
+  }
+
+  toggleBodyScroll(disable: boolean) {
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      if (disable) {
+        this.renderer.setStyle(mainElement, 'overflow', 'hidden');
+      } else {
+        this.renderer.removeStyle(mainElement, 'overflow');
+      }
+    }
+  }
 }

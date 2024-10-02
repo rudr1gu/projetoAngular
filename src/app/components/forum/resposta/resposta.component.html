@@ -24,7 +24,8 @@
         <div *ngFor="let resposta of respostas" class="resposta-card">
             <div class="resposta-header">
               <div class="fotoPerfil">
-                <img src="{{apiUrl}}uploads/{{resposta.aluno!.img}}" alt="foto de perfil">
+                <img *ngIf="resposta.aluno?.img" src="{{apiUrl}}uploads/{{resposta.aluno!.img}}" alt="foto de perfil">
+                <img *ngIf="!resposta.aluno?.img" [src]="imgDefault" alt="foto de perfil">
               </div>
               <div class="resposta-info">
                 <p class="nome"><strong>{{ resposta.aluno!.nome }}</strong></p>
