@@ -57,7 +57,7 @@ export class NewQuestionComponent implements OnInit {
     this.forumForm = new FormGroup({
       titulo: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
-      materiaId: new FormControl('', Validators.required),
+      materiaId: new FormControl('1', Validators.required),
       alunoId: new FormControl(this.userData.id),
       tags: new FormControl([]),
     });

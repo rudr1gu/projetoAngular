@@ -3,15 +3,16 @@
     <form (ngSubmit)="submitForum()" [formGroup]="forumForm" #formDir="ngForm">
         <div class="form-group">
             <label for="titulo">Título</label>
-            <input type="text" id="titulo" name="titulo" class="form-control" formControlName="titulo" required>
+            <input type="text" id="titulo" name="titulo" class="form-control" formControlName="titulo" placeholder="Insira o titulo da pergunta" required>
         </div>
         <div class="form-group">
             <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" class="form-control" formControlName="descricao" required></textarea>
+            <textarea id="descricao" name="descricao" class="form-control" formControlName="descricao" placeholder="Descreva sua pergunta..." required></textarea>
         </div>
         <div class="form-group">
             <label for="componente">Componente</label>
             <select name="materiaId" id="materiaId" class="form-control" formControlName="materiaId" required (change)="onMateriaChange()">
+                <option value="1">Selecione...</option>
                 <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nome }}</option>
             </select>
         </div>

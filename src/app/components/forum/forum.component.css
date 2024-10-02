@@ -20,17 +20,21 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    padding: 1px;
+    padding: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
     margin: 15px;
+    background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
 }
 
 .fotoPerfil{
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    padding: 1px;
+    background-color: #d5d4d4;
 }
 
 .fotoPerfil img{
@@ -69,7 +73,7 @@
     color: white;
     font-size: 14px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid  #b1aeae;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.082);
     transition: 0.3s;
@@ -161,6 +165,9 @@ section .filtro{
 }
 
 .btn, .btnResposta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 50px;
     font-weight: 500;
@@ -168,7 +175,7 @@ section .filtro{
     background-color: #0c101e;
     color: white;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid  #b1aeae;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     transition: 0.3s;
@@ -188,6 +195,3 @@ section .filtro{
     cursor: pointer;
 }
 
-.no-scroll{
-    background-color: salmon;
-}
