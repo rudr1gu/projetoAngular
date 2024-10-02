@@ -6,7 +6,8 @@
     <section class="questoes" *ngFor="let forum of forums">
         <div class="img">
             <div class="fotoPerfil">
-                <img src="{{apiUrl}}uploads/{{forum.aluno.img}}" alt="fotoperfil">
+                <img *ngIf="forum.aluno.img" src="{{apiUrl}}uploads/{{forum.aluno.img}}" alt="fotoperfil">
+                <img *ngIf="!forum.aluno.img" [src]="imgDefault" alt="fotoperfil">
             </div>
         </div>
         <div class="questao">
@@ -25,7 +26,7 @@
             </ul>
             
             <div class="respostas">
-                <button class="btnResposta" (click)="showAnswers(forum.id)">Responder ( {{forum.respostas?.length}} )</button>
+                <button class="btnResposta" (click)="showAnswers(forum.id)">Responder <span>({{forum.respostas?.length}})</span></button>
             </div>
             <span class="drop" *ngIf="forum.aluno.id === userData.id" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
         </div>
