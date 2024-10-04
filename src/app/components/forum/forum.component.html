@@ -1,4 +1,8 @@
-<section>
+<section *ngIf="isLoading" class="loading-screen">
+    <div class="spinner"></div>
+    <p>Carregando...</p>
+  </section>
+<section *ngIf="!isLoading">
     <section class="addQuest">
         <button class="btn" (click)="showForm()"><i class='bx bx-plus-medical'></i> Adicionar Questão </button>
         <button class="btn" (click)="showFilter()"><i class='bx bx-filter-alt'></i> Filtrar</button>
