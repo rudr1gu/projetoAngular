@@ -45,6 +45,7 @@ export class FiltroComponent implements OnInit {
 
   applyFilter() {
     this.filterChange.emit({ materiaId: this.selectedMateriaId, tag: this.selectedTag });
+    this.closeFilter();
   }
   
 

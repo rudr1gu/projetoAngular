@@ -52,6 +52,9 @@ export class RespostaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // atualizar a lista de respostas
+    this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
@@ -78,18 +81,16 @@ export class RespostaComponent implements OnInit {
         this.forumservice.getForum(this.forumId).subscribe((forum) => {
           this.forum = forum;
           this.respostas = forum.respostas!;
+          this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
           console.log('Forum atualizado:', this.forum);
         } );
-        
-
-        this.respostaForm.reset();
+      
+        this.respostaForm.reset();    
       },
       (error) => {
         console.error('Erro ao criar resposta:', error);
       }
     );
-
-    alert('enviando a pergunta espera ...')
   }
 
   get stateName() {
