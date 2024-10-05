@@ -6,6 +6,7 @@ export interface Resposta {
     forumId: number;
     usuarioId: number;
     aluno?: Alunos;
+    fileName?: string;
     createdAt?: string;
     updatedAt?: Date;
 }

@@ -97,6 +97,28 @@ export class RespostaComponent implements OnInit {
     return this.isOpen ? 'in' : 'out';
   }
 
+  removeResposta(id: number) {
+   if (!confirm('Deseja realmente remover essa resposta?')) {
+      return;
+    }
+
+    this.forumservice.removeResposta(id).subscribe(
+      (response) => {
+        console.log('Resposta removida com sucesso:', response);
+
+        this.forumservice.getForum(this.forumId).subscribe((forum) => {
+          this.forum = forum;
+          this.respostas = forum.respostas!;
+          this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+          console.log('Forum atualizado:', this.forum);
+        } );
+      },
+      (error) => {
+        console.error('Erro ao remover resposta:', error);
+      }
+    );
+  }
+
   closeResposta() {
     this.isOpen = false;
     this.close.emit();

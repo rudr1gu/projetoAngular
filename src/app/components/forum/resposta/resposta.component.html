@@ -34,7 +34,7 @@
             </div>
             <p class="conteudo">{{ resposta.resposta }} </p>
             
-            <span class="drop" *ngIf="resposta.aluno?.id  === userData.id"><i class='bx bxs-trash'></i></span>
+            <span class="drop" *ngIf="resposta.aluno?.id  === userData.id" (click)="removeResposta(resposta.id!)"><i class='bx bxs-trash'></i></span>
           </div>
     </div>
 </div>

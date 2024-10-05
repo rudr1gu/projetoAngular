@@ -41,5 +41,8 @@ export class ForumService {
     return this.http.post<Response<Resposta>>(url, data);
   }
 
-
+  removeResposta(id: number): Observable<Resposta> {
+    const url = `${this.baseApiUrl}api/respostas/${id}`;
+    return this.http.delete<Resposta>(url);
+  }
 }

@@ -23,7 +23,7 @@
             </div>
             <p>{{forum.descricao}}</p>
 
-            <span><i class='bx bx-paperclip'></i> Anexo</span>
+            <span *ngIf="forum.fileName"><i class='bx bx-paperclip'></i> Anexo</span>
 
             <ul *ngIf="forum.tags && forum.tags.length > 0">
                 <li *ngFor="let tag of forum.tags">{{tag.nome}}</li>

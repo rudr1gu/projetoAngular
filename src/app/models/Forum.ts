@@ -11,6 +11,7 @@ export interface Forum {
     materiaId: number;
     aluno: Alunos;
     materia: Materias;
+    fileName?: string;
     respostas?: Resposta[];
     tags?: Tag[];
     createdAt?: string;
