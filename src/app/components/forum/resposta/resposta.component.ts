@@ -31,6 +31,7 @@ import { environment } from '../../../../environments/environment';
     ])
   ]
 })
+
 export class RespostaComponent implements OnInit {
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter();
@@ -38,6 +39,8 @@ export class RespostaComponent implements OnInit {
   @Input() forum?: Forum;
   @Input() forumId!: number;
   @Input() respostas!: Resposta[];
+
+  selectedFile?: File;
 
   apiUrl = environment.baseApiUrl;
 
@@ -68,29 +71,46 @@ export class RespostaComponent implements OnInit {
   }
 
   adicionarResposta() {
-    const data: Resposta = {
-      resposta: this.respostaForm.get('resposta')!.value,
-      usuarioId: this.userData.id,
-      forumId: this.forumId,
-    };
-
-    this.forumservice.createResposta(data).subscribe(
+    if (!this.respostaForm.valid) {
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('resposta', this.respostaForm.get('resposta')!.value);
+    formData.append('usuarioId', this.userData.id.toString());
+    formData.append('forumId', this.forumId.toString());
+  
+    if (this.selectedFile) {
+      formData.append('fileName', this.selectedFile);
+      console.log('Arquivo adicionado ao FormData:', this.selectedFile);
+    }
+  
+    this.forumservice.createResposta(formData, this.forumId).subscribe(
       (response) => {
         console.log('Resposta criada com sucesso:', response);
-        
         this.forumservice.getForum(this.forumId).subscribe((forum) => {
           this.forum = forum;
           this.respostas = forum.respostas!;
           this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
-          console.log('Forum atualizado:', this.forum);
-        } );
-      
-        this.respostaForm.reset();    
+        });
+        this.respostaForm.reset();
       },
       (error) => {
         console.error('Erro ao criar resposta:', error);
       }
     );
+
+    this.selectedFile = undefined;
+    
+  }
+  
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      console.log('Arquivo selecionado:', this.selectedFile);
+    }
   }
 
   get stateName() {
