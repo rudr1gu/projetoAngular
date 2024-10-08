@@ -72,14 +72,6 @@ export class NewQuestionComponent implements OnInit {
     }
   }
 
-  // isAluno(userData: any): boolean {
-  //   return userData && userData.role === 'aluno';
-  // }
-
-  // isProfessor(userData: any): boolean {
-  //   return userData && userData.role === 'professor';
-  // }
-
   async submitForum() {
     if (this.forumForm.valid) {
       const formData = new FormData();
@@ -124,6 +116,7 @@ export class NewQuestionComponent implements OnInit {
   }
 
   onMateriaChange() {
+    this.selectedTagList = [];
     const materiaId = this.forumForm.get('materiaId')?.value;
     const materiaSelecionada = this.materias.find(materia => materia.id === Number(materiaId));
     
