@@ -19,7 +19,7 @@
             <h3>{{forum.titulo}}</h3>
             <div class="autor">
                 <p *ngIf="forum.aluno?.nome"><span>Autor: {{forum.aluno?.nome}}</span></p>
-                <p *ngIf="forum.professor?.nome"><span>Autor: {{forum.professor?.nome}} <i class='bx bxs-star'></i></span></p>
+                <p *ngIf="forum.professor?.nome"><span>Autor: {{forum.professor?.nome}} <i class='bx bxs-graduation' ></i></span></p>
                 <p><span>Data: {{forum.createdAt}}</span></p>
                 <p><span>Disciplina: {{forum.materia.nome}}</span></p>
             </div>
@@ -34,7 +34,8 @@
             <div class="respostas">
                 <button class="btnResposta" (click)="showAnswers(forum.id)">Responder <span>({{forum.respostas?.length}})</span></button>
             </div>
-            <span class="drop" *ngIf="forum.aluno?.id === userData.id" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
+            <span class="drop" *ngIf="forum.aluno?.id === userData.id && isAluno" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
+            <span class="drop" *ngIf="forum.professor?.id === userData.id && isProfessor" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
         </div>
     </section>
     

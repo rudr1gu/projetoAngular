@@ -48,6 +48,8 @@ export class RespostaComponent implements OnInit {
 
   imgDefault = 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
 
+  isAluno: boolean = false;
+  isProfessor: boolean = false;
 
   constructor(
     private forumservice: ForumService,
@@ -68,6 +70,14 @@ export class RespostaComponent implements OnInit {
     this.respostaForm = new FormGroup({
       resposta: new FormControl('', Validators.required),
     });
+
+    if (localStorage.getItem('userType') === 'aluno') {
+      this.isAluno = true;
+    } else {
+      this.isProfessor = true;
+    }
+
+
   }
 
   adicionarResposta() {
@@ -77,8 +87,13 @@ export class RespostaComponent implements OnInit {
   
     const formData = new FormData();
     formData.append('resposta', this.respostaForm.get('resposta')!.value);
-    formData.append('usuarioId', this.userData.id.toString());
     formData.append('forumId', this.forumId.toString());
+
+    if( localStorage.getItem('userType') === 'aluno') {
+      formData.append('alunoId', this.userData.id.toString());
+    } else {
+      formData.append('professorId', this.userData.id.toString());
+    }
   
     if (this.selectedFile) {
       formData.append('fileName', this.selectedFile);
