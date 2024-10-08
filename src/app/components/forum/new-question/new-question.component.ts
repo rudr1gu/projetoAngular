@@ -30,6 +30,7 @@ export class NewQuestionComponent implements OnInit {
 
   selectedTags: Tag[] = [];
   selectedTagList: Tag[] = [];  // Tags escolhidas pelo usuário
+  selectedFile?: File;  // Arquivo selecionado pelo usuário
   
   constructor(
     private forumService: ForumService,
@@ -58,29 +59,64 @@ export class NewQuestionComponent implements OnInit {
       titulo: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
       materiaId: new FormControl('1', Validators.required),
-      alunoId: new FormControl(this.userData.id),
+      alunoId: new FormControl(localStorage.getItem('userType') === 'aluno' ? this.userData.id : null),
+      professorId: new FormControl(localStorage.getItem('userType') === 'professor' ? this.userData.id : null),
       tags: new FormControl([]),
+      fileName: new FormControl(''),
     });
 
-
+    if (localStorage.getItem('userType') === 'aluno') {
+      console.log('Aluno logado:', this.userData);
+    } else if (localStorage.getItem('userType') === 'professor') {
+      console.log('Professor logado:', this.userData);
+    }
   }
 
-  submitForum() {
+  async submitForum() {
     if (this.forumForm.valid) {
-      this.forumService.createForum({
-        ...this.forumForm.value,
-        tags: this.selectedTagList.map(tag => tag.nome)
-      }).subscribe((data) => {
-        console.log('Forum criado com sucesso', data);
-        this.forumForm.reset();
-        this.selectedTagList = [];
-        this.closeQuestionForm();
-        this.loadForum();
-      });
+      const formData = new FormData();
+      formData.append('titulo', this.forumForm.get('titulo')!.value);
+      formData.append('descricao', this.forumForm.get('descricao')!.value);
+      formData.append('materiaId', this.forumForm.get('materiaId')!.value);
+      if(localStorage.getItem('userType') === 'aluno') {
+        formData.append('alunoId', this.forumForm.get('alunoId')!.value);
+      } else {
+        formData.append('professorId', this.forumForm.get('professorId')!.value);
+      }
+      
+      // Transform tags into JSON format
+      formData.append('tags', JSON.stringify(this.selectedTagList.map(tag => tag.nome)));
+
+      if (this.selectedFile) {
+        formData.append('fileName', this.selectedFile);
+      }
+
+      this.forumService.createForum(formData).subscribe(
+        (data) => {
+          console.log('Forum criado com sucesso', data);
+          this.forumForm.reset();
+          this.selectedTagList = [];
+          this.closeQuestionForm();
+          this.loadForum();
+        },
+        (error) => {
+          console.error('Erro ao criar o fórum', error);
+        }
+      );
+    }
+  }
+
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if(input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      console.log('Arquivo selecionado', this.selectedFile);
     }
   }
 
   onMateriaChange() {
+    this.selectedTagList = [];
     const materiaId = this.forumForm.get('materiaId')?.value;
     const materiaSelecionada = this.materias.find(materia => materia.id === Number(materiaId));
     
@@ -89,7 +125,7 @@ export class NewQuestionComponent implements OnInit {
         console.log('Tags selecionadas:', this.selectedTags); // Log para verificação
         this.forumForm.get('tags')?.setValue([]); // Reseta as tags selecionadas
     }
-}
+  }
 
   loadForum() {
     location.reload();
@@ -112,5 +148,4 @@ export class NewQuestionComponent implements OnInit {
   isTagSelected(tag: Tag): boolean {
     return this.selectedTagList.some(t => t.nome === tag.nome);
   }
-
 }

@@ -25,9 +25,7 @@ export class FiltroComponent implements OnInit {
   ngOnInit(): void {
     this.materiaService.getAllMaterias().subscribe((materias) => {
       this.materias = materias;
-      console.log(this.materias);
       this.tags = this.getAllTags(materias);
-      console.log(this.tags);
     });
   }
 

@@ -11,6 +11,7 @@ export interface Professor {
     cursoId?: number;
     genero?: string;
     img?: string;
+    // tipo?: string;
     createdAt?: string;
     updatedAt?: string;
 }

@@ -28,6 +28,9 @@ export class ForumComponent implements OnInit {
   forums: Forum[] = [];
   allForums: Forum[] = [];
 
+  isAluno: boolean = false;
+  isProfessor: boolean = false;
+
   selectedForum: Forum = {
     id: 0,
     titulo: '',
@@ -90,6 +93,12 @@ export class ForumComponent implements OnInit {
         this.userData = userData!;
       }
     });
+
+    if (localStorage.getItem('userType') === 'aluno') {
+      this.isAluno = true;
+    } else if (localStorage.getItem('userType') === 'professor') {
+      this.isProfessor = true;
+    }
 
   }
 

@@ -36,7 +36,7 @@
           
         <div class="form-group">
             <label for="arquivo">Anexar Arquivo</label>
-            <input type="file" id="arquivo" name="arquivo" class="form-control">
+            <input type="file" id="arquivo" name="arquivo" class="form-control" (change)="onFileSelected($event)">
         </div>
 
         <button type="submit" class="form-group">Adicionar Questão</button>
