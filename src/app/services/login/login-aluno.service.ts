@@ -55,7 +55,7 @@ export class LoginAlunoService {
   getCurrentUser(): Observable<Alunos | null> {
     const token = localStorage.getItem('token');
     if(token){
-      const alunoId =parseInt(token)
+      const alunoId = parseInt(token)
       return this.getAlunoById(alunoId);
     }
 

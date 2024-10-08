@@ -59,13 +59,26 @@ export class NewQuestionComponent implements OnInit {
       titulo: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
       materiaId: new FormControl('1', Validators.required),
-      alunoId: new FormControl(this.userData.id),
+      alunoId: new FormControl(localStorage.getItem('userType') === 'aluno' ? this.userData.id : null),
+      professorId: new FormControl(localStorage.getItem('userType') === 'professor' ? this.userData.id : null),
       tags: new FormControl([]),
       fileName: new FormControl(''),
     });
 
-
+    if (localStorage.getItem('userType') === 'aluno') {
+      console.log('Aluno logado:', this.userData);
+    } else if (localStorage.getItem('userType') === 'professor') {
+      console.log('Professor logado:', this.userData);
+    }
   }
+
+  // isAluno(userData: any): boolean {
+  //   return userData && userData.role === 'aluno';
+  // }
+
+  // isProfessor(userData: any): boolean {
+  //   return userData && userData.role === 'professor';
+  // }
 
   async submitForum() {
     if (this.forumForm.valid) {
@@ -73,7 +86,11 @@ export class NewQuestionComponent implements OnInit {
       formData.append('titulo', this.forumForm.get('titulo')!.value);
       formData.append('descricao', this.forumForm.get('descricao')!.value);
       formData.append('materiaId', this.forumForm.get('materiaId')!.value);
-      formData.append('alunoId', this.forumForm.get('alunoId')!.value);
+      if(localStorage.getItem('userType') === 'aluno') {
+        formData.append('alunoId', this.forumForm.get('alunoId')!.value);
+      } else {
+        formData.append('professorId', this.forumForm.get('professorId')!.value);
+      }
       
       // Transform tags into JSON format
       formData.append('tags', JSON.stringify(this.selectedTagList.map(tag => tag.nome)));

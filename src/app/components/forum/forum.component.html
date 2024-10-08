@@ -10,14 +10,16 @@
     <section class="questoes" *ngFor="let forum of forums">
         <div class="img">
             <div class="fotoPerfil">
-                <img *ngIf="forum.aluno.img" src="{{apiUrl}}uploads/{{forum.aluno.img}}" alt="fotoperfil">
-                <img *ngIf="!forum.aluno.img" [src]="imgDefault" alt="fotoperfil">
+                <img *ngIf="forum.aluno?.img" src="{{apiUrl}}uploads/{{forum.aluno?.img}}" alt="fotoperfil">
+                <img *ngIf="forum.professor?.img" src="{{apiUrl}}uploads/{{forum.professor?.img}}" alt="fotoperfil">
+                <img *ngIf="!forum.aluno?.img && !forum.professor?.img" [src]="imgDefault" alt="fotoperfil">
             </div>
         </div>
         <div class="questao">
             <h3>{{forum.titulo}}</h3>
             <div class="autor">
-                <p><span>Autor: {{forum.aluno.nome}}</span></p>
+                <p *ngIf="forum.aluno?.nome"><span>Autor: {{forum.aluno?.nome}}</span></p>
+                <p *ngIf="forum.professor?.nome"><span>Autor: {{forum.professor?.nome}} <i class='bx bxs-star'></i></span></p>
                 <p><span>Data: {{forum.createdAt}}</span></p>
                 <p><span>Disciplina: {{forum.materia.nome}}</span></p>
             </div>
@@ -32,7 +34,7 @@
             <div class="respostas">
                 <button class="btnResposta" (click)="showAnswers(forum.id)">Responder <span>({{forum.respostas?.length}})</span></button>
             </div>
-            <span class="drop" *ngIf="forum.aluno.id === userData.id" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
+            <span class="drop" *ngIf="forum.aluno?.id === userData.id" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
         </div>
     </section>
     
