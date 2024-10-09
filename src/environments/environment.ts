@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    baseApiUrl: 'https://apiconectados.azurewebsites.net',
+    baseApiUrl: 'https://apiconectados.azurewebsites.net/',
 };
