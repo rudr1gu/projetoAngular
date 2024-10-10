@@ -63,7 +63,6 @@ export class RespostaComponent implements OnInit {
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
-        console.log('userData', this.userData);
       }
     });
 

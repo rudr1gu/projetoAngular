@@ -75,7 +75,7 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.forumService.getAllForums().subscribe((items) => {
       const data = items;
-      console.log('Fóruns carregados:', data);
+      console.table(data);
       this.forums = data.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
 
       this.forums = data.map(forum => {

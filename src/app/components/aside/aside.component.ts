@@ -9,23 +9,12 @@ import { Professor } from '../../models/Professor';
   templateUrl: './aside.component.html',
   styleUrls: ['./aside.component.css']
 })
+
 export class AsideComponent implements OnInit, OnChanges {
   @Input() userData!: Alunos | Professor;
 
   apiUrl = environment.baseApiUrl;
   imgDefault!: string;
-
-  class = {
-    sidebars: 'sidebars',
-    container: 'container',
-    row: 'row',
-    col: 'col-md-4 static',
-    fotoPerfil: 'fotoPerfil',
-    cardPerfil: 'cardPerfil',
-    nome: 'nome',
-    textWhite: 'text-white',
-    navFeed: 'navFeed',
-  };
 
   constructor(private loginService: LoginAlunoService) {}
 

@@ -4,15 +4,21 @@
   </section>
 <section *ngIf="!isLoading">
     <section class="addQuest">
-        <button class="btn" (click)="showForm()"><i class='bx bx-plus-medical'></i> Adicionar Questão </button>
-        <button class="btn" (click)="showFilter()"><i class='bx bx-filter-alt'></i> Filtrar</button>
+        <button class="btn" (click)="showForm()">
+            <i class='bx bx-plus-medical'></i>
+            Adicionar Questão
+        </button>
+        <button class="btn" (click)="showFilter()">
+            <i class='bx bx-filter-alt'></i>
+            Filtrar
+        </button>
     </section>
     <section class="questoes" *ngFor="let forum of forums">
         <div class="img">
             <div class="fotoPerfil">
-                <img *ngIf="forum.aluno?.img" src="{{apiUrl}}uploads/{{forum.aluno?.img}}" alt="fotoperfil">
-                <img *ngIf="forum.professor?.img" src="{{apiUrl}}uploads/{{forum.professor?.img}}" alt="fotoperfil">
-                <img *ngIf="!forum.aluno?.img && !forum.professor?.img" [src]="imgDefault" alt="fotoperfil">
+                <img *ngIf="forum.aluno?.img" [src]="apiUrl + 'uploads/' + forum.aluno?.img" alt="foto do perfil">
+                <img *ngIf="forum.professor?.img" [src]="apiUrl + 'uploads/' + forum.professor?.img" alt="foto do perfil">
+                <img *ngIf="!forum.aluno?.img && !forum.professor?.img" [src]="imgDefault" alt="foto do perfil">
             </div>
         </div>
         <div class="questao">
@@ -25,7 +31,7 @@
             </div>
             <p>{{forum.descricao}}</p>
 
-            <span *ngIf="forum.fileName"><a target="_blank" href="{{apiUrl}}uploads/{{forum.fileName}}"><i class='bx bx-paperclip'></i> Anexo</a></span>
+            <span *ngIf="forum.fileName"><a target="_blank" [href]="apiUrl + 'uploads/'+ forum.fileName"><i class='bx bx-paperclip'></i> Anexo</a></span>
 
             <ul *ngIf="forum.tags && forum.tags.length > 0">
                 <li *ngFor="let tag of forum.tags">{{tag.nome}}</li>
@@ -40,7 +46,11 @@
     </section>
     
     <section class="form"  *ngIf="newQuestion">
-        <app-new-question [showForm]="newQuestion" [forums]="forums" (closeForm)="showForm()" ></app-new-question>
+        <app-new-question
+            [showForm]="newQuestion" 
+            [forums]="forums" 
+            (closeForm)="showForm()" >
+        </app-new-question>
     </section>
 
     <app-resposta
