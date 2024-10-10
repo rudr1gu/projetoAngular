@@ -223,3 +223,8 @@ section .filtro{
     font-size: 18px;
     color: #333;
   }
+
+  a {
+    position: relative;
+    z-index: 10;
+  }

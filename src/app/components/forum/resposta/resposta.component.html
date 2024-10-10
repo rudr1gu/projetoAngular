@@ -32,7 +32,7 @@
                 <img *ngIf="!resposta.aluno?.img && !resposta.professor?.img" [src]="imgDefault" alt="foto de perfil">
               </div>
               <div class="resposta-info">
-                <p class="nome" *ngIf="resposta.aluno?.nome"><strong>{{ resposta.aluno?.nome }}</strong></p>
+                <p class="nome" *ngIf="resposta.aluno?.nome"><strong>{{ resposta.aluno?.nome }}</strong> <button class="btnStar"><i class='bx bx-star'></i></button></p>
                 <p class="nome" *ngIf="resposta.professor?.nome"><strong>{{ resposta.professor?.nome }} <i class='bx bxs-graduation' ></i></strong></p>
                 
                 <small class="data">Postado em: {{ resposta.createdAt | date:'short' }}</small>
@@ -40,6 +40,7 @@
             </div>
             <p class="conteudo">{{ resposta.resposta }} </p>
             <span *ngIf="resposta.fileName"><a target="_blank" href="{{apiUrl}}uploads/{{resposta.fileName}}"><i class='bx bx-paperclip'></i> Anexo</a></span>
+            
             
             <span class="drop" *ngIf="resposta.aluno?.id  === userData.id && isAluno" (click)="removeResposta(resposta.id!)"><i class='bx bxs-trash'></i></span>
             <span class="drop" *ngIf="resposta.professor?.id  === userData.id && isProfessor" (click)="removeResposta(resposta.id!)"><i class='bx bxs-trash'></i></span>
