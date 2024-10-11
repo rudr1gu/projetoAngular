@@ -7,6 +7,7 @@ import { Alunos } from '../../models/Alunos';
 import { UserDataServiceService } from '../../services/user-data-service.service';
 import { environment } from '../../../environments/environment';
 import { Professor } from '../../models/Professor';
+import { CadastroAlunosService } from '../../services/cadastro/cadastro-alunos.service';
 
 @Component({
   selector: 'app-feed',
@@ -32,7 +33,7 @@ export class FeedComponent implements OnInit, OnChanges {
 
   constructor(
     private feedService: FeedService,
-    private userDataService: UserDataServiceService
+    private userDataService: UserDataServiceService,
   ) {}
 
   ngOnInit(): void {
