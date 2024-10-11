@@ -127,3 +127,24 @@ span.drop:hover{
 input[type="file"] {
     display: none;
 }
+
+button.btnStar{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+span.spanAutor{
+    font-size: 10px;
+    color: #99aab5;
+    margin-left: 5px;
+    background-color: #0c101e;
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+button.btnStar:disabled{
+    color: gold;
+}

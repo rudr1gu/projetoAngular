@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 import { Forum } from '../../models/Forum';
 import { Response } from '../../models/Response';
 import { Resposta } from '../../models/Resposta';
+import { Alunos } from '../../models/Alunos';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,9 @@ export class ForumService {
   removeResposta(id: number): Observable<Resposta> {
     const url = `${this.baseApiUrl}api/respostas/${id}`;
     return this.http.delete<Resposta>(url);
+  }
+
+  updateAluno(alunoId: number, aluno: Alunos ): Observable<Alunos>{
+    return this.http.put<Alunos>(`${this.baseApiUrl}api/alunos/${alunoId}`, aluno);
   }
 }

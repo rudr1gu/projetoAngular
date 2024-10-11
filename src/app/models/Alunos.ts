@@ -12,6 +12,7 @@ export interface Alunos {
     genero?: string;
     img?: string;
     // tipo?: string;
+    estrelas?: number;
     createdAt?: string;
     updatedAt?: string;
 }

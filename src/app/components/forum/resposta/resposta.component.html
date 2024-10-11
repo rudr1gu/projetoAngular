@@ -11,6 +11,9 @@
                         name="resposta"
                         formControlName="resposta">
                     </textarea>
+                    <div *ngIf="respostaForm.get('resposta')?.invalid && respostaForm.get('resposta')?.touched" class="alert alert-danger">
+                      A resposta é obrigatória!
+                    </div>                  
                     <div class="btns">
                         <button class="btn btn-sm btn-primary pull-right" type="submit" ><i class="fa fa-pencil fa-fw"></i> Enviar</button>
                             <label for="arquivo">
@@ -24,22 +27,31 @@
             </form>
         </div>
         <button class="btn-close" (click)="closeResposta()"><i class='bx bxs-x-circle'></i></button>
-        <div *ngFor="let resposta of respostas" class="resposta-card">
+        <div *ngFor="let resposta of respostas" class="resposta-card" @listAnimation>
             <div class="resposta-header">
               <div class="fotoPerfil">
-                <img *ngIf="resposta.aluno?.img" src="{{apiUrl}}uploads/{{resposta.aluno?.img}}" alt="foto de perfil">
-                <img *ngIf="resposta.professor?.img" src="{{apiUrl}}uploads/{{resposta.professor?.img}}" alt="foto do perfil">
+                <img *ngIf="resposta.aluno?.img" [src]="apiUrl + 'uploads/' + resposta.aluno?.img" alt="foto de perfil">
+                <img *ngIf="resposta.professor?.img" [src]="apiUrl +'uploads/'+ resposta.professor?.img" alt="foto do perfil">
                 <img *ngIf="!resposta.aluno?.img && !resposta.professor?.img" [src]="imgDefault" alt="foto de perfil">
               </div>
               <div class="resposta-info">
-                <p class="nome" *ngIf="resposta.aluno?.nome"><strong>{{ resposta.aluno?.nome }}</strong> <button class="btnStar"><i class='bx bx-star'></i></button></p>
+                <p class="nome" *ngIf="resposta.aluno?.nome"><strong>{{ resposta.aluno?.nome }}</strong>
+                  <span *ngIf="selectedForum.aluno?.id === resposta.aluno?.id" class="spanAutor">Autor</span>
+                  <button
+                    *ngIf="selectedForum.aluno?.id !== resposta.aluno?.id"
+                    class="btnStar"
+                    [disabled]="!isAuthor()"
+                    (click)="doarEstrela(resposta.aluno!)">
+                    <i class='bx bx-star'></i> Doar Estrela
+                  </button>
+                </p>
                 <p class="nome" *ngIf="resposta.professor?.nome"><strong>{{ resposta.professor?.nome }} <i class='bx bxs-graduation' ></i></strong></p>
                 
                 <small class="data">Postado em: {{ resposta.createdAt | date:'short' }}</small>
               </div>
             </div>
             <p class="conteudo">{{ resposta.resposta }} </p>
-            <span *ngIf="resposta.fileName"><a target="_blank" href="{{apiUrl}}uploads/{{resposta.fileName}}"><i class='bx bx-paperclip'></i> Anexo</a></span>
+            <span *ngIf="resposta.fileName"><a target="_blank" [href]="apiUrl+'uploads/'+ resposta.fileName"><i class='bx bx-paperclip'></i> Anexo</a></span>
             
             
             <span class="drop" *ngIf="resposta.aluno?.id  === userData.id && isAluno" (click)="removeResposta(resposta.id!)"><i class='bx bxs-trash'></i></span>

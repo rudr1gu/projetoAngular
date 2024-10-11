@@ -55,6 +55,7 @@
 
     <app-resposta
         [isOpen]="showRespostas"
+        [selectedForum]="selectedForum"
         [forumId]="selectedForumId"
         [respostas]="selectedForum.respostas || []"
         (close)="showAnswers(selectedForumId)">

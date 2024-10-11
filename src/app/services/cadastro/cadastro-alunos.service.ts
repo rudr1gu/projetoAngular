@@ -23,4 +23,9 @@ export class CadastroAlunosService {
   novoProfessor(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(`${this.baseApiUrl}api/professores`, formData);
   }
+
+  updateAluno(alunoId: number, formData: FormData): Observable<FormData> {
+    return this.http.put<FormData>(`${this.apiUrl}/${alunoId}`, formData);
+  }
+
 }

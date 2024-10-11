@@ -1,4 +1,6 @@
 <aside *ngIf="userData">
+    <!-- criar um formulario para atualizar a foto do perfil -->
+  
     <nav>
         <ul>
             <div class="boxPerfil">
@@ -12,6 +14,10 @@
                     <p id="ds">Desenvolvimento de Sistemas</p>
                 </li>
             </div>
+            <!-- <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                <input type="file" (change)="onFileSelected($event)">
+                <button type="submit">Atualizar</button>
+            </form> -->
             <li>
                 <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-users" ></i>  <p class="text">Fórum</p></a>
             </li>

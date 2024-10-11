@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, transition, query, stagger } from '@angular/animations';
 import { Resposta } from '../../../models/Resposta';
 import { ForumService } from '../../../services/forum/forum.service';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -15,6 +15,7 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './resposta.component.html',
   styleUrls: ['./resposta.component.css'],
   animations: [
+    [
     trigger('slideInOut', [
       state('in', style({
         transform: 'translateX(0)'
@@ -29,7 +30,19 @@ import { environment } from '../../../../environments/environment';
         animate('300ms ease-out') 
       ])
     ])
+  ], [
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(-20px)' }),
+          stagger(100, [
+            animate('0.5s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
   ]
+]
 })
 
 export class RespostaComponent implements OnInit {
@@ -39,6 +52,7 @@ export class RespostaComponent implements OnInit {
   @Input() forum?: Forum;
   @Input() forumId!: number;
   @Input() respostas!: Resposta[];
+  @Input() selectedForum!: Forum;
 
   selectedFile?: File;
 
@@ -50,6 +64,7 @@ export class RespostaComponent implements OnInit {
 
   isAluno: boolean = false;
   isProfessor: boolean = false;
+  isCreated: boolean = false;
 
   constructor(
     private forumservice: ForumService,
@@ -57,7 +72,6 @@ export class RespostaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // atualizar a lista de respostas
     this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
 
     this.userDataService.currentUserData.subscribe((userData) => {
@@ -76,6 +90,10 @@ export class RespostaComponent implements OnInit {
       this.isProfessor = true;
     }
 
+    // verificar se o usuario é o criado do forum
+    if (this.forum?.alunoId === this.userData.id) {
+      this.isCreated = true;
+    } 
 
   }
 
@@ -101,7 +119,7 @@ export class RespostaComponent implements OnInit {
   
     this.forumservice.createResposta(formData, this.forumId).subscribe(
       (response) => {
-        console.log('Resposta criada com sucesso:', response);
+        this.showSucessMessage(`Resposta criada com sucesso!`);
         this.forumservice.getForum(this.forumId).subscribe((forum) => {
           this.forum = forum;
           this.respostas = forum.respostas!;
@@ -110,22 +128,44 @@ export class RespostaComponent implements OnInit {
         this.respostaForm.reset();
       },
       (error) => {
+        this.showErrorMessage('Erro ao criar resposta');
         console.error('Erro ao criar resposta:', error);
       }
     );
-
     this.selectedFile = undefined;
-    
+  }
+
+  showSucessMessage(message: string) {
+    alert(message);
+  }
+
+  showErrorMessage(message: string) {
+    alert(message);
   }
   
 
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
+      const file = input.files[0];
+      const fileSizeLimit = 5 * 1024 * 1024; // 5MB
+      const allowedTypes = ['image/png', 'image/jpeg', 'application/pdf'];
+  
+      if (file.size > fileSizeLimit) {
+        console.error('O arquivo é muito grande.');
+        return;
+      }
+  
+      if (!allowedTypes.includes(file.type)) {
+        console.error('Tipo de arquivo não suportado.');
+        return;
+      }
+  
+      this.selectedFile = file;
       console.log('Arquivo selecionado:', this.selectedFile);
     }
   }
+  
 
   get stateName() {
     return this.isOpen ? 'in' : 'out';
@@ -151,6 +191,39 @@ export class RespostaComponent implements OnInit {
         console.error('Erro ao remover resposta:', error);
       }
     );
+  }
+
+  doarEstrela(aluno: Alunos){
+    const novaEstrelas = aluno.estrelas! + 1;
+    const alunoAtualizado = { ...aluno, estrelas: novaEstrelas };
+
+    this.forumservice.updateAluno(aluno.id, alunoAtualizado).subscribe(
+      (response) => {
+        console.log('Estrela doada com sucesso:', response);
+
+        this.forumservice.getForum(this.forumId).subscribe((forum) => {
+          this.forum = forum;
+          this.respostas = forum.respostas!;
+          this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
+          console.log('Forum atualizado:', this.forum);
+        });
+      },
+      (error) => {
+        console.error('Erro ao doar estrela:', error);
+      }
+    );
+  }
+
+  isAuthor(): boolean {
+    // Verifica se o usuário logado é o autor do fórum
+    if (this.selectedForum.aluno?.id && this.userData.id ) {
+      return this.selectedForum.aluno.id === this.userData.id;
+    }
+    if (this.selectedForum.professor?.id && this.userData.id &&  localStorage.getItem('userType') === 'professor') {
+      return this.selectedForum.professor.id === this.userData.id;
+    }
+    
+    return false;
   }
 
   closeResposta() {
