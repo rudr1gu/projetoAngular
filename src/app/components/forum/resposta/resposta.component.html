@@ -40,9 +40,9 @@
                   <button
                     *ngIf="selectedForum.aluno?.id !== resposta.aluno?.id"
                     class="btnStar"
-                    [disabled]="!isAuthor()"
+                    [disabled]="!isAuthor() || isStar"
                     (click)="doarEstrela(resposta.aluno!)">
-                    <i class='bx bx-star'></i> Doar Estrela
+                    <i [class]="isStar? 'bx bxs-star': 'bx bx-star'"></i> <span class="btn-text">Doar Estrela</span>
                   </button>
                 </p>
                 <p class="nome" *ngIf="resposta.professor?.nome"><strong>{{ resposta.professor?.nome }} <i class='bx bxs-graduation' ></i></strong></p>

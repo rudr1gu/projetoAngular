@@ -19,6 +19,7 @@ import { ForumComponent } from './components/forum/forum.component';
 import { NewQuestionComponent } from './components/forum/new-question/new-question.component';
 import { FiltroComponent } from './components/forum/filtro/filtro.component';
 import { RespostaComponent } from './components/forum/resposta/resposta.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RespostaComponent } from './components/forum/resposta/resposta.componen
     ForumComponent,
     NewQuestionComponent,
     FiltroComponent,
-    RespostaComponent
+    RespostaComponent,
+    RankingComponent,
   ],
   imports: [
     BrowserModule,

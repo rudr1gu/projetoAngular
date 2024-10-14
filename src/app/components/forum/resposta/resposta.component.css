@@ -128,12 +128,7 @@ input[type="file"] {
     display: none;
 }
 
-button.btnStar{
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px;
-}
+
 
 span.spanAutor{
     font-size: 10px;
@@ -145,6 +140,40 @@ span.spanAutor{
     font-weight: 500;
 }
 
-button.btnStar:disabled{
-    color: gold;
+button.btnStar {
+  color: #333;
+  padding: 2px;
+  font-size: 12px;
+  margin: 0 5px ;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+button.btnStar:disabled {
+  color: gold;
+  cursor: not-allowed;
+  border: none;
+  background-color: white;
+}
+
+/* Ocultar o texto e exibir apenas a estrela quando desabilitado */
+button.btnStar:disabled .btn-text {
+  visibility: hidden;
+}
+
+button.btnStar:disabled .star-icon {
+  visibility: visible;
+}
+
+/* Exibir o texto quando o botão não estiver desabilitado */
+/* button.btnStar .btn-text {
+  visibility: visible;
+} */
+
+button.btnStar .star-icon {
+  visibility: hidden;
+}
+
+button.btnStar:hover:not(:disabled) {
+  background-color: none;
+}
+
