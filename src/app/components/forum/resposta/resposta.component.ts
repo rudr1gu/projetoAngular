@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { trigger, state, style, animate, transition, query, stagger } from '@angular/animations';
 import { Resposta } from '../../../models/Resposta';
 import { ForumService } from '../../../services/forum/forum.service';
@@ -46,7 +46,7 @@ import { ActivatedRoute } from '@angular/router';
 ]
 })
 
-export class RespostaComponent implements OnInit {
+export class RespostaComponent implements OnInit, OnChanges {
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter();
   @Input() userData!: Alunos | Professor;
@@ -74,23 +74,22 @@ export class RespostaComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if((changes['forumId'] && this.forumId) || (changes['respostas'] && this.respostas) && this.userData) {
+      this.verificarEstrelaDoada();
+    }
+    if ((changes['userData'] && this.userData) && this.forumId) {
+      this.verificarEstrelaDoada();
+    }
+  }
+
   ngOnInit(): void {
     this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
 
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
-  
-        // Verificar se a estrela já foi doada
-        const estrelaDoadaKey = `estrelaDoada_${this.forumId}_${this.userData.id}`;
-        const estrelaDoada = localStorage.getItem(estrelaDoadaKey);
-        
-        // Atualizando o log para depuração
-        console.log(`Chave estrelaDoada: ${estrelaDoadaKey}, valor: ${estrelaDoada}`);
-  
-        // Definir isStar baseado no valor do localStorage
-        this.isStar = (estrelaDoada === 'true');
-        console.log(`isStar após checar localStorage: ${this.isStar}`);
       }
     });    
 
@@ -104,12 +103,19 @@ export class RespostaComponent implements OnInit {
       this.isProfessor = true;
     }
 
-    // verificar se o usuario é o criado do forum
     if (this.forum?.alunoId === this.userData.id) {
       this.isCreated = true;
     }
-    console.log(`estrelaDoada_${this.forumId}_${this.userData.id}`);
-    console.log(localStorage.getItem(`estrelaDoada_${this.forumId}_${this.userData.id}`));
+  }
+
+  verificarEstrelaDoada(): void {
+    const estrelaDoadaKey = `estrelaDoada_${this.forumId}_${this.userData.id}`;
+    const estrelaDoada = localStorage.getItem(estrelaDoadaKey);
+    this.isStar = (estrelaDoada === 'true');
+    
+    // Adicionar logs para depuração
+    console.log(`Chave estrelaDoada: ${estrelaDoadaKey}, valor: ${estrelaDoada}`);
+    console.log(`isStar após verificar localStorage: ${this.isStar}`);
   }
 
   isSetStar(): boolean {
@@ -222,6 +228,8 @@ export class RespostaComponent implements OnInit {
   
         // Salvar no localStorage
         localStorage.setItem(`estrelaDoada_${this.forumId}_${this.userData.id}`, 'true');
+        console.log(`Estrela doada salva no localStorage para o fórum ${this.forumId} e usuário ${this.userData.id}`);
+
         this.isStar = true; // Desabilitar o botão
   
         // Atualizar o fórum e as respostas
