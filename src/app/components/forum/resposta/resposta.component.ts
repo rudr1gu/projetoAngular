@@ -8,6 +8,7 @@ import { Alunos } from '../../../models/Alunos';
 import { Professor } from '../../../models/Professor';
 import { Forum } from '../../../models/Forum';
 import { environment } from '../../../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -65,10 +66,12 @@ export class RespostaComponent implements OnInit {
   isAluno: boolean = false;
   isProfessor: boolean = false;
   isCreated: boolean = false;
+  isStar: boolean = false;
 
   constructor(
     private forumservice: ForumService,
-    private userDataService: UserDataServiceService
+    private userDataService: UserDataServiceService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -77,8 +80,19 @@ export class RespostaComponent implements OnInit {
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
+  
+        // Verificar se a estrela já foi doada
+        const estrelaDoadaKey = `estrelaDoada_${this.forumId}_${this.userData.id}`;
+        const estrelaDoada = localStorage.getItem(estrelaDoadaKey);
+        
+        // Atualizando o log para depuração
+        console.log(`Chave estrelaDoada: ${estrelaDoadaKey}, valor: ${estrelaDoada}`);
+  
+        // Definir isStar baseado no valor do localStorage
+        this.isStar = (estrelaDoada === 'true');
+        console.log(`isStar após checar localStorage: ${this.isStar}`);
       }
-    });
+    });    
 
     this.respostaForm = new FormGroup({
       resposta: new FormControl('', Validators.required),
@@ -93,9 +107,14 @@ export class RespostaComponent implements OnInit {
     // verificar se o usuario é o criado do forum
     if (this.forum?.alunoId === this.userData.id) {
       this.isCreated = true;
-    } 
-
+    }
+    console.log(`estrelaDoada_${this.forumId}_${this.userData.id}`);
+    console.log(localStorage.getItem(`estrelaDoada_${this.forumId}_${this.userData.id}`));
   }
+
+  isSetStar(): boolean {
+    return localStorage.getItem(`estrelaDoada_${this.forumId}_${this.userData.id}`) === 'true';
+  }  
 
   adicionarResposta() {
     if (!this.respostaForm.valid) {
@@ -193,14 +212,19 @@ export class RespostaComponent implements OnInit {
     );
   }
 
-  doarEstrela(aluno: Alunos){
+  doarEstrela(aluno: Alunos) {
     const novaEstrelas = aluno.estrelas! + 1;
     const alunoAtualizado = { ...aluno, estrelas: novaEstrelas };
-
+  
     this.forumservice.updateAluno(aluno.id, alunoAtualizado).subscribe(
       (response) => {
         console.log('Estrela doada com sucesso:', response);
-
+  
+        // Salvar no localStorage
+        localStorage.setItem(`estrelaDoada_${this.forumId}_${this.userData.id}`, 'true');
+        this.isStar = true; // Desabilitar o botão
+  
+        // Atualizar o fórum e as respostas
         this.forumservice.getForum(this.forumId).subscribe((forum) => {
           this.forum = forum;
           this.respostas = forum.respostas!;
@@ -213,6 +237,7 @@ export class RespostaComponent implements OnInit {
       }
     );
   }
+    
 
   isAuthor(): boolean {
     // Verifica se o usuário logado é o autor do fórum
