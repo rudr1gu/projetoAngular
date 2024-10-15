@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlunoService } from '../../services/ranking/aluno.service';
 import { Alunos } from '../../models/Alunos';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-ranking',
@@ -9,6 +10,9 @@ import { Alunos } from '../../models/Alunos';
 })
 export class RankingComponent implements OnInit {
   alunos!: Alunos[];
+  baseApi = environment.baseApiUrl;
+  imgDefault = 'https://www.gravatar.com/avatar/';
+
 
   constructor(
     private alunosService: AlunoService
@@ -23,6 +27,8 @@ export class RankingComponent implements OnInit {
       this.alunos = alunos.data;
       console.table(this.alunos);
     });
+
+   
    
   }
 

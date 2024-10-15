@@ -1,23 +1,21 @@
 <aside *ngIf="userData">
-    <!-- criar um formulario para atualizar a foto do perfil -->
-  
     <nav>
         <ul>
-            <div class="boxPerfil">
-                <li id="foto">
-                    <img [src]="imgDefault" alt="user">
-                </li>
-                <li>
-                    <p id="nome">{{userData.nome}}</p>
-                </li>
-                <li>
-                    <p id="ds">Desenvolvimento de Sistemas</p>
-                </li>
-            </div>
-            <!-- <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
-                <input type="file" (change)="onFileSelected($event)">
-                <button type="submit">Atualizar</button>
-            </form> -->
+            <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                <div class="boxPerfil">
+                    <li id="foto">
+                        <img [src]="imgDefault" alt="user">
+                        <!-- <input type="file" (change)="onFileSelected($event)"> -->
+                    </li>
+                    <li>
+                        <p id="nome">{{userData.nome}}</p>
+                    </li>
+                    <li>
+                        <p id="ds">Desenvolvimento de Sistemas</p>
+                    </li>
+                    <!-- <button type="submit">Atualizar Foto</button> -->
+                </div>
+            </form>
             <li>
                 <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-users" ></i>  <p class="text">Fórum</p></a>
             </li>
@@ -27,14 +25,14 @@
             <li>
                 <a routerLink="/feed" routerLinkActive="active"><i class='bx bxs-conversation'></i>  <p class="text">Feed</p></a>
             </li>
-            <li>
+            <!-- <li>
                 <a routerLink="/calendario" routerLinkActive="active"><i class='bx bxs-calendar-star' ></i>  <p class="text">Calendário</p></a>
             </li>
             <li>
                 <a routerLink="/arquivos" routerLinkActive="active"><i class='bx bx-paperclip'></i> <p class="text">Arquivos</p></a>
-            </li>
+            </li> -->
             <li>
-                <a routerLink="/ranking" routerLinkActive="active"><i class='bx bx-trophy'></i> <p class="text">Ranking</p></a>
+                <a routerLink="/ranking" routerLinkActive="active"><i class='bx bxs-trophy'></i> <p class="text">Ranking</p></a>
             </li>
         </ul>
         <div class="container-btn">

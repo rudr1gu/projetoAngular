@@ -54,19 +54,25 @@ export class AsideComponent implements OnInit, OnChanges {
   }
 
   updateImg() {
-    const formData = new FormData();
-    formData.append('img', this.selectedFile);
-
-    this.cadastroService.updateAluno(this.userData.id, formData).subscribe(
-      (response) => {
-        this.userData.img = (response as any).img;
-        this.setImage();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('img', this.selectedFile);
+  
+      this.cadastroService.updateAluno(this.userData.id, formData).subscribe(
+        (response) => {
+          console.log('Resposta da API:', response); // Verifique a resposta da API
+          this.userData.img = (response as any).img;
+          this.setImage();
+        },
+        (error) => {
+          console.log('Erro:', error);
+        }
+      );
+    } else {
+      console.log('Nenhuma imagem selecionada.');
+    }
   }
+  
 
   onSubmit() {
     this.updateImg();

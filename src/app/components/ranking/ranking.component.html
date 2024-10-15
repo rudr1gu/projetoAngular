@@ -1,21 +1,25 @@
  <section class="container">
-    <h1> Ranking de Colaboradores</h1>
-    
+    <h1> Ranking de Colaboradores</h1>   
     <table>
         <thead>
             <tr>
-            <th>Posição</th>
-            <th>Nome</th>
-            <th>Estrelas</th>
+                <th><i class='bx bx-trophy'></i> Posição</th>
+                <th><i class='bx bxs-id-card'></i> Nome</th>
+                <th><i class="bx bx-star"></i> Estrelas</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let aluno of alunos; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ aluno.nome }}</td>
-            <td>{{ aluno.estrelas }}</td>
+                <td>{{ i + 1 }} ° </td>
+                <td class="nome">
+                    <img *ngIf="aluno.img" [src]="baseApi +'uploads/'+ aluno.img" alt="foto do perfil">
+                    <img *ngIf="!aluno.img" [src]="imgDefault" alt="foto do perfil">
+                    {{ aluno.nome }}
+                </td>
+                <td *ngIf="aluno.estrelas">{{ aluno.estrelas }}</td>
+                <td *ngIf="!aluno.estrelas"> - </td>
             </tr>
         </tbody>
-    
+ 
     </table>
 </section>
