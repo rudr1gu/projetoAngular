@@ -1,25 +1,35 @@
- <section class="container">
-    <h1> Ranking de Colaboradores</h1>   
-    <table>
-        <thead>
-            <tr>
-                <th><i class='bx bx-trophy'></i> Posição</th>
-                <th><i class='bx bxs-id-card'></i> Nome</th>
-                <th><i class="bx bx-star"></i> Estrelas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let aluno of alunos; let i = index">
-                <td>{{ i + 1 }} ° </td>
-                <td class="nome">
-                    <img *ngIf="aluno.img" [src]="baseApi +'uploads/'+ aluno.img" alt="foto do perfil">
-                    <img *ngIf="!aluno.img" [src]="imgDefault" alt="foto do perfil">
-                    {{ aluno.nome }}
-                </td>
-                <td *ngIf="aluno.estrelas">{{ aluno.estrelas }}</td>
-                <td *ngIf="!aluno.estrelas"> - </td>
-            </tr>
-        </tbody>
- 
-    </table>
+ <section class="ranking-container" *ngFor="let aluno of alunos">
+    <h1>ESTRELAS DO CONHECIMENTO</h1>
+
+
+    <div class="top-three">
+        <div class="player second">
+            <div class="medal silver">#2</div>
+            <div class="player-name">Nombre Jugador</div>
+        </div>
+        <div class="player first">
+            <div class="medal gold">#1</div>
+            <div class="player-name">Nombre Jugador</div>
+        </div>
+        <div class="player third">
+            <div class="medal bronze">#3</div>
+            <div class="player-name">Nombre Jugador</div>
+        </div>
+    </div>
+
+    <div class="ranking-list">
+        <div class="player-list-item">
+        <span>#4</span> <span>Inserte el nombre aquí</span> <span>3888</span>
+        </div>
+        <div class="player-list-item">
+        <span>#5</span> <span>Inserte el nombre aquí</span> <span>3843</span>
+        </div>
+        <div class="player-list-item">
+        <span>#6</span> <span>Inserte el nombre aquí</span> <span>3754</span>
+        </div>
+        <div class="player-list-item">
+        <span>#7</span> <span>Inserte el nombre aquí</span> <span>3666</span>
+        </div>
+    </div>
+
 </section>
