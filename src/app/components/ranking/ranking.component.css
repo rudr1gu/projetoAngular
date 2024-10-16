@@ -1,7 +1,14 @@
- .ranking-container {
-    width: 400px;
-    background-color: #1f1f1f;
-    padding: 20px;
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.ranking-container {
+    width: 55%;
+    background-color: #fff;
+    padding:  20px 80px;
     border-radius: 10px;
     text-align: center;
 }
@@ -71,7 +78,8 @@ h3 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #333;
+    background-color: #0c101e;
     border-radius: 5px;
     margin-bottom: 10px;
+    color:white;
 }
