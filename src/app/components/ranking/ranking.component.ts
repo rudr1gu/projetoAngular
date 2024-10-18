@@ -14,6 +14,7 @@ export class RankingComponent implements OnInit {
   imgDefault = 'https://www.gravatar.com/avatar/';
 
 
+
   constructor(
     private alunosService: AlunoService
   ) { }

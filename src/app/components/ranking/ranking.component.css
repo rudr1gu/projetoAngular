@@ -43,7 +43,7 @@ h3 {
 }
  
 .medal {
-    font-size: 18px;
+    font-size: 14px;
     color: #000;
     width: 60px;
     height: 60px;
@@ -55,7 +55,10 @@ h3 {
 }
  
 .gold {
+    position: relative;
     background-color: #FFD700;
+    overflow: hidden;
+
 }
  
 .silver {
@@ -68,6 +71,8 @@ h3 {
  
 .player-name {
     font-size: 14px;
+    background-color: #FFD700;
+    
 }
  
 .ranking-list {
@@ -83,3 +88,44 @@ h3 {
     margin-bottom: 10px;
     color:white;
 }
+
+.gold img{
+    width: 60px;
+    height: 60px;
+}
+
+.medal-container{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medal-container span{
+    position: absolute;
+    color: #FFD700;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -15px;
+    z-index: 100;
+    font-size: 35px;
+    
+    
+}
+.first{
+    margin-bottom: 30px;
+}
+
+span .position{
+    font-size: 12px;
+    color:#000;
+    position: absolute;
+    font-weight: 800;
+}
+
