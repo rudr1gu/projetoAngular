@@ -14,6 +14,7 @@ export class RankingComponent implements OnInit {
   imgDefault = 'https://www.gravatar.com/avatar/';
 
 
+
   constructor(
     private alunosService: AlunoService
   ) { }
@@ -27,9 +28,13 @@ export class RankingComponent implements OnInit {
       this.alunos = alunos.data;
       console.table(this.alunos);
     });
+  }
 
-   
-   
+  getAlunoImage(img: string | null | undefined): string {
+    if (!img) {
+      return this.imgDefault;
+    }
+    return `${this.baseApi}uploads/${img}`; 
   }
 
 }

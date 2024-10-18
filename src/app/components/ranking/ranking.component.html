@@ -1,25 +1,51 @@
- <section class="container">
-    <h1> Ranking de Colaboradores</h1>   
-    <table>
-        <thead>
-            <tr>
-                <th><i class='bx bx-trophy'></i> Posição</th>
-                <th><i class='bx bxs-id-card'></i> Nome</th>
-                <th><i class="bx bx-star"></i> Estrelas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let aluno of alunos; let i = index">
-                <td>{{ i + 1 }} ° </td>
-                <td class="nome">
-                    <img *ngIf="aluno.img" [src]="baseApi +'uploads/'+ aluno.img" alt="foto do perfil">
-                    <img *ngIf="!aluno.img" [src]="imgDefault" alt="foto do perfil">
-                    {{ aluno.nome }}
-                </td>
-                <td *ngIf="aluno.estrelas">{{ aluno.estrelas }}</td>
-                <td *ngIf="!aluno.estrelas"> - </td>
-            </tr>
-        </tbody>
- 
-    </table>
-</section>
+<section class="container">
+    <section class="ranking-container">
+      <h1>ESTRELAS DO CONHECIMENTO</h1>
+      <div class="top-three">
+        <div *ngIf="alunos.length > 1" class="player second">
+          <div class="medal-container">
+            <span class="silver-star">
+              <i class="bx bxs-star"></i>
+              <p class="position">{{alunos[1]!.estrelas}}</p>
+            </span>
+            <div class="medal silver">
+              <img [src]="getAlunoImage(alunos[1]!.img)" alt="foto aluno">
+            </div>
+          </div>
+          <div class="player-name silver">#2 {{ alunos[1]!.nome }}</div>
+        </div>
+
+        <div *ngIf="alunos.length > 0" class="player first">
+          <div class="medal-container">
+              <span class="gold-star">
+                  <i class="bx bxs-star"></i>
+                  <p class="position">{{alunos[0]!.estrelas}}</p>
+
+              </span>
+              <div class="medal gold">
+                  <img [src]="getAlunoImage(alunos[0]!.img)" alt="foto aluno">
+              </div>
+          </div>
+          <div class="player-name gold">#1 {{ alunos[0]!.nome }}</div>
+        </div>
+
+        <div *ngIf="alunos.length > 2" class="player third">
+          <div class="medal-container">
+            <span class="bronze-star">
+              <i class="bx bxs-star"></i>
+              <p class="position">{{alunos[2]!.estrelas}}</p>
+            </span>
+            <div class="medal bronze">
+              <img [src]="getAlunoImage(alunos[2]!.img)" alt="foto aluno">
+            </div>
+          </div>
+        <div class="player-name bronze">#3 {{ alunos[2]!.nome }}</div>
+        </div>
+      </div>
+      <div class="ranking-list">
+        <div *ngFor="let aluno of alunos; let i = index" class="player-list-item" >
+          <span>#{{ i + 1 }}</span> <span>{{ aluno.nome }}</span> <span>{{ aluno.estrelas }} <i class="bx bxs-star"></i></span>
+        </div>
+      </div>
+    </section>
+  </section>
