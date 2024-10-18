@@ -26,7 +26,6 @@ export class RankingComponent implements OnInit {
       });
 
       this.alunos = alunos.data;
-      console.table(this.alunos);
     });
   }
 

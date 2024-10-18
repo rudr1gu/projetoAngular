@@ -2,7 +2,7 @@
     <section class="ranking-container">
       <h1>ESTRELAS DO CONHECIMENTO</h1>
       <div class="top-three">
-        <div *ngIf="alunos.length > 1" class="player second">
+        <div  class="player second">
           <div class="medal-container">
             <span class="silver-star">
               <i class="bx bxs-star"></i>
@@ -15,7 +15,7 @@
           <div class="player-name silver">#2 {{ alunos[1]!.nome }}</div>
         </div>
 
-        <div *ngIf="alunos.length > 0" class="player first">
+        <div class="player first">
           <div class="medal-container">
               <span class="gold-star">
                   <i class="bx bxs-star"></i>
@@ -29,7 +29,7 @@
           <div class="player-name gold">#1 {{ alunos[0]!.nome }}</div>
         </div>
 
-        <div *ngIf="alunos.length > 2" class="player third">
+        <div class="player third">
           <div class="medal-container">
             <span class="bronze-star">
               <i class="bx bxs-star"></i>

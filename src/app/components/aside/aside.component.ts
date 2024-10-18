@@ -63,6 +63,7 @@ export class AsideComponent implements OnInit, OnChanges {
           console.log('Resposta da API:', response); // Verifique a resposta da API
           this.userData.img = (response as any).img;
           this.setImage();
+          window.location.reload();
         },
         (error) => {
           console.log('Erro:', error);

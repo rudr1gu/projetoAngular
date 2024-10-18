@@ -5,7 +5,10 @@
                 <div class="boxPerfil">
                     <li id="foto">
                         <img [src]="imgDefault" alt="user">
-                        <!-- <input type="file" (change)="onFileSelected($event)"> -->
+                    </li>
+                    <li>
+                        <label for="sFoto">Adicione Imagem</label>
+                        <input type="file" (change)="onFileSelected($event)" id="sFoto"> 
                     </li>
                     <li>
                         <p id="nome">{{userData.nome}}</p>
@@ -13,7 +16,7 @@
                     <li>
                         <p id="ds">Desenvolvimento de Sistemas</p>
                     </li>
-                    <!-- <button type="submit">Atualizar Foto</button> -->
+                    <button type="submit" *ngIf="selectedFile">Atualizar Foto</button>
                 </div>
             </form>
             <li>

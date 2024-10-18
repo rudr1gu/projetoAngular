@@ -103,6 +103,7 @@ button:hover{
   height: 100%;
   width: 100%;
   border-radius: 50%;
+  z-index: 3;
 }
 
 .boxPerfil{
@@ -121,6 +122,35 @@ button:hover{
 	position: fixed;
 	bottom: 20px;
 	left: 110px;
+}
+
+label{
+	position: absolute;
+	top: 0;
+	left: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 21, 21, 0);
+	color: #fff;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 12px;
+	text-align: center;
+	z-index: 1;
+	content-visibility: hidden;
+}
+
+label:hover{
+	background: rgba(5, 5, 5, 0.548);
+	content-visibility: visible;
+}
+
+input[type="file"]{
+	display: none;
 }
 
 @media screen and (max-width: 768px) {
