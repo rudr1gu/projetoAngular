@@ -209,7 +209,7 @@ export class RespostaComponent implements OnInit, OnChanges {
           this.forum = forum;
           this.respostas = forum.respostas!;
           this.respostas.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
-          console.log('Forum atualizado:', this.forum);
+          // console.log('Forum atualizado:', this.forum);
         } );
       },
       (error) => {

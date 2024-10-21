@@ -42,14 +42,14 @@ export class NewQuestionComponent implements OnInit {
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
-        console.log('userData', this.userData);
+        // console.log('userData', this.userData);
       }
     });
 
     this.materiaService.getAllMaterias().subscribe((items) => {
       const data = items;
       this.materias = data.map(materia => {
-        console.log('Materia:', materia);
+        // console.log('Materia:', materia);
         return materia;
         
       }); 
@@ -66,9 +66,9 @@ export class NewQuestionComponent implements OnInit {
     });
 
     if (localStorage.getItem('userType') === 'aluno') {
-      console.log('Aluno logado:', this.userData);
+      // console.log('Aluno logado:', this.userData);
     } else if (localStorage.getItem('userType') === 'professor') {
-      console.log('Professor logado:', this.userData);
+      // console.log('Professor logado:', this.userData);
     }
   }
 
@@ -111,7 +111,7 @@ export class NewQuestionComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if(input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
-      console.log('Arquivo selecionado', this.selectedFile);
+      // console.log('Arquivo selecionado', this.selectedFile);
     }
   }
 
@@ -122,7 +122,7 @@ export class NewQuestionComponent implements OnInit {
     
     if (materiaSelecionada) {
         this.selectedTags = materiaSelecionada.tags; // Atualiza as tags
-        console.log('Tags selecionadas:', this.selectedTags); // Log para verificação
+        // console.log('Tags selecionadas:', this.selectedTags);
         this.forumForm.get('tags')?.setValue([]); // Reseta as tags selecionadas
     }
   }

@@ -51,14 +51,14 @@ export class FeedComponent implements OnInit, OnChanges {
         return postagem;
       });
     
-      console.log('Postagens carregadas:', this.postagens);
+      // console.log('Postagens carregadas:', this.postagens);
     });
     
 
     this.userDataService.currentUserData.subscribe((userData) => {
       if (userData) {
         this.userData = userData!;
-        console.log('userData', this.userData);
+        // console.log('userData', this.userData);
       }
     });
 
@@ -109,7 +109,7 @@ export class FeedComponent implements OnInit, OnChanges {
 
     this.feedService.novaPostagem(this.postagemForm.value).subscribe(
       (response) => {
-        console.log('Postagem criada com sucesso:', response);
+        // console.log('Postagem criada com sucesso:', response);
         this.postagemForm.reset();
         this.loadPostagem();
       },
@@ -158,7 +158,7 @@ export class FeedComponent implements OnInit, OnChanges {
   }
 
   getImageUrl(imgAutor: string | undefined): string {
-    return imgAutor ? `http://localhost:3333/uploads/${imgAutor}` : 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
+    return imgAutor ? `${this.apiUrl}uploads/${imgAutor}` : 'https://media.istockphoto.com/id/1495088043/pt/vetorial/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=S7d8ImMSfoLBMCaEJOffTVua003OAl2xUnzOsuKIwek=';
   }
 
   setImage() {

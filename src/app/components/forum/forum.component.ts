@@ -75,7 +75,7 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.forumService.getAllForums().subscribe((items) => {
       const data = items;
-      console.table(data);
+      // console.table(data);
       this.forums = data.sort((a, b) => new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime());
 
       this.forums = data.map(forum => {
@@ -129,27 +129,27 @@ export class ForumComponent implements OnInit {
 
   applyFilter(filter: { materiaId: number | null, tag: string | null }) {
     const { materiaId, tag } = filter;
-    console.log('MateriaId selecionado:', materiaId);
-    console.log('TagId selecionado:', tag);
+    // console.log('MateriaId selecionado:', materiaId);
+    // console.log('TagId selecionado:', tag);
     
     let filteredForums = this.allForums;
   
     if (materiaId !== null) {
       filteredForums = filteredForums.filter(forum => {
-        console.log('Fórum atual para filtro:', forum); 
+        // console.log('Fórum atual para filtro:', forum); 
         return forum.materiaId === Number(materiaId); 
       });
     }
   
     if (tag !== null) {
       filteredForums = filteredForums.filter(forum => {
-        console.log('Fórum atual:', forum);
+        // console.log('Fórum atual:', forum);
         return forum.tags!.some(tags => tags.nome === tag); 
       });
     }
   
     this.forums = filteredForums;
-    console.log('Fóruns filtrados:', this.forums);
+    // console.log('Fóruns filtrados:', this.forums);
   }
 
   deleteForum(forumId: number) {  
