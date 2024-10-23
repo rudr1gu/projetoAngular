@@ -7,7 +7,7 @@
                         <img [src]="imgDefault" alt="user">
                     </li>
                     <li>
-                        <label for="sFoto">Adicione Imagem</label>
+                        <label for="sFoto">Altere a Imagem</label>
                         <input type="file" (change)="onFileSelected($event)" id="sFoto"> 
                     </li>
                     <li>
@@ -16,15 +16,15 @@
                     <li>
                         <p id="ds">Desenvolvimento de Sistemas</p>
                     </li>
-                    <button type="submit" *ngIf="selectedFile">Atualizar Foto</button>
+                    <button type="submit" class="atualizar" *ngIf="selectedFile">Atualizar Imagem</button>
                 </div>
             </form>
             <li>
                 <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-users" ></i>  <p class="text">Fórum</p></a>
             </li>
-            <li>
+            <!-- <li>
                 <a routerLink="/curso" routerLinkActive="active"><i class="fa fa-book"></i> <p class="text"> Seu Curso</p></a>
-            </li>
+            </li> -->
             <li>
                 <a routerLink="/feed" routerLinkActive="active"><i class='bx bxs-conversation'></i>  <p class="text">Feed</p></a>
             </li>

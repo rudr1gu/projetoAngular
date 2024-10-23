@@ -15,13 +15,14 @@
                       A resposta é obrigatória!
                     </div>                  
                     <div class="btns">
-                        <button class="btn btn-sm btn-primary pull-right" type="submit" ><i class="fa fa-pencil fa-fw"></i> Enviar</button>
-                            <label for="arquivo">
-                              <i class="btn btn-trans btn-icon fa fa-video-camera add-tooltip"></i>
-                              <i class="btn btn-trans btn-icon fa fa-camera add-tooltip"></i>
-                              <i class="btn btn-trans btn-icon fa fa-file add-tooltip"></i>
-                            </label>
-                            <input type="file" id="arquivo" name="arquivo" class="form-control" (change)="onFileSelected($event)">
+                        <button class="btn btn-sm btn-primary pull-right" type="submit" >Enviar</button>
+                        <div class="form-group">
+                          <div class="addFoto">
+                              <p>Adicione um arquivo ou imagem: </p><label for="arquivo" class="custom-file"><i class='bx bx-image-add' ></i> Enviar Imagem</label>
+                          </div>
+                          <p *ngIf="selectedFile">imagem: {{selectedFile.name}}</p>
+                          <input type="file" id="arquivo" class="form-control" (change)="onFileSelected($event)">
+                        </div>
                     </div>
                 </div>
             </form>

@@ -14,6 +14,12 @@
     justify-content: center;
     padding: 5px;
     overflow: hidden;
+    transition: 0.5s;
+}
+
+.questoes:hover {
+    overflow: auto;
+    transform: translateY(-10px);
 }
 
 .questoes .img{
@@ -26,7 +32,7 @@
     justify-content: center;
     background: white;
     margin: 15px;
-    background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
+    background: linear-gradient(156deg, #08f8e8 5%, #08c8f8 45%);
 }
 
 .fotoPerfil{
@@ -116,12 +122,18 @@
     bottom: 0;
     right: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
     padding: 7px;
+}
+
+.respostas p{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    margin-right: 5px;
 }
 
 span.drop{
