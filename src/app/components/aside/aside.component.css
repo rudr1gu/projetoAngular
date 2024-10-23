@@ -153,6 +153,10 @@ input[type="file"]{
 	display: none;
 }
 
+button.atualizar{
+	background: linear-gradient(#08f8f8, #0bbfbf);
+  }
+
 @media screen and (max-width: 768px) {
 	nav ul {
 		width: 20%;
