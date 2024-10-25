@@ -18,7 +18,7 @@
                         <button class="btn btn-sm btn-primary pull-right" type="submit" >Enviar</button>
                         <div class="form-group">
                           <div class="addFoto">
-                              <p>Adicione um arquivo ou imagem: </p><label for="arquivo" class="custom-file"><i class='bx bx-image-add' ></i> Enviar Imagem</label>
+                              <label for="arquivo" class="custom-file">Anexar arquivo <i class='bx bx-paperclip'></i></label>
                           </div>
                           <p *ngIf="selectedFile">imagem: {{selectedFile.name}}</p>
                           <input type="file" id="arquivo" class="form-control" (change)="onFileSelected($event)">

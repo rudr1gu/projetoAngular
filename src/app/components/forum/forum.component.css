@@ -110,19 +110,21 @@
 .questao ul li{
     margin-top: 10px;
     margin-right: 6px;
-    font-size: 11px;
+    font-size: 12px;
     padding: 4px 7px;
     border-radius: 7px;
     background: linear-gradient(#08f8f8, #0bbfbf);
     color: white;
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
 }
 .questao .respostas{
     position: absolute;
     bottom: 0;
     right: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
