@@ -64,12 +64,16 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/*  adicionando responsividade para celular */
+
 @media screen and (max-width: 768px) {
-    aside {
-        width: 10%;
+    aside{
+        width: 0px;
     }
     main {
-        width: 80%;
+       position: absolute;
+       width: 100%;
+        top: 50px;
     }
     
 }

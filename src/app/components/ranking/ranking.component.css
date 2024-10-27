@@ -200,3 +200,61 @@ span .position{
     position: absolute;
     font-weight: 800;
 }
+
+
+/* responsividade para celular */
+@media screen and (max-width: 768px) {
+    .ranking-container {
+        width: 95%;
+        height: 80%;
+        padding:  20px 20px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 12px;
+    }
+    .top-three {
+        top: 100px;
+        flex-direction: flex;
+    }
+    .medal {
+        width: 60px;
+        height: 60px;
+        margin: 0px;
+    }
+    .player-name {
+        margin-top: 3px;
+        font-size: 14px;
+    }
+    .ranking-list {
+        bottom: 20px;
+        margin-bottom: 30px;
+        width: 90%;
+    }
+    .player-list-item {
+        padding: 5px;
+    }
+    img{
+        width: 60px;
+        height: 60px;
+    }
+    .medal-container span{
+        top: -20px;
+        font-size: 30px;
+    }
+    .medal-container span p{
+        font-size: 12px;
+    }
+   
+    .player.first{
+        transform: translateY(-20px);
+    }
+    .position{
+        font-size: 10px;
+    }
+}
