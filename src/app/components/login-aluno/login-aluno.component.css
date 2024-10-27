@@ -155,9 +155,28 @@ form {
     justify-content: center;
 }
 
+.container2 a {
+    display: none;
+    background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.33);
+}
+
 @media screen and (max-width: 768px) {
     .container {
-        width: 90%;
+        width: 95%;
     }
     .container1 {
         display: none;
@@ -165,6 +184,15 @@ form {
     .container2 {
         width: 100%;
     }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-group {
+        width: 320px;
+    }
+
     .form-group input {
         width: 100%;
     }
@@ -172,7 +200,23 @@ form {
         width: 100%;
     }
     select{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        text-align: center;
+        margin: 0 5px;
+    }
+
+    .select{
+        display: flex;
         width: 100%;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .container2 a {
+        display: flex;
     }
     
 }
