@@ -86,7 +86,6 @@ button:hover{
     right: 5px;
     top: 5px;
     color: black;
-    background-color: white;
     border: 0;
     font-size: 30px;
     cursor: pointer;
@@ -156,4 +155,28 @@ button.form-group{
     justify-content: center;
     width: 200px !important;
     font-weight: 500;
+}
+
+/* resposividade para celular */
+
+@media (max-width: 768px){
+    .container{
+        padding: 20px;
+    }
+
+    .form-group{
+        width: 100%;
+    }
+
+    .form-group input, .form-group select{
+        width: 100%;
+    }
+
+    .form-group textarea{
+        width: 100%;
+    }
+
+    button.form-group{
+        width: 100%;
+    }
 }

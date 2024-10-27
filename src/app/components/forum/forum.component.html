@@ -39,8 +39,7 @@
             </ul>
             
             <div class="respostas">
-                <p> respostas <span>{{forum.respostas?.length}}</span> </p>
-                <button class="btnResposta" (click)="showAnswers(forum.id)">Responder </button>    
+                <button class="btnResposta" (click)="showAnswers(forum.id)"><p class="responder">Responder</p><p><span>{{forum.respostas?.length}}</span> - Respostas</p> </button>    
             </div>
             <span class="drop" *ngIf="forum.aluno?.id === userData.id && isAluno" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>
             <span class="drop" *ngIf="forum.professor?.id === userData.id && isProfessor" (click)="deleteForum(forum.id)"><i class='bx bxs-trash'></i></span>

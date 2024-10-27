@@ -124,6 +124,10 @@ button:hover{
 	left: 110px;
 }
 
+.container-btn p{
+	display: none;
+}
+
 label{
 	position: absolute;
 	top: 0;
@@ -157,32 +161,87 @@ button.atualizar{
 	background: linear-gradient(#08f8f8, #0bbfbf);
   }
 
-@media screen and (max-width: 768px) {
+/* reponsividade para celular deixar o aside apenas como um bnt */
+
+@media (max-width: 768px) {
 	nav ul {
-		width: 20%;
+		width: 100%;
+		height: 50px;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+	}
+	nav ul li {
+		margin: 0;
 	}
 	nav ul li a {
-		font-size: 22px;
+		padding: 10px 20px;
+		margin-top: 0;
+		font-size: 14px;
+		color: #fff;
 	}
-	nav ul li a:before {
-		border-radius: 40px 0px 0px 40px;
+	nav ul li a:before,
+	nav ul li a.active:before,
+	nav ul li a:hover:before {
+		width: 0%;
+		height: 0%;
+		border-radius: 0;
 	}
 	nav ul li a.active {
-		border-radius: 40px 0px 0px 40px;
-	}
-	nav ul li a.active:before {
-		border-radius: 40px 0px 0px 40px;
-	}
-	.container-btn{
-		left: 20px;
+		border-radius: 0;
+		background-color: transparent;
+		color: #fff;
 	}
 
-	div.boxPerfil{
+	.container-btn {
+		left: 50%;
+		transform: translateX(-50%);
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #0c101e;
+		padding: 10px;
+	}
+	.container-btn p {
+		display: block;
+		color: #fff;
+		font-weight: 500;
+		font-size: 14px;
+	}
+
+	.boxPerfil {
+		margin-top: 0;
 		display: none;
 	}
 
-	p.text{
-		display: none;
+	label {
+		left: 50%;
+		transform: translateX(-50%);
 	}
-	
+
+	#foto {
+		height: 60px;
+		width: 60px;
+	}
+	#foto img {
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+		z-index: 3;
+	}
+
+	#ds {
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	#nome {
+		font-weight: 300;
+		text-align: center;
+		margin-top: 10px;
+	}
 }

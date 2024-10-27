@@ -12,13 +12,13 @@
                         formControlName="resposta">
                     </textarea>
                     <div *ngIf="respostaForm.get('resposta')?.invalid && respostaForm.get('resposta')?.touched" class="alert alert-danger">
-                      A resposta é obrigatória!
+                      Adicione um texto...
                     </div>                  
                     <div class="btns">
                         <button class="btn btn-sm btn-primary pull-right" type="submit" >Enviar</button>
                         <div class="form-group">
                           <div class="addFoto">
-                              <label for="arquivo" class="custom-file">Anexar arquivo <i class='bx bx-paperclip'></i></label>
+                              <label for="arquivo" class="custom-file">Anexar arquivo<i class='bx bx-paperclip'></i></label>
                           </div>
                           <p *ngIf="selectedFile">imagem: {{selectedFile.name}}</p>
                           <input type="file" id="arquivo" class="form-control" (change)="onFileSelected($event)">

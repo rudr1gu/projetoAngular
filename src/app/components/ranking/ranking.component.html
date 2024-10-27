@@ -43,9 +43,14 @@
         </div>
       </div>
       <div class="ranking-list">
-        <div *ngFor="let aluno of alunos; let i = index" class="player-list-item" >
-          <span>#{{ i + 1 }}</span> <span>{{ aluno.nome }}</span> <span>{{ aluno.estrelas }} <i class="bx bxs-star"></i></span>
-        </div>
+        <!-- mostrar alunos apartir do 4 elemento do indice -->
+        <ng-container *ngFor="let aluno of alunos; let i = index">
+          <div *ngIf="i >= 3 && aluno.estrelas" class="player-list-item">
+            <span>#{{ i + 1 }}</span>
+            <span>{{ aluno.nome }}</span>
+            <span>{{ aluno.estrelas }} <i class="bx bxs-star"></i></span>
+          </div>
+        </ng-container>
       </div>
     </section>
   </section>

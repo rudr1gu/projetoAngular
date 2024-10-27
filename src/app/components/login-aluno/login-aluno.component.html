@@ -15,7 +15,7 @@
                          <label for="senha">Senha</label>
                          <input type="password" class="form-control" id="senha" name="senha" formControlName="senha" placeholder="Digite sua senha">
                     </div>
-                    <div>
+                    <div class="select">
                          <label for="tipo">Você é:</label>
                          <select id="tipo" formControlName="tipo" required>
                          <option value="" disabled selected>Selecione</option>
@@ -24,6 +24,7 @@
                          </select>
                     </div>
                     <button type="submit" class="form-control" [disabled]="loginForm.invalid">Entrar</button>
+                    <a routerLink="/cadastro">Cadastra-se</a>
                </form>
           </section>
      </section>
