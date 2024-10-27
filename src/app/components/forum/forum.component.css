@@ -266,3 +266,129 @@ section .filtro{
     position: relative;
     z-index: 10;
   }
+
+  /* responsividade celular */
+
+    @media (max-width: 768px) {
+        .questao{
+            width: 100%;
+        }
+        .questao button{
+            padding: 5px;
+        }
+        .questao h3{
+            font-size: 18px;
+        }
+        .questao p{
+            font-size: 14px;
+        }
+        .questao .autor span{
+            font-size: 10px;
+        }
+        .questao ul li{
+            font-size: 10px;
+            padding: 2px 5px;
+        }
+        .respostas p{
+            font-size: 12px;
+        }
+        .btn, .btnResposta {
+            width: 150px;
+            height: 40px;
+            font-weight: 500;
+            padding: 5px;
+            font-size: 12px;
+        }
+        .btnResposta{
+            width: 100px;
+            height: 30px;
+        }
+        .btnResposta>p{
+            font-size: 10px;
+        }
+        .btnResposta p.responder{
+            display: flex;
+        }
+        .btnResposta:hover>p{
+            display: flex;
+        }
+        .btnResposta:hover>p.responder{
+            display: none;
+        }
+        .btnResposta:hover{
+            background-color: #0c101ee4;
+            cursor: pointer;
+            content: none;
+        }
+        .btn:hover{
+            background-color: #0c101ee4;
+            cursor: pointer;
+        }
+        .loading-screen p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    }
+    
+    @media (max-width: 425px) {
+        .questao{
+            width: 100%;
+        }
+        .questao button{
+            padding: 5px;
+        }
+        .questao h3{
+            font-size: 16px;
+        }
+        .questao p{
+            font-size: 12px;
+        }
+        .questao .autor span{
+            font-size: 8px;
+        }
+        .questao ul li{
+            font-size: 8px;
+            padding: 2px 5px;
+        }
+        .respostas p{
+            font-size: 10px;
+        }
+        .btn, .btnResposta {
+            width: 100px;
+            height: 30px;
+            font-weight: 500;
+            padding: 5px;
+            font-size: 10px;
+        }
+        .btnResposta{
+            width: 80px;
+            height: 25px;
+        }
+        .btnResposta>p{
+            font-size: 8px;
+        }
+        .btnResposta p.responder{
+            display: flex;
+        }
+        .btnResposta:hover>p{
+            display: flex;
+        }
+        .btnResposta:hover>p.responder{
+            display: none;
+        }
+        .btnResposta:hover{
+            background-color: #0c101ee4;
+            cursor: pointer;
+            content: none;
+        }
+        .btn:hover{
+            background-color: #0c101ee4;
+            cursor: pointer;
+        }
+        .loading-screen p {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #333;
+        }
+    }

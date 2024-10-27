@@ -34,7 +34,7 @@
 textarea{
     resize: none;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
     margin-top: 30px;
@@ -156,7 +156,6 @@ button.btnStar:disabled {
   background-color: white;
 }
 
-/* Ocultar o texto e exibir apenas a estrela quando desabilitado */
 button.btnStar:disabled .btn-text {
   visibility: hidden;
 }
@@ -164,11 +163,6 @@ button.btnStar:disabled .btn-text {
 button.btnStar:disabled .star-icon {
   visibility: visible;
 }
-
-/* Exibir o texto quando o botão não estiver desabilitado */
-/* button.btnStar .btn-text {
-  visibility: visible;
-} */
 
 button.btnStar .star-icon {
   visibility: hidden;
@@ -204,14 +198,20 @@ button.btnStar:hover:not(:disabled) {
   justify-content: start;
   align-items: center;
   cursor: pointer;
+  padding: 5px !important;
 }
-
-/* .addFoto label{
-
-} */
 
 .addFoto label:hover{
   background-color: #0c101ee4;
   cursor: pointer;
+}
+
+/* responsividade celular */
+
+@media (max-width: 768px) {
+  .resposta {
+    width: 100%;
+    z-index: 4000;
+  }
 }
 
