@@ -198,10 +198,34 @@ section .filtro{
 .btnResposta{
     width: 150px;
     height: 40px;
+    transition: 0.5s;
 }
 
-.btnResposta span{
-    font-size: 10px;
+.btnResposta>p{
+    display: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.btnResposta p.responder{
+    display: flex;
+}
+
+.btnResposta:hover>p{
+    display: flex;
+}
+
+.btnResposta:hover>p.responder{
+    display: none;
+}
+
+.btnResposta:hover{
+    background-color: #0c101ee4;
+    cursor: pointer;
+    content: none;
 }
 
 .btn:hover{
