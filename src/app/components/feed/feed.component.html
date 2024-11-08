@@ -9,9 +9,9 @@
                 id="conteudo" name="conteudo" formControlName="conteudo"></textarea>
                 <div class="mar-top clearfix">
                     <button class="btn btn-sm btn-primary pull-right" type="submit" ><i class="fa fa-pencil fa-fw"></i> Enviar</button>
-                        <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
+                        <!-- <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
                         <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
-                        <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>
+                        <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a> -->
                 </div>
             </div>
         </form>
@@ -38,7 +38,7 @@
                 <div class="social-body">
                     <p>{{ postagem.conteudo }}</p>
                     <div class="btn-group">
-                        <button class="btn btn-white btn-xs" (click)="showComments(postagem.id!)"><i class="fa fa-comments"></i> Comentar</button>
+                        <a class="btn btn-white btn-xs" (click)="showComments(postagem.id!)"> Comentarios</a>
                     </div>
                 </div>
                 <div class="social-footer" *ngIf="postagem.id === currentPostId">

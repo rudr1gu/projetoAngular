@@ -43,7 +43,7 @@
                     class="btnStar"
                     [disabled]="!isAuthor() || isStar"
                     (click)="doarEstrela(resposta.aluno!)">
-                    <i [class]="isStar? 'bx bxs-star': 'bx bx-star'"></i> <span class="btn-text">Doar Estrela</span>
+                    <abbr title="Avaliar Resposta"><i [class]="isStar? 'bx bxs-star': 'bx bx-star'"></i></abbr>
                   </button>
                 </p>
                 <p class="nome" *ngIf="resposta.professor?.nome"><strong>{{ resposta.professor?.nome }} <i class='bx bxs-graduation' ></i></strong></p>
