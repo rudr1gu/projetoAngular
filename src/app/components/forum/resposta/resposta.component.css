@@ -144,8 +144,11 @@ span.spanAutor{
 button.btnStar {
   color: #333;
   padding: 2px;
-  font-size: 12px;
+  font-size: 16px;
   margin: 0 5px ;
+  border: none;
+  background: none;
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 

@@ -20,6 +20,8 @@
     border: 1px solid #e7eaec;
     background: #fff;
     margin-bottom: 15px;
+    border-radius: 20px;
+    margin-right: 5px;
 }
 .article .social-feed-box {
     margin-bottom: 0;
@@ -61,6 +63,11 @@
     border-top: 1px solid #e7eaec;
     padding: 10px 15px;
     background: #f9f9f9;
+    border-radius: 20px;
+}
+.social-footer textarea{
+    border-radius: 10px;
+    border: 1px solid black;
 }
 .social-footer .social-comment img {
     width: 32px;
@@ -75,7 +82,35 @@
 .social-comment textarea {
     font-size: 12px;
 }
+.btn-sm, .btn-xs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    font-weight: 500;
+    padding: 5px;
+    background-color: #0c101e;
+    color: white;
+    border-radius: 20px;
+    border: 1px solid  #b1aeae;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
 
+a.btn-white{
+    background: none;
+    color: #0c101e;
+    border: none;
+    width: 150px;
+    font-size: 16px;
+}
+
+.btn-group{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
 .form-control, .single-line {
     background-color: #FFFFFF;
@@ -154,7 +189,14 @@
     box-shadow: 0 2px 0 rgba(0,0,0,0.075);
     border-radius: 0;
     border: 0;
+    background-color: #fff;
     margin-bottom: 15px;
+    min-height: 140px;
+}
+
+.publicacao textarea{
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 .publicacao .publicacao-footer, .publicacao>:last-child {
@@ -247,11 +289,16 @@
 
 .dropdown-toggle {
     width: 20px;
-    background: linear-gradient(to bottom, rgba(248, 0, 0, 0.8), rgba(233, 83, 72, 0.8));
+    color: #0c101e;
+    background: none;
     border: none;
     border-radius: 5px;
-    color: white;
     font-weight: bolder;
     font-size: 1em;
     cursor: pointer;
+}
+
+.dropdown-toggle:hover{
+    border: 1px solid black;
+    border-radius: 5px;
 }
