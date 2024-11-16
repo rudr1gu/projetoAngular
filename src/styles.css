@@ -19,9 +19,7 @@
     --quinary-color: #fff;
     --senary-color: #000;
     --septenary-color: #ccc;
-    --octonary-color: #f3a712;
-    --nonary-color: #f3a712;
-    --denary-color: #f3a712;
+    --octonary-color: #ff0000;
 }
 
 body, html{
@@ -72,9 +70,11 @@ main{
     overflow: auto;
 }
 
-button:disabled {
-    background-color: var(--septenary-color);
-    cursor: not-allowed;
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media screen and (max-width: 768px) {

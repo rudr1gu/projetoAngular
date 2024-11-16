@@ -61,13 +61,13 @@ h1 {
 .form-group input {
     padding: 5px 5px;
     font-size: 1rem;
-    border: 1px #0c101e solid;
+    border: 1px var(--primary-color) solid;
     border-radius: 5px;
-    background: #fff;
+    background: var(--quinary-color);
 }
 
 .form-group input:invalid {
-    border-color: red;
+    border-color: var(--octonary-color);
 }
 
 .form-group input[type=text].input:focus {
@@ -77,7 +77,7 @@ h1 {
 select{
     padding: 5px 5px;
     font-size: 1rem;
-    border: 1px #0c101e solid;
+    border: 1px var(--primary-color) solid;
     border-radius: 5px;
 }
 
@@ -86,22 +86,22 @@ select:focus {
 }
 
 select:invalid {
-    border-color: red;
+    border-color: var(--octonary-color);
 }
 
 select option {
-    color: black;
+    color: var(--senary-color);
 }
 
 select option:disabled {
-    color: #ccc;
+    color: var(--septenary-color);
 }
 
 button {
     width: 80%;
     padding: 10px;
-    background-color: #0c101e;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--quinary-color);
     border: none;
     border-radius: 15px;
     cursor: pointer;
@@ -116,14 +116,13 @@ button:hover{
     text-align: center;
     width: 80%;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0);
-    color: #fff;
+    color: var(--quinary-color);
     border-radius: 15px;
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
     margin-top: 20px;
-    border: 2px solid white;
+    border: 2px solid var(--quinary-color);
     box-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
 }
 .btn-conecte:hover{
@@ -143,18 +142,16 @@ input[type="file"] {
     margin: 0;
     border-radius: 5px;
     font-size: 1em;
-    border: 1px solid #0c101e;
-    background: #0c101e !important ;
-    color: white !important;
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color) !important ;
+    color: var(--quinary-color) !important;
     transition: 300ms;
 }
 
-/* Quando o mouse passa sobre o botão */
 .custom-file:hover {
-    background: #333 !important; /* Background alterado no hover, se desejado */
-    color: white; /* Certifique-se de que a cor do texto também fique visível no hover */
+    background: #333 !important; 
+    color: var(--quinary-color);
 }
-
 
 .senha-container {
     position: relative;
@@ -174,15 +171,8 @@ pointer-events: none;
 }
 
 button:disabled {
-    background-color: #ccc;
+    background-color: var(--septenary-color);
     cursor: not-allowed;
-}
-
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .addFoto{
@@ -194,9 +184,9 @@ form {
 
 .container2 a {
     display: none;
-    background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
+    background: linear-gradient(156deg, var(--secondary-color) 5%, var(--tertiary-color) 45%);
     font-weight: 600;
-    color: white;
+    color: var(--quinary-color);
     padding: 10px;
     border-radius: 15px;
     margin-top: 20px;
@@ -220,8 +210,6 @@ form {
     }
 
 }
-
-/* resposivdade celular */
 
 @media (max-width: 768px) {
     .corpo{
