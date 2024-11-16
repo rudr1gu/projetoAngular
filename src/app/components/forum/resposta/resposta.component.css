@@ -13,7 +13,7 @@
 .resposta {
     width: 50%;
     height: 100%;
-    background-color: #d5d4d4;
+    background-color: var(--quaternary-color);
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     position: relative;
     overflow-y: auto;
@@ -24,7 +24,7 @@
     border-radius: 0;
     border: 0;
     margin-bottom: 15px;
-    background-color: white;
+    background-color: var(--quinary-color);
 }
 
 .publicacao-body{
@@ -33,7 +33,7 @@
 
 textarea{
     resize: none;
-    border: 1px solid black;
+    border: var(--border-1px);
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
@@ -42,15 +42,15 @@ textarea{
 }
 
 .btns i{
-    color: silver;
+    color: var(--septerary-color);
 }
 
 button.btn-close{
     position: absolute;
     right: 5px;
     top: 5px;
-    color: black;
-    background-color: white;
+    color: var(--senary-color);
+    background-color: var(--quinary-color);
     border: 0;
     font-size: 30px;
     cursor: pointer;
@@ -58,13 +58,13 @@ button.btn-close{
 
 .resposta-card {
   position: relative;
-  background-color: white;
+  background-color: var(--quinary-color);
   border-radius: 10px;
   padding: 20px;
   margin: 15px;
   display: flex;
   flex-direction: column;
-  color: black;
+  color: var(--senary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
 }
@@ -84,7 +84,7 @@ button.btn-close{
   height: 50px;
   border-radius: 50%;
   margin-right: 15px;
-  border: 2px solid #08c8f8;
+  border: 2px solid var(--tertiary-color);
 }
 
 .resposta-info {
@@ -99,14 +99,14 @@ button.btn-close{
 
 .data {
   font-size: 12px;
-  color: #99aab5;
+  color: var(--septenary-color);
 }
 
 .conteudo {
   font-size: 14px;
   line-height: 1.6;
   margin-top: 10px;
-  color: rgb(43, 43, 43);
+  color: #2b2b2b;
 }
 
 span.drop{
@@ -118,7 +118,7 @@ span.drop{
 }
 
 span.drop:hover{
-    color: #0c101e;
+    color: var(--primary-color);
     border: 1px solid #0c101ecc;
     border-radius: 5px;
 }
@@ -129,9 +129,9 @@ input[type="file"] {
 
 span.spanAutor{
   font-size: 10px;
-  color: #99aab5;
+  color: var(--septenary-color);
   margin-left: 5px;
-  background-color: #0c101e;
+  background-color: var(--primary-color);
   padding: 3px;
   border-radius: 5px;
   font-weight: 500;
@@ -149,10 +149,10 @@ button.btnStar {
 }
 
 button.btnStar:disabled {
-  color: gold;
+  color: var(--gold-color);
   cursor: not-allowed;
   border: none;
-  background-color: white;
+  background-color: var(--quinary-color);
 }
 
 button.btnStar:disabled .btn-text {
@@ -178,10 +178,10 @@ button.btnStar:hover:not(:disabled) {
   min-width: 100px;
   font-weight: 500;
   padding: 5px;
-  background-color: #0c101e;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--quinary-color);
   border-radius: 20px;
-  border: 1px solid  #b1aeae;
+  border: 1px solid  var(--septenary-color);
   transition: 0.3s;
   cursor: pointer;
   font-size: 14px;
