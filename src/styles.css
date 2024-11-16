@@ -11,6 +11,19 @@
     font-style: normal;
 }
 
+:root{
+    --primary-color: #0c101e;
+    --secondary-color: #08f8e8;
+    --tertiary-color: #08c8f8;
+    --quaternary-color: #d5d4d4;
+    --quinary-color: #ffffff;
+    --senary-color: #f3a712;
+    --septenary-color: #f3a712;
+    --octonary-color: #f3a712;
+    --nonary-color: #f3a712;
+    --denary-color: #f3a712;
+}
+
 body, html{
     width: 100vw;
     min-height: 100vh;

@@ -1,10 +1,8 @@
 .container1{
     padding: 20px 80px 20px 80px;
     width: 50%;
-    background: rgb(8,248,232);
-
-    background: linear-gradient(156deg, rgb(8, 248, 232) 5%, rgba(8,200,248,1) 45%);
-    color: white;
+    background: linear-gradient(156deg, var(--secondary-color) 5%, var(--tertiary-color) 45%);
+    color: var(--quinary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,8 +13,7 @@
     width: 50%;
     height: 100%;
     padding: 40px 80px 40px 80px;
-    background-color: #fff;
-
+    background-color: var(--quinary-color);
 }
 
 .sombra{
