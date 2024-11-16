@@ -87,13 +87,6 @@ main{
     background-color: var(--quinary-color);
 }
 
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .form-group {
     display: flex;
     flex-direction: column;

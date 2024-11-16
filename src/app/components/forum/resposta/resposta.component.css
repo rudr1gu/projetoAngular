@@ -209,8 +209,6 @@ button.btnStar:hover:not(:disabled) {
   cursor: pointer;
 }
 
-/* responsividade celular */
-
 @media (max-width: 768px) {
   .resposta {
     width: 100%;
