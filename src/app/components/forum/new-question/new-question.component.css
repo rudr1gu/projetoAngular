@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
-    background-color: white;
+    background-color: var(--quinary-color);
     border-radius: 10px;
 }
 form{
@@ -16,7 +16,7 @@ form{
 }
 
 h1{
-    color: black;
+    color: var(--senary-color);
     font-weight: 700;
     margin-bottom: 20px;
     font-size: 2em;
@@ -32,37 +32,37 @@ h1{
 }
 
 .form-group label{
-    color: black;
+    color: var(--senary-color);
     font-weight: 700;
     position: relative;
     top: 0.5rem;
     margin: 0 0 0 7px;
     padding: 0 3px;
-    background: #fff;
+    background: var(--quinary-color);
     width: fit-content;
 }
 
 .form-group input, .form-group select{
     padding: 11px 10px;
     font-size: 0.75rem;
-    border: 1px #0c101e solid;
+    border: var(--border-1px);
     border-radius: 5px;
-    background: #fff;
+    background: var(--quinary-color);
 }
 
 .form-group textarea{
     padding: 11px 10px;
     font-size: 0.75rem;
-    border: 1px #0c101e solid;
+    border: var(--border-1px);
     border-radius: 5px;
-    background: #fff;
+    background: var(--quinary-color);
     height: 120px;
 }
 .form-group input[type=text].input:focus {
     outline: none;
 }
 option{
-    color: black;
+    color: var(--senary-color);
 }
 
 button:hover{
@@ -85,7 +85,7 @@ button:hover{
     position: absolute;
     right: 5px;
     top: 5px;
-    color: black;
+    color: var(--senary-color);
     border: 0;
     font-size: 30px;
     cursor: pointer;
@@ -98,7 +98,7 @@ button:hover{
 }
 
 .tags-container h3{
-    color: black;
+    color: var(--senary-color);
     font-weight: 700;
     margin-bottom: 10px;
     text-align: center;
@@ -112,7 +112,7 @@ button:hover{
 }
 
 .tag-btn {
-    background-color: #0c101e;
+    background-color: var(--primary-color);
     color: white;
     font-size: 14px;
     padding: 4px 7px;
@@ -121,34 +121,32 @@ button:hover{
     cursor: pointer;
     transition: 300ms;
     border: none;
+}
 
-  }
-  
-  .tag-btn.selected {
+.tag-btn.selected {
     font-size: 11px;
     padding: 4px 7px;
     border-radius: 7px;
-    background: linear-gradient(#08f8f8, #0bbfbf);
-    color: white;
+    background: linear-gradient(var(--senary-color), var(--tertiary-color));
+    color: var(--quinary-color);
     font-weight: 500;
-  }
-  
-  .tag-btn:hover {
-    background: linear-gradient(#08f8f8, #0bbfbf);
-    color: white;
+}
+
+.tag-btn:hover {
+    background: linear-gradient(var(--senary-color), var(--tertiary-color));
+    color: var(--quinary-color);
     font-weight: 500;
     transform: scale(1.1);
-  }
-
-  
+}
+ 
 button.form-group{
     margin-top: 25px;
     margin-bottom: none;
-    background-color: #0c101e;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--quinary-color);
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid  #b1aeae;
+    border: 1px solid  var(--sepntenary-color);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -156,8 +154,6 @@ button.form-group{
     width: 200px !important;
     font-weight: 500;
 }
-
-/* resposividade para celular */
 
 @media (max-width: 768px){
     .container{
