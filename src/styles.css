@@ -16,9 +16,9 @@
     --secondary-color: #08f8e8;
     --tertiary-color: #08c8f8;
     --quaternary-color: #d5d4d4;
-    --quinary-color: #ffffff;
-    --senary-color: #f3a712;
-    --septenary-color: #f3a712;
+    --quinary-color: #fff;
+    --senary-color: #000;
+    --septenary-color: #ccc;
     --octonary-color: #f3a712;
     --nonary-color: #f3a712;
     --denary-color: #f3a712;
@@ -31,7 +31,7 @@ body, html{
 body{
     display: flex;
     flex-direction: row;
-    background: #d5d4d4;
+    background: var(--quaternary-color);
 }
 
 .corpo{
@@ -55,7 +55,7 @@ aside{
     display: flex;
     justify-content: center;
     width: 300px;
-    color: #fff;
+    color: var(--quinary-color);
     padding: 0px;
     height: 100%;
     z-index: 999;
@@ -68,16 +68,14 @@ main{
     bottom: 0;
     width: calc(100% - 300px);
     height: 100vh;
-    background-color: #d5d4d4;
+    background-color: var(--quaternary-color);
     overflow: auto;
 }
 
 button:disabled {
-    background-color: #ccc;
+    background-color: var(--septenary-color);
     cursor: not-allowed;
 }
-
-/*  adicionando responsividade para celular */
 
 @media screen and (max-width: 768px) {
     aside{

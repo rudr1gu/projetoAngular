@@ -48,13 +48,13 @@ h1 {
 }
 
 .form-group label {
-    color: black;
+    color: var(--senary-color);
     font-weight: 500;
     position: relative;
     top: 0.5rem;
     margin: 0 0 0 7px;
     padding: 0 3px;
-    background: #fff;
+    background: var(--quinary-color);
     width: fit-content;
 }
 
