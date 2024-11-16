@@ -1,24 +1,3 @@
-.container1{
-    padding: 20px 80px 20px 80px;
-    width: 50%;
-    background: rgb(8,248,232);
-
-    background: linear-gradient(156deg, rgb(8, 248, 232) 5%, rgba(8,200,248,1) 45%);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.container2 {
-    width: 50%;
-    height: 100%;
-    padding: 40px 80px 40px 80px;
-    background-color: #fff;
-
-}
-
 .sombra{
     display: flex;
     justify-content: center;
@@ -41,70 +20,11 @@ h1 {
     margin-bottom: 20px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    position: static;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    color: black;
-    font-weight: 500;
-    position: relative;
-    top: 0.5rem;
-    margin: 0 0 0 7px;
-    padding: 0 3px;
-    background: #fff;
-    width: fit-content;
-}
-
-.form-group input {
-    padding: 5px 5px;
-    font-size: 1rem;
-    border: 1px #0c101e solid;
-    border-radius: 5px;
-    background: #fff;
-}
-
-.form-group input:invalid {
-    border-color: red;
-}
-
-.form-group input[type=text].input:focus {
-    outline: none;
-}
-
-select{
-    padding: 5px 5px;
-    font-size: 1rem;
-    border: 1px #0c101e solid;
-    border-radius: 5px;
-}
-
-select:focus {
-    outline: none;
-}
-
-select:invalid {
-    border-color: red;
-}
-
-select option {
-    color: black;
-}
-
-select option:disabled {
-    color: #ccc;
-}
-
 button {
     width: 80%;
     padding: 10px;
-    background-color: #0c101e;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--quinary-color);
     border: none;
     border-radius: 15px;
     cursor: pointer;
@@ -119,14 +39,13 @@ button:hover{
     text-align: center;
     width: 80%;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0);
-    color: #fff;
+    color: var(--quinary-color);
     border-radius: 15px;
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
     margin-top: 20px;
-    border: 2px solid white;
+    border: 2px solid var(--quinary-color);
     box-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
 }
 .btn-conecte:hover{
@@ -146,18 +65,16 @@ input[type="file"] {
     margin: 0;
     border-radius: 5px;
     font-size: 1em;
-    border: 1px solid #0c101e;
-    background: #0c101e !important ;
-    color: white !important;
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color) !important ;
+    color: var(--quinary-color) !important;
     transition: 300ms;
 }
 
-/* Quando o mouse passa sobre o botão */
 .custom-file:hover {
-    background: #333 !important; /* Background alterado no hover, se desejado */
-    color: white; /* Certifique-se de que a cor do texto também fique visível no hover */
+    background: #333 !important; 
+    color: var(--quinary-color);
 }
-
 
 .senha-container {
     position: relative;
@@ -177,15 +94,8 @@ pointer-events: none;
 }
 
 button:disabled {
-    background-color: #ccc;
+    background-color: var(--septenary-color);
     cursor: not-allowed;
-}
-
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .addFoto{
@@ -197,9 +107,9 @@ form {
 
 .container2 a {
     display: none;
-    background: linear-gradient(156deg, rgba(8,248,232,1) 5%, rgba(8,200,248,1) 45%);
+    background: linear-gradient(156deg, var(--secondary-color) 5%, var(--tertiary-color) 45%);
     font-weight: 600;
-    color: white;
+    color: var(--quinary-color);
     padding: 10px;
     border-radius: 15px;
     margin-top: 20px;
@@ -223,8 +133,6 @@ form {
     }
 
 }
-
-/* resposivdade celular */
 
 @media (max-width: 768px) {
     .corpo{
