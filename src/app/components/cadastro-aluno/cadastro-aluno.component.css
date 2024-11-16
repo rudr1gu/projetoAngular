@@ -38,65 +38,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    position: static;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    color: var(--senary-color);
-    font-weight: 500;
-    position: relative;
-    top: 0.5rem;
-    margin: 0 0 0 7px;
-    padding: 0 3px;
-    background: var(--quinary-color);
-    width: fit-content;
-}
-
-.form-group input {
-    padding: 5px 5px;
-    font-size: 1rem;
-    border: 1px var(--primary-color) solid;
-    border-radius: 5px;
-    background: var(--quinary-color);
-}
-
-.form-group input:invalid {
-    border-color: var(--octonary-color);
-}
-
-.form-group input[type=text].input:focus {
-    outline: none;
-}
-
-select{
-    padding: 5px 5px;
-    font-size: 1rem;
-    border: 1px var(--primary-color) solid;
-    border-radius: 5px;
-}
-
-select:focus {
-    outline: none;
-}
-
-select:invalid {
-    border-color: var(--octonary-color);
-}
-
-select option {
-    color: var(--senary-color);
-}
-
-select option:disabled {
-    color: var(--septenary-color);
-}
-
 button {
     width: 80%;
     padding: 10px;
