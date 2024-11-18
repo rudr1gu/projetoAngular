@@ -99,6 +99,10 @@ src/
 │   │   │   |    ├── new-question.component.spec.ts
 │   │   │   |    ├── new-question.component.ts
 │   │   │   ├── resposta/
+│   │   │   |    ├── resposta.component.css
+│   │   │   |    ├── resposta.component.html
+│   │   │   |    ├── resposta.component.spec.ts
+│   │   │   |    ├── resposta.component.ts
 │   │   │   ├── forum.component.css
 │   │   │   ├── forum.component.html
 │   │   │   ├── forum.component.spec.ts
