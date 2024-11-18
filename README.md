@@ -49,6 +49,156 @@ Você sabia que o momento em que mais aprendemos é quando ensinamos? Segundo a 
 Como afirmado por Glasser (2017), “a boa educação é aquela em que o professor pede para que seus alunos pensem e se dediquem a promover um diálogo para promover a compreensão e o crescimento dos estudantes. ” Essa visão orienta nossa proposta, destacando a importância do diálogo e da reflexão na construção do conhecimento.
 </details>
 
+
+<details>
+<summary>Estrutura de Pastas</summary>
+
+```plaintext
+src/
+├── app/
+│   ├── components/
+│   │   ├── arquivos/
+│   │   │   ├── arquivos.component.css
+│   │   │   ├── arquivos.component.html
+│   │   │   ├── arquivos.component.spec.ts
+│   │   │   ├── arquivos.component.ts
+│   │   ├── aside/
+│   │   │   ├── aside.component.css
+│   │   │   ├── aside.component.html
+│   │   │   ├── aside.component.spec.ts
+│   │   │   ├── aside.component.ts
+│   │   ├── cadastro-aluno/
+│   │   │   ├── cadastro-aluno.component.css
+│   │   │   ├── cadastro-aluno.component.html
+│   │   │   ├── cadastro-aluno.component.spec.ts
+│   │   │   ├── cadastro-aluno.component.ts
+│   │   ├── calendario/
+│   │   │   ├── calendario.component.css
+│   │   │   ├── calendario.component.html
+│   │   │   ├── calendario.component.spec.ts
+│   │   │   ├── calendario.component.ts
+│   │   ├── curso/
+│   │   │   ├── curso.component.css
+│   │   │   ├── curso.component.html
+│   │   │   ├── curso.component.spec.ts
+│   │   │   ├── curso.component.ts
+│   │   ├── feed/
+│   │   │   ├── feed.component.css
+│   │   │   ├── feed.component.html
+│   │   │   ├── feed.component.spec.ts
+│   │   │   ├── feed.component.ts
+│   │   ├── forum/
+│   │   │   ├── filtro/
+│   │   │   |    ├── filtro.component.css
+│   │   │   |    ├── filtro.component.html
+│   │   │   |    ├── filtro.component.spec.ts
+│   │   │   |    ├── filtro.component.ts
+│   │   │   ├── new-question/
+│   │   │   |    ├── new-question.component.css
+│   │   │   |    ├── new-question.component.html
+│   │   │   |    ├── new-question.component.spec.ts
+│   │   │   |    ├── new-question.component.ts
+│   │   │   ├── resposta/
+│   │   │   |    ├── resposta.component.css
+│   │   │   |    ├── resposta.component.html
+│   │   │   |    ├── resposta.component.spec.ts
+│   │   │   |    ├── resposta.component.ts
+│   │   │   ├── forum.component.css
+│   │   │   ├── forum.component.html
+│   │   │   ├── forum.component.spec.ts
+│   │   │   ├── forum.component.ts
+│   │   ├── home/
+│   │   │   ├── home.component.css
+│   │   │   ├── home.component.html
+│   │   │   ├── home.component.spec.ts
+│   │   │   ├── home.component.ts
+│   │   ├── login-aluno/
+│   │   │   ├── login-aluno.component.css
+│   │   │   ├── login-aluno.component.html
+│   │   │   ├── login-aluno.component.spec.ts
+│   │   │   ├── login-aluno.component.ts
+│   │   ├── ranking/
+│   │   │   ├── ranking.component.css
+│   │   │   ├── ranking.component.html
+│   │   │   ├── ranking.component.spec.ts
+│   │   │   ├── ranking.component.ts
+│   ├── models/
+|   |   ├── Aluno.ts
+|   |   ├── Comentarios.ts
+|   |   ├── Forum.ts
+|   |   ├── LoginResponse.ts
+|   |   ├── Materias.ts
+|   |   ├── Postagem.ts
+|   |   ├── Professor.ts
+|   |   ├── Response.ts
+|   |   ├── Resposta.ts
+|   |   ├── Tag.ts
+│   ├── services/
+|   |   ├── arquivos/
+│   │   │   ├── arquivos.service.spec.ts
+│   │   │   ├── arquivos.service.ts
+|   |   ├── aside/
+│   │   │   ├── aside.service.spec.ts
+│   │   │   ├── aside.service.ts
+|   |   ├── cadastro/
+│   │   │   ├── cadastro.service.spec.ts
+│   │   │   ├── cadastro.service.ts
+|   |   ├── calendario/
+│   │   │   ├── calendario.service.spec.ts
+│   │   │   ├── calendario.service.ts
+|   |   ├── curso/
+│   │   │   ├── curso.service.spec.ts
+│   │   │   ├── curso.service.ts
+|   |   ├── feed/
+│   │   │   ├── feed.service.spec.ts
+│   │   │   ├── feed.service.ts
+|   |   ├── forum/
+│   │   │   ├── forum.service.spec.ts
+│   │   │   ├── forum.service.ts
+|   |   ├── home/
+│   │   │   ├── home.service.spec.ts
+│   │   │   ├── home.service.ts
+|   |   ├── login/
+│   │   │   ├── login.service.spec.ts
+│   │   │   ├── login.service.ts
+|   |   ├── materia/
+│   │   │   ├── materia.service.spec.ts
+│   │   │   ├── materia.service.ts
+|   |   ├── ranking/
+│   │   │   ├── ranking.service.spec.ts
+│   │   │   ├── ranking.service.ts
+│   │   ├── user-data.service.spec.ts
+│   │   ├── user-data.service.ts
+│   ├── app-routing.module.ts
+│   ├── app.component.css
+│   ├── app.component.html
+│   ├── app.component.spec.ts
+│   ├── app.component.ts
+│   ├── app.module.ts
+│   ├── app.module.server.ts
+│   ├── auth.guard.ts
+│   ├── public.guard.ts
+├── environments/
+│   ├── environment.development.ts
+│   ├── environment.ts
+├── index.html
+├── main.server.ts
+├── main.ts
+├── styles.css
+.editorconfig
+.gitignore
+angular.json
+ngsw-config.json
+package-lock.json
+package.json
+README.md
+server.ts
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+```
+</details>
+
 ### Colaboradores:
 
 - [Djair Santos](https://github.com/djair2113)
