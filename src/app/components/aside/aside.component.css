@@ -6,7 +6,7 @@ nav ul {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: var(--primary-color);
+	background: linear-gradient(156deg, var(--secondary-color) 5%, var(--tertiary-color) 45%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,11 +19,10 @@ nav ul {
 			text-decoration: none;
 			text-transform: uppercase;
 			font-size: 18px;
-			color: var(--quinary-color);
+			color: var(--quaternary-color);
 			position: relative;
 			padding: 10px 0 10px 38px;
 			margin-top: 20px;
-			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.699);
 			transition: all 600ms ease-in-out;
 			&:before {
 				content: '';
@@ -62,13 +61,13 @@ button{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: var(--octonary-color);
-	color: var(--quinary-color);
+	background: #dd3030;
+	color: white;
 	border: none;
 	padding: 10px 20px;
 	border-radius: 40px;
 	cursor: pointer;
-	font-weight: 600;
+	font-weight: 700;
 	&:hover{
 		background: #ff1515;
 	}
@@ -80,17 +79,18 @@ button{
   border-radius: 50%;
   overflow: hidden;
   padding: 3px;
-  background: linear-gradient(var(--secondary-color), var(--tertiary-color));
+  background: var(--quaternary-color);
 }
 #ds{
-	font-weight: 500;
+	font-weight: 600;
 	text-align: center;
 	margin-bottom: 40px;
 }
 #nome{
-	font-weight: 300;
+	font-weight: 700;
 	text-align: center;
 	margin-top: 20px;
+	color:  var(--quaternary-color);
 }
 
 #foto img{
@@ -119,6 +119,10 @@ button{
 	p{
 		display: none;
 	}
+}
+
+p{
+	font-weight: 500;
 }
 
 label{

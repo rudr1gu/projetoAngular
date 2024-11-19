@@ -10,12 +10,12 @@
 }
 
 :root{
-    --primary-color: #0c101e;
+    --primary-color: #08c8f8;
     --secondary-color: #08f8e8;
     --tertiary-color: #08c8f8;
-    --quaternary-color: #d5d4d4;
-    --quinary-color: #fff;
-    --senary-color: #000;
+    --quaternary-color: #0c101e;
+    --quinary-color: #2d3140;
+    --senary-color: white;
     --septenary-color: #ccc;
     --octonary-color: #ff0000;
     --gold-color: #ffd700;

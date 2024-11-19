@@ -6,14 +6,11 @@
                     <textarea 
                         class="form-control" 
                         rows="2"
-                        placeholder="Responda ..." 
+                        placeholder="Digite sua resposta..." 
                         id="resposta"
                         name="resposta"
                         formControlName="resposta">
-                    </textarea>
-                    <div *ngIf="respostaForm.get('resposta')?.invalid && respostaForm.get('resposta')?.touched" class="alert alert-danger">
-                      Adicione um texto...
-                    </div>                  
+                    </textarea>              
                     <div class="btns">
                       <label for="arquivo" class="custom-file">Anexar<i class='bx bx-paperclip'></i></label>
                       <button class="btn-sm" type="submit" >Enviar</button>     
