@@ -6,8 +6,14 @@ nav ul {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: linear-gradient(156deg, var(--secondary-color) 5%, var(--tertiary-color) 45%);
-	display: flex;
+	background: linear-gradient(
+    to top,
+	var(--secondary-color),
+    var(--primary-color),
+    var(--nonary-color),
+	var(--decenary-color)
+ 	);
+  	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	li {
@@ -62,7 +68,7 @@ button{
 	justify-content: center;
 	align-items: center;
 	background: #dd3030;
-	color: white;
+	color: var(--senary-color);
 	border: none;
 	padding: 10px 20px;
 	border-radius: 40px;
@@ -79,18 +85,19 @@ button{
   border-radius: 50%;
   overflow: hidden;
   padding: 3px;
-  background: var(--quaternary-color);
+  background: linear-gradient(156deg, var(--secondary-color) 5%, var(--tertiary-color) 45%);
 }
 #ds{
 	font-weight: 600;
 	text-align: center;
 	margin-bottom: 40px;
+	color: var(--senary-color);
 }
 #nome{
 	font-weight: 700;
 	text-align: center;
 	margin-top: 20px;
-	color:  var(--quaternary-color);
+	color: var(--senary-color);
 }
 
 #foto img{
@@ -164,6 +171,12 @@ button.atualizar{
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
+		background: linear-gradient(
+			to left,
+			var(--secondary-color),
+			var(--primary-color),
+			var(--nonary-color)
+		);
 	}
 	nav ul li {
 		margin: 0;
@@ -172,7 +185,7 @@ button.atualizar{
 		padding: 10px 20px;
 		margin-top: 0;
 		font-size: 14px;
-		color: #fff;
+		color: var(--quaternary-color);
 	}
 	nav ul li a:before,
 	nav ul li a.active:before,
@@ -184,7 +197,7 @@ button.atualizar{
 	nav ul li a.active {
 		border-radius: 0;
 		background-color: transparent;
-		color: #fff;
+		color: var(--quaternary-color);
 	}
 
 	.container-btn {
@@ -196,12 +209,12 @@ button.atualizar{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #0c101e;
+		background-color: var(--quaternary-color);
 		padding: 10px;
 	}
 	.container-btn p {
 		display: block;
-		color: #fff;
+		color: var(--senary-color);
 		font-weight: 500;
 		font-size: 14px;
 	}
